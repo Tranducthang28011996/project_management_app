@@ -1,0 +1,71 @@
+<div id="header" class="row">
+  <div class="col-md-6">
+    <div class="row left-header-menu pull-left">
+      <div class="col-md-2 logo">
+        <%= link_to root_path, class: "btn btn-sm btn-project" do %>
+          <strong><i class="fa fa-braille" aria-hidden="true"></i> Project</strong>
+        <% end %>
+      </div>
+      <div class="col-md-5">
+        <span class="input-group stylish-input-group form-search-project">
+          <input type="text" class="form-control search-input">
+          <span class="input-group-addon">
+            <button type="submit">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </button>  
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="row right-header-menu pull-right">
+      <div class="col-md-2 col-md-offset-3">
+        <button class="btn btn-sm btn-project btn-notify">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </button>        
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-sm btn-project btn-notify">
+          <i class="fa fa-question-circle" aria-hidden="true"></i>
+        </button>      
+      </div>
+      <div class="col-md-2">
+        <span class="right-dropdown-menu">
+          <button class="btn btn-sm btn-project btn-notify dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-bell-o" aria-hidden="true"></i>
+          </button>      
+          <ul class="dropdown-menu">
+            <li><h5 class="user-name text-center">Notification</h5></li>
+            <hr>
+            <li><a href="#">HTML</a></li>
+            <div class="close-icon">
+              &times
+            </div>
+          </ul>
+        </span>
+      </div>
+      <div class="col-md-2">
+        <span class="right-dropdown-menu">
+          <a href="#" class="show-profile dropdown-toggle" type="button" data-toggle="dropdown">
+            <img src="assets/avatar.jpg" class="img-avatar">
+          </a>
+          <ul class="dropdown-menu">
+            <li><h5 class="user-name text-center">Vu Duc Tuyen(tuvudu)</h5></li>
+            <hr>
+            <li><a href="#">CSS</a></li>
+            <hr>
+            <li><a href="#">JavaScript</a></li>
+            <li><a href="#">JavaScript</a></li>
+            <hr>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+            <div class="close-icon">
+              &times
+            </div>
+          </ul>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

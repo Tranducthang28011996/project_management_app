@@ -9,6 +9,9 @@
   </head>
 
   <body>
+    <% unless devise_controller? %>
+      <%= render "layouts/header" %>      
+    <% end %>
     <%= yield %>
   </body>
 </html>
