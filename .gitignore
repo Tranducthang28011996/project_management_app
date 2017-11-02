@@ -20,4 +20,4 @@
 public/*
 config/database.yml
 config/secrets.yml
-
+test/*
