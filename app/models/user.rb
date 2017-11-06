@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :team_users
   has_many :teams, through: :team_users
-  has_many :projects, inverse_of: :owner 
+  has_many :projects, foreign_key: :owner_id 
   has_many :comments
   has_many :tasks
 end
