@@ -1,0 +1,154 @@
+<div id="content">
+  <div id="nav-menu">
+    <button class="btn btn-sm btn-nav">
+      <%= @project.name %>
+    </button>
+
+    <button class="btn btn-sm btn-nav">
+      <i class="fa fa-heart-o" aria-hidden="true"></i>
+    </button>
+
+    <button class="btn btn-sm btn-nav">
+      <i class="fa fa-lock" aria-hidden="true"></i> Private
+    </button>
+
+    <button class="btn btn-sm btn-nav pull-right">
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  <section class="board-container" id="connected">
+    <div class="item-board" data-type-task="new">
+      <div class="header-board">
+        <span>New</span>
+        <button class="btn btn-sm btn-info-item-board">
+          <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="task-board connected sortable list" id="board-new">
+        <% if @task[:new].any? %>
+          <% @task[:new].each do |task| %>
+            <%= render partial: "tasks/item_task", locals: {task: task} %>
+          <% end %>
+        <% end %>
+        <div class="item-new-task">
+          <%= form_for [@project, @project.tasks.build], 
+            html:{method: :post, :class => "form form-add-task"} do |f| %>
+            <%= f.text_area :name, class: "field-info-new-task" %>
+            <%= f.submit "Add", class: "btn btn-success btn-add-task" %>
+            <button class="btn-close-form-new-task"><i class="fa fa-times" aria-hidden="true"></i></button>
+          <% end %>
+        </div>
+        <div class="footer-board">
+          <a href="#">Add Task...</a>
+        </div>
+      </div>
+    </div>
+    <div class="item-board" data-type-task="in_process">
+      <div class="header-board">
+        <span>In Process</span>
+        <button class="btn btn-sm btn-info-item-board">
+          <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="task-board connected sortable list" id="board-in-process">
+        <% if @task[:in_process].any? %>
+          <% @task[:in_process].each do |task| %>
+            <%= render partial: "tasks/item_task", locals: {task: task} %>
+          <% end %>
+        <% end %>
+        <div class="item-new-task">
+          <%= form_for [@project, @project.tasks.build], 
+            html:{method: :post, :class => "form form-add-task"} do |f| %>
+            <%= f.text_area :name, class: "field-info-new-task" %>
+            <%= f.submit "Add", class: "btn btn-success btn-add-task" %>
+            <button class="btn-close-form-new-task">
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </button>
+          <% end %>
+        </div>
+        <div class="footer-board">
+          <a href="#">Add Task...</a>
+        </div>
+      </div>
+    </div>
+    <div class="item-board" data-type-task="resolved">
+      <div class="header-board">
+        <span>Resolved</span>
+        <button class="btn btn-sm btn-info-item-board">
+          <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="task-board connected sortable list" id="board-resolved">
+        <% if @task[:resolved].any? %>
+          <% @task[:resolved].each do |task| %>
+            <%= render partial: "tasks/item_task", locals: {task: task} %>
+          <% end %>
+        <% end %>
+        <div class="item-new-task">
+          <%= form_for [@project, @project.tasks.build], 
+            html:{method: :post, :class => "form form-add-task"} do |f| %>
+            <%= f.text_area :name, class: "field-info-new-task" %>
+            <%= f.submit "Add", class: "btn btn-success btn-add-task" %>
+            <button class="btn-close-form-new-task"><i class="fa fa-times" aria-hidden="true"></i></button>
+          <% end %>
+        </div>
+        <div class="footer-board">
+          <a href="#">Add Task...</a>
+        </div>
+      </div>
+    </div>
+    <div class="item-board" data-type-task="testing">
+      <div class="header-board">
+        <span>Testing</span>
+        <button class="btn btn-sm btn-info-item-board">
+          <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="task-board connected sortable list" id="board-testing">
+        <% if @task[:testing].any? %>
+          <% @task[:testing].each do |task| %>
+            <%= render partial: "tasks/item_task", locals: {task: task} %>
+          <% end %>
+        <% end %>
+        <div class="item-new-task">
+          <%= form_for [@project, @project.tasks.build], 
+            html:{method: :post, :class => "form form-add-task"} do |f| %>
+            <%= f.text_area :name, class: "field-info-new-task" %>
+            <%= f.submit "Add", class: "btn btn-success btn-add-task" %>
+            <button class="btn-close-form-new-task"><i class="fa fa-times" aria-hidden="true"></i></button>
+          <% end %>
+        </div>
+        <div class="footer-board">
+          <a href="#">Add Task...</a>
+        </div>
+      </div>
+    </div>
+    <div class="item-board" data-type-task="done">
+      <div class="header-board">
+        <span>Done</span>
+        <button class="btn btn-sm btn-info-item-board">
+          <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="task-board connected sortable list" id="board-done">
+        <% if @task[:done].any? %>
+          <% @task[:done].each do |task| %>
+            <%= render partial: "tasks/item_task", locals: {task: task} %>
+          <% end %>
+        <% end %>
+        <div class="item-new-task">
+          <%= form_for [@project, @project.tasks.build], 
+            html:{method: :post, :class => "form form-add-task"} do |f| %>
+            <%= f.text_area :name, class: "field-info-new-task" %>
+            <%= f.submit "Add", class: "btn btn-success btn-add-task" %>
+            <button class="btn-close-form-new-task"><i class="fa fa-times" aria-hidden="true"></i></button>
+          <% end %>
+        </div>
+        <div class="footer-board">
+          <a href="#">Add Task...</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
