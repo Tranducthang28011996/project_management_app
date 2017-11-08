@@ -25,8 +25,8 @@
           <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
         </button>
       </div>
-      <div class="task-board connected sortable list" id="board-new">
-        <div class="position-add-task-first"></div>
+      <div class="task-board connected sortable list" data-status-request="new">
+        
         <% if @task[:new].any? %>
           <% @task[:new].each do |task| %>
             <%= render partial: "tasks/item_task", locals: {task: task} %>
@@ -53,8 +53,8 @@
           <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
         </button>
       </div>
-      <div class="task-board connected sortable list" id="board-in-process">
-        <div class="position-add-task-first"></div>
+      <div class="task-board connected sortable list" data-status-request="in_process">
+        
         <% if @task[:in_process].any? %>
           <% @task[:in_process].each do |task| %>
             <%= render partial: "tasks/item_task", locals: {task: task} %>
@@ -83,8 +83,8 @@
           <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
         </button>
       </div>
-      <div class="task-board connected sortable list" id="board-resolved">
-        <div class="position-add-task-first"></div>
+      <div class="task-board connected sortable list" data-status-request="resolved">
+        
         <% if @task[:resolved].any? %>
           <% @task[:resolved].each do |task| %>
             <%= render partial: "tasks/item_task", locals: {task: task} %>
@@ -111,8 +111,8 @@
           <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
         </button>
       </div>
-      <div class="task-board connected sortable list" id="board-testing">
-        <div class="position-add-task-first"></div>
+      <div class="task-board connected sortable list" data-status-request="testing">
+        
         <% if @task[:testing].any? %>
           <% @task[:testing].each do |task| %>
             <%= render partial: "tasks/item_task", locals: {task: task} %>
@@ -139,8 +139,8 @@
           <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
         </button>
       </div>
-      <div class="task-board connected sortable list" id="board-done">
-        <div class="position-add-task-first"></div>
+      <div class="task-board connected sortable list" data-status-request="done">
+        
         <% if @task[:done].any? %>
           <% @task[:done].each do |task| %>
             <%= render partial: "tasks/item_task", locals: {task: task} %>

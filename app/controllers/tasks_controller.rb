@@ -11,11 +11,7 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find_by id: params[:task][:id]
-    status_name = load_name_status params[:task][:status]
-    status = Status.find_by name: status_name
-    
-    byebug
-
+    status = Status.find_by name: params[:task][:status]
     if status
       @task.update_attributes status_id: status.id
     end
