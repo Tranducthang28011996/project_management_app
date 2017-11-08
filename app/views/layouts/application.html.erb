@@ -13,5 +13,50 @@
       <%= render "layouts/header" %>      
     <% end %>
     <%= yield %>
+    <div class="container">
+      <div class="row">
+        <div class="modal fade bs-example-modal-lg modal-show-info" tabindex="-1" 
+          role="dialog" aria-labelledby="myLargeModalLabel">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-body">
+                <!-- config for modal task -->
+                <div class="row">
+                  <div class="col-md-9">
+                    <div class="header-modal">
+                      <h3><i class="fa fa-braille" aria-hidden="true"></i> Task Name</h3>
+                      <div class="detail-content">
+                        -> in broad-new
+                        <br>
+                        Description
+                        <br>
+                        <textarea rows="5" class="form-control">abc</textarea>
+                      </div>
+                    </div>
+                    <div class="content-task">
+                      <h4><i class="fa fa-comments-o" aria-hidden="true"></i> Add your comment</h4>
+                      <div class="detail-content">
+                        -> in broad-new
+                        
+                      </div>
+                      <h4><i class="fa fa-history" aria-hidden="true"></i> View history</h4>
+                      <div class="detail-content">
+                        -> in broad-new
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    hello
+                  </div>
+                </div>
+              
+              </div>
+              <div class="icon-close-modal"><i class="fa fa-times" aria-hidden="true"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

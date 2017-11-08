@@ -94,3 +94,9 @@ $(function() {
 //     }
 //   });
 // });
+
+$(function(){
+  $('body').on('click', '.icon-close-modal', function() {
+    $('.modal').modal('hide');
+  });
+});

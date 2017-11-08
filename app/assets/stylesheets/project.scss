@@ -1,5 +1,5 @@
 body {
-  font-family: 'Arimo', sans-serif;
+  font-family: arial, sans-serif;
   font-size: 14px;
 }
 
@@ -363,15 +363,6 @@ body {
   color: #929292;
 }
 
-.sortable-placeholder {
-  width: 100%;
-  min-height: 69px;
-  border: 2px dashed #CCC;
-  border-radius: 4px;
-  background: none;
-  margin-bottom: 10px;
-}
-
 .ui-sortable-placeholder {
   width: 100%;
   min-height: 69px;
@@ -379,27 +370,4 @@ body {
   border-radius: 4px;
   background: none;
   margin-bottom: 10px;
-}
-
-
-
-.modal  {
-  /*   display: block;*/
-  padding-right: 0px;
-  background-color: rgba(4, 4, 4, 0.8);
-}
-
-.modal-dialog {
-  top: 20%;
-  width: 100%;
-  position: absolute;
-}
-.modal-content {
-  border-radius: 0px;
-  border: none;
-  top: 40%;
-}
-.modal-body {
-  background-color: #0f8845;
-  color: white;
 }
