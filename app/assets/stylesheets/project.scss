@@ -287,7 +287,7 @@ body {
 }
 
 .task-board {
-  min-height: 20px;
+  min-height: 50px;
   max-height: calc(100vh - 160px);
   padding: 0 7px;
   overflow-y: auto;
@@ -355,6 +355,7 @@ body {
 .footer-board {
   clear: both;
   height: 30px;
+  margin-top: 19px;
   padding: 0 7px;
 }
 
@@ -371,7 +372,14 @@ body {
   margin-bottom: 10px;
 }
 
-
+.ui-sortable-placeholder {
+  width: 100%;
+  min-height: 69px;
+  border: 2px dashed #CCC;
+  border-radius: 4px;
+  background: none;
+  margin-bottom: 10px;
+}
 
 
 

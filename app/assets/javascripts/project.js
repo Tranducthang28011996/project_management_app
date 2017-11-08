@@ -1,27 +1,4 @@
 $(document).ready(function($) {
-  $('.step-menu .close-icon').on('click', function(e){
-    e.preventDefault();
-    $('.step-menu.form-create-project').hide();
-  });
-
-  $('.form-create-project .back-icon').on('click', function(e){
-    e.preventDefault();
-    $(this).closest('.form-create-project').hide();
-  });
-
-  $('.footer-board a').on('click', function(event) {
-    event.preventDefault();
-    $(this).hide();
-    $(this).closest('.task-board').find('.item-new-task').show();
-    $(this).closest('.item-board').scrollTop($(this).closest('.item-board').height());
-  });
-
-  $('.btn-close-form-new-task').on('click', function(event) {
-    event.preventDefault();
-    $(this).closest('.task-board').find('.item-new-task').hide();
-    $(this).closest('.task-board').find('.footer-board a').show();
-  });
-
   $('body').on('click', '.btn-add-task', function(event) {
     event.preventDefault();
     var url = $(this).closest('form').attr('action');
@@ -61,32 +38,59 @@ $(document).ready(function($) {
 });
 
 $(function() {
-  $('.connected').sortable({
-    connectWith: '.connected'
+  $('.step-menu .close-icon').on('click', function(e){
+    e.preventDefault();
+    $('.step-menu.form-create-project').hide();
   });
 
-  $('.connected').on('drop', function(ev){
-    var status_task = localStorage.getItem("status_task_change");
-    var id_task = localStorage.getItem("id_task_change");
-    var url = window.location.pathname + '/tasks';
+  $('.form-create-project .back-icon').on('click', function(e){
+    e.preventDefault();
+    $(this).closest('.form-create-project').hide();
+  });
 
-    console.log(id_task + " " + status_task);
-    $.ajax({
-      url: url,
-      method: 'PUT',
-      dataType: 'JSON',
-      data: {task: {id: id_task, status: status_task}},
-    })
-    .done(function(data) {
-      console.log(data);
-    })
+  $('.footer-board a').on('click', function(event) {
+    event.preventDefault();
+    $(this).hide();
+    $(this).closest('.task-board').find('.item-new-task').show();
+    $(this).closest('.item-board').scrollTop($(this).closest('.item-board').height());
   });
-  $('.connected').on('dragenter', function(ev){
-    console.log($(this).attr('id'));
-    localStorage.setItem("status_task_change", $(this).attr('id'));
-  });
-  $('.task-item').on('dragstart', function(ev){
-    console.log($(this).attr('id'));
-    localStorage.setItem("id_task_change", $(this).attr('id'));
+
+  $('.btn-close-form-new-task').on('click', function(event) {
+    event.preventDefault();
+    $(this).closest('.task-board').find('.item-new-task').hide();
+    $(this).closest('.task-board').find('.footer-board a').show();
   });
 });
+
+$(function() {
+  $('.connected').sortable({
+    connectWith: '.connected',
+    placeholder: 'ui-sortable-placeholder',
+    receive: function( event, ui ) {
+      event.preventDefault();
+      var id_task = ui.item.attr('id');
+      var status_task = $(this).data('status-request');
+      var url = window.location.pathname + '/tasks';
+      console.log(id_task + " " + status_task);
+
+      $.ajax({
+        url: url,
+        method: 'PATCH',
+        dataType: 'JSON',
+        data: {task: {id: id_task, status: status_task}},
+      })
+      .done(function(data) {
+        console.log(data);
+      })
+
+    }
+  });
+});
+
+// $(function() {
+//   $('.connected').droppable({
+//     drop: function(event,ui) {
+//       console.log($(this).attr('id'));
+//     }
+//   });
+// });
