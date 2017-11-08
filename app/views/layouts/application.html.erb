@@ -13,5 +13,20 @@
       <%= render "layouts/header" %>      
     <% end %>
     <%= yield %>
+    <div class="container">
+      <div class="row">
+        <div class="modal fade bs-example-modal-lg modal-show-info" tabindex="-1" 
+          role="dialog" aria-labelledby="myLargeModalLabel">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-body">
+                <!-- #content -->
+              </div>
+              <div class="icon-close-modal"><i class="fa fa-times" aria-hidden="true"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

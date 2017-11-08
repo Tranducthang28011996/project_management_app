@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
-  before_action :load_project, only: [:create, :update]
+  before_action :load_project, only: %i(show create update update_status)
 
   def create
     params[:task][:user_id] = current_user.id
@@ -9,10 +9,27 @@ class TasksController < ApplicationController
     render json: {task:render_to_string(partial: "tasks/item_task", locals: {task: @task})}
   end
 
+  def show
+    @task = @project.tasks.includes(:status).find_by id: params[:id]
+    render json: {
+      task: render_to_string(partial: "tasks/modal_task", locals: {task: @task, project: @project})
+    }
+  end
+
   def update
-    @task = Task.find_by id: params[:task][:id]
+    @task = @project.tasks.find_by id: params[:id]
+    if @task
+      @task.update_attributes description: params[:task][:description]
+    end
+
+    render json: {task: @task}
+  end
+
+  def update_status
+    @task = @project.tasks.find_by id: params[:id]
     status = Status.find_by name: params[:task][:status]
-    if status
+
+    if status && @task
       @task.update_attributes status_id: status.id
     end
 
@@ -28,6 +45,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:name, :status_id, :user_id)
+    params.require(:task).permit(:name, :status_id, :user_id, :description)
   end
 end
