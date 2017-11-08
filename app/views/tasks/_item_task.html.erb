@@ -1,3 +1,10 @@
-<div class="task-item" id = <%= task.id %>>
-  <%= task.name %>
+<div class="task-item" id="<%= task.id %>" data-toggle="modal" data-target=".bs-example-modal-lg" >
+  <div class="task-info">
+    <span class="task-title">
+      <%= task.name %>
+    </span>
+    <span class="task-avatar">
+      <%= image_tag "img.jpg", class: "avatar-task-owner" %>
+    </span>
+  </div>
 </div>
