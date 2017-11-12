@@ -1,0 +1,85 @@
+<div class="row">
+  <div id="content">
+    <div class="profile-content" style="background-color: #e2e4e6; margin-top: 16px; height: 200px ">
+      <div class="row justify-content-md-center">
+        <div class="col-md-5 col-md-offset-4 profile-infor">
+          <div class="col-md-12">
+            <%= image_tag "avatar.jpg", class: "avatar-profile" %>
+            <div class="col-md-9 pull-right">
+              <table class="user-infor">
+                <tr>
+                  <th><%= @user.name%>(<%= @user.email %>)</th>
+                </tr>
+                  <tr>
+                    <td><button class="btn btn-secondary edit-profile">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                    <%= link_to "Edit profile", edit_user_path(current_user), medthod: :patch, remote: :true %></button></td>
+                  </tr>
+              </table>
+              <div class="show-edit-profile" style="display: none;">
+                <%= form_for @user do |f| %>
+                  <b>User Name:</b>
+                  <div class="form-group row input-profile">
+                    <div class="col-10">
+                      <%= f.text_field :name, class: "form-control" %>
+                    </div>
+                  </div>
+
+                  <b>Email:</b>
+                  <div class="form-group row input-profile">
+                    <div class="col-10">
+                      <%= f.text_field :email, class: "form-control" %>
+                    </div>
+                  </div>
+                  <!-- <b>Current-Password</b>
+                  <div class="form-group row input-profile">
+                    <div class="col-10">
+                      <%#= f.password_field :password, class: "form-control" %>
+                    </div>
+                  </div> -->
+                  <b>Password</b>
+                  <div class="form-group row input-profile">
+                    <div class="col-10">
+                      <%= f.password_field :password, class: "form-control" %>
+                    </div>
+                  </div>
+
+                  <b>Password-Confirm</b>
+                  <div class="form-group row input-profile">
+                    <div class="col-10">
+                      <%= f.password_field :password_confirmation, class: "form-control" %>
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn btn-success">Save</button>
+                  <button class="btn btn-secondary cancel-profile">Cancel</button>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5 col-md-offset-4">
+        <ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#home">Profile</a></li>
+          <li><a data-toggle="tab" href="#menu1">Card</a></li>
+          <li><a data-toggle="tab" href="#menu2">Settings</a></li>
+        </ul>
+        <div class="tab-content">
+          <div id="home" class="tab-pane fade in active">
+            <h3>HOME</h3>
+            <p>Some content.</p>
+          </div>
+          <div id="menu1" class="tab-pane fade">
+            <h3>Menu 1</h3>
+            <p>Some content in menu 1.</p>
+          </div>
+          <div id="menu2" class="tab-pane fade">
+            <h3>Menu 2</h3>
+            <p>Some content in menu 2.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
