@@ -100,3 +100,41 @@ $(function(){
     $('.side-bar-menu-project').toggle();
   });
 });
+
+$(function(){
+  $('.search-member').keyup(function(event) {
+    var key_word = $(this).val();
+    $.ajax({
+      url: '/users',
+      type: 'GET',
+      dataType: 'JSON',
+      data: {key_word: key_word},
+    })
+    .done(function(data) {
+      console.log(data);
+      $('.list-member-result').html(data.list_user);
+    });
+  });
+
+// add user to team
+  $('body').on('click', '.user-item', function(){
+    event.stopPropagation();
+    var id_user = $(this).data('user-id');
+    var team_id = $('#team_id').val();
+    var object_user = $(this);
+
+    $.ajax({
+      url: '/teams/' + team_id,
+      type: 'PUT',
+      dataType: 'json',
+      data: {user: id_user},
+    })
+    .done(function(data) {
+      if (data.status == 'success'){
+        object_user.fadeOut('500');
+      }else {
+        alert('Not add user for team');
+      }
+    });    
+  });
+});

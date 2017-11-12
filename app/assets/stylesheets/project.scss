@@ -124,10 +124,12 @@ body {
   }
 
   .side-bar-menu-project {
-    background-color: #e2e4e6;
+    background-color: #edeff0;
     box-shadow: 1px 1px 7px;
     display: none;
     height: calc(100vh - 85px);
+    overflow-x: hidden;
+    overflow-y: auto;  
     padding: 6px;
     position: fixed;
     right: 0;
@@ -225,6 +227,7 @@ body {
 
     hr {
       border-top: 1px solid #b5b5b5;
+      margin-bottom: 10px;
       margin-top: 10px;
     }
   }
@@ -478,6 +481,71 @@ body {
   margin-bottom: 10px;
 }
 
+
 .profile-infor {
   margin-bottom: 36px;
+}
+
+.list-sitting {
+  padding: 5px;
+  list-style: none;
+
+  li {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 5px;
+  }
+
+  button {
+    width: 100%;
+    text-align: left;
+    background-color: transparent;
+    font-weight: bold;
+
+    i {
+      padding-right: 10px;
+    }
+
+    &:hover {
+      background-color: #dddddd;
+    }
+  }
+}
+
+.list-activity {
+  list-style: none;
+  padding-left: 11px;
+  padding-top: 5px;
+
+  .item-activity {
+    .avatar-user-activity {
+      width: 23px;
+      border-radius: 50%;
+    }
+
+    .time-stamp {
+      color: #8a8a8a;
+    }
+
+    .info-activity {
+      border-bottom: 1px solid #bbbbbb;
+      padding: 0;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.side-bar-menu-project::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+}
+
+.side-bar-menu-project::-webkit-scrollbar {
+  width: 6px;
+  background-color: #F5F5F5;
+}
+
+.side-bar-menu-project::-webkit-scrollbar-thumb {
+  background-color: #9e9e9e;
 }
