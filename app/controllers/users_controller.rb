@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user
+  before_action :find_user, only: %i(update)
 
   def index
     @users = User.where("name LIKE '%#{params[:key_word]}%'").limit 5
@@ -35,9 +35,5 @@ class UsersController < ApplicationController
   def find_user
     @user = User.find_by id: params[:id]
     redirect_to root_url unless @user
-  end
-
-  def find_model
-    @model = Users.find(params[:id]) if params[:id]
   end
 end
