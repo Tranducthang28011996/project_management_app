@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: %i(update)
+  before_action :find_user, only: %i(update show)
 
   def index
     @users = User.where("name LIKE '%#{params[:key_word]}%'").limit 5
