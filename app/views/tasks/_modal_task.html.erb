@@ -1,0 +1,91 @@
+<div class="row">
+  <div class="col-md-9">
+    <div class="header-modal">
+      <h3><i class="fa fa-braille" aria-hidden="true"></i> <%= task.name %></h3>
+      <div class="detail-content">
+        <span class="title-position-task">in list <a href=""><%= task.status.name %></a></span>
+        <%= hidden_field_tag :task_id, task.id %>
+        <br>
+        <span class="title-position-task">labels</span>
+        <br>
+        <!-- list label -->
+        <span class="list-label-task">
+          <button class="btn btn-success"></button>
+          <button class="btn btn-warning"></button>
+          <button class="btn btn-danger"></button>
+          <button class="btn btn-info"></button>
+          <span class="dropdown dropdown-add-label">
+            <button class="btn btn-add-label dropdown-toggle" type="button" data-toggle="dropdown">
+              <i class="fa fa-plus" aria-hidden="true"></i>
+            </button>
+            <ul class="dropdown-menu">
+              <li class="title-form-labels">Labels</li>
+              <li class="element-label">
+                <span class="label-item btn-success"></span>
+                <span class="label-check"><input type="checkbox" name=""></span>
+              </li>
+              <li class="element-label">
+                <span class="label-item btn-info"></span>
+                <span class="label-check"><input type="checkbox" name=""></span>
+              </li>
+              <li class="element-label">
+                <span class="label-item btn-danger"></span>
+                <span class="label-check"><input type="checkbox" name=""></span>
+              </li>
+              <li class="element-label">
+                <span class="label-item btn-primary"></span>
+                <span class="label-check"><input type="checkbox" name=""></span>
+              </li>
+            </ul>
+          </span>
+        </span>
+        <br>
+        <span class="title-position-task">Description</span> 
+        <a data-toggle="collapse" data-target="#show-description-update" class="show-description-task">edit</a>
+        <br>
+        <%= form_for [project, task] do |f| %>
+	        <div class="collapse" id="show-description-update">
+	        	<%= f.text_area :description, class: "form-control form-description-task", rows: "5" %>
+	        	<%= f.submit :save, class: "btn btn-sm btn-success btn-save-description" %>
+	        </div>
+        <% end %>
+        <p class="description-task"><%= task.description %></p>
+      </div>
+    </div>
+    <div class="content-task">
+      <h4><i class="fa fa-comments-o" aria-hidden="true"></i> Add comment</h4>
+      <div class="detail-content-comment">
+        <div class="row">
+          <div class="col-md-1">
+            <%= image_tag "avatar.jpg", class: "avatar-comment-task"%>
+          </div>
+          <div class="col-md-11 box-comment">
+            <textarea rows="3" class="form-control comment-textarea">abc</textarea>
+            <button class="btn btn-sm btn-success">save</button>
+          </div>
+        </div>
+      </div>
+      <h4><i class="fa fa-tasks" aria-hidden="true"></i> Activity</h4>
+      <div class="detail-content">
+        <ul class="list-activity">
+          <li>
+            <span>
+              <%= image_tag "avatar.jpg", class: "avatar-comment-task"%>  
+            </span>
+            <span>ihfoiawgow</span>
+          </li>
+          <li>
+            <span>
+              <%= image_tag "avatar.jpg", class: "avatar-comment-task"%>  
+            </span>
+            <span>ihfoiawgow</span>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    hello
+  </div>
+</div>

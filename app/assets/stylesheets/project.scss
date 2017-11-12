@@ -122,6 +122,112 @@ body {
       height: 100px;
     }
   }
+
+  .side-bar-menu-project {
+    background-color: #e2e4e6;
+    box-shadow: 1px 1px 7px;
+    display: none;
+    height: calc(100vh - 85px);
+    padding: 6px;
+    position: fixed;
+    right: 0;
+    top: 85px;
+    width: 344px;
+
+    .title-menu-info-project {
+      border-bottom: 1px solid #bdbdbd;
+      color: #989898;
+      font-weight: bold;
+      margin: 0px;
+      padding: 8px;
+      text-align: center;
+    }
+
+    .list-member-project {
+      height: 55px;
+      padding: 11px;
+      text-align: center;
+      width: 100%;
+
+      .item-member-project {
+        display: inline-block;
+      }
+
+      .item-member-show-full-member {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+      }
+
+      img {
+        border-radius: 50%;
+        width: 32px;
+      }
+
+      .list-full-member {
+        width: 247px;
+        height: 200px;
+        right: -6px;
+        top: 29px;
+        left: unset;
+      }
+    }
+
+    .btn-invite-member {
+      width: 100%;
+      text-align: left;
+
+      &:hover {
+        background-color: #b7b7b7;
+      }
+    }
+
+    .form-search-member {
+      width: 97%;
+      padding: 7px;
+
+      box-shadow: unset;
+      -webkit-box-shadow: unset;
+
+      .title {
+        border-bottom: 1px solid #bbbaba;
+        color: #969393;
+        font-size: 16px;
+        margin: 0;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        text-align: center;
+      }
+    }
+
+    .result-search-user-add {
+      h5 {
+        font-weight: bold;
+      }
+
+      .list-member-result {
+        border-radius: 0;
+
+        .list-group-item {
+          border: 0;
+          border-radius: 0;
+        }
+
+        .user-item {
+          &:hover {
+            background-color: #53a048;
+            color: white;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    hr {
+      border-top: 1px solid #b5b5b5;
+      margin-top: 10px;
+    }
+  }
 }
 
 .show-owner-project {

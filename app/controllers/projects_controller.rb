@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
 
   def show
   	@task = {
-  		new: @project.tasks.any? ? @project.tasks.where(status_id: 1) : [],
+  		new: @project.tasks.any? ? @project.tasks.where(status_id: 1).order("updated_at DESC") : [],
   		in_process: @project.tasks.any? ? @project.tasks.where(status_id: 2) : [],
   		resolved: @project.tasks.any? ? @project.tasks.where(status_id: 3) : [],
   		testing: @project.tasks.any? ? @project.tasks.where(status_id: 4) : [],

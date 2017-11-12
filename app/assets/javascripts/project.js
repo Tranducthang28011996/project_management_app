@@ -68,16 +68,16 @@ $(function() {
     placeholder: 'ui-sortable-placeholder',
     receive: function( event, ui ) {
       event.preventDefault();
-      var id_task = ui.item.attr('id');
+      var id_task = ui.item.data('id-task');
       var status_task = $(this).data('status-request');
-      var url = window.location.pathname + '/tasks';
+      var url = window.location.pathname + '/update-status/' + id_task;
       console.log(id_task + " " + status_task);
 
       $.ajax({
         url: url,
         method: 'PATCH',
         dataType: 'JSON',
-        data: {task: {id: id_task, status: status_task}},
+        data: {task: {status: status_task}},
       })
       .done(function(data) {
         console.log(data);
@@ -87,16 +87,16 @@ $(function() {
   });
 });
 
-// $(function() {
-//   $('.connected').droppable({
-//     drop: function(event,ui) {
-//       console.log($(this).attr('id'));
-//     }
-//   });
-// });
-
 $(function(){
   $('body').on('click', '.icon-close-modal', function() {
     $('.modal').modal('hide');
+  });
+
+  $('body').on('click', '.show-description-task', function(){
+    $('.description-task').toggle();
+  });
+
+  $('.btn-show-menu-project').on('click', function(){
+    $('.side-bar-menu-project').toggle();
   });
 });

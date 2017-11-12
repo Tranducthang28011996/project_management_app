@@ -12,10 +12,12 @@
       <i class="fa fa-lock" aria-hidden="true"></i> Private
     </button>
 
-    <button class="btn btn-sm btn-nav pull-right">
+    <button class="btn btn-sm btn-nav pull-right btn-show-menu-project">
       <i class="fa fa-bars" aria-hidden="true"></i>
     </button>
   </div>
+
+  <%= hidden_field_tag :project_id, @project.id %>
 
   <section class="board-container" id="connected">
     <div class="item-board" data-type-task="new">
@@ -160,5 +162,53 @@
         </div>
       </div>
     </div>
+  </section> 
+
+  <section class="side-bar-menu-project">
+    <h4 class="title-menu-info-project">Menu</h4>
+    <div class="list-member-project">
+      <a href="#" class="item-member-project"><%= image_tag "avatar.jpg" %></a>
+      <a href="#" class="item-member-project"><%= image_tag "avatar.jpg" %></a>
+      <a href="#" class="item-member-project"><%= image_tag "avatar.jpg" %></a>
+      <a href="#" class="item-member-project"><%= image_tag "avatar.jpg" %></a>
+      <a href="#" class="item-member-project"><%= image_tag "avatar.jpg" %></a>
+      <a href="#" class="item-member-project"><%= image_tag "avatar.jpg" %></a>
+      <a href="#" class="item-member-project"><%= image_tag "avatar.jpg" %></a>
+      <span class="dropdown dropdown-add-label">
+        <a class="dropdown-toggle" type="button" data-toggle="dropdown">
+          10+
+        </a>
+        <div class="dropdown-menu list-full-member">
+          abc
+        </div>
+      </span>
+    </div>
+    <div class="dropdown">
+      <button class="btn btn-invite-member dropdown-toggle" type="button" data-toggle="dropdown">
+        <i class="fa fa-user-plus" aria-hidden="true"></i> Invite...
+      </button>
+      <div class="dropdown-menu form-search-member">
+        <h3 class="title">members</h3>
+        <input type="text" class="form-control">
+        <div class="result-search-user-add">
+          <strong><h5>Select to add</h5></strong>
+          <ul class="list-group list-member-result">
+            <li class="list-group-item justify-content-between user-item">
+              Cras justo odio
+              <span class="badge badge-default badge-pill">14</span>
+            </li>
+            <li class="list-group-item justify-content-between user-item">
+              Dapibus ac facilisis in
+              <span class="badge badge-default badge-pill">2</span>
+            </li>
+            <li class="list-group-item justify-content-between user-item">
+              Morbi leo risus
+              <span class="badge badge-default badge-pill">1</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr>
   </section>
 </div>
