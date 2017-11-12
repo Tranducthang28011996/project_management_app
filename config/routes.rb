@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root "projects#index"
   devise_for :users
   resources :projects do
-  	resource :tasks
+		resources :tasks
+		patch '/update-status/:id', to: "tasks#update_status"
   end
 end

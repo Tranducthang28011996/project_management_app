@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171102151447) do
+ActiveRecord::Schema.define(version: 20171112024527) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "content"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20171102151447) do
     t.datetime "deadline"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "description"
     t.index ["level_id"], name: "index_tasks_on_level_id"
     t.index ["project_id"], name: "index_tasks_on_project_id"
     t.index ["status_id"], name: "index_tasks_on_status_id"
