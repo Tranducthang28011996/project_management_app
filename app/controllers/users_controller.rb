@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   before_action :find_user
 
+  def index
+    @users = User.where("name LIKE '%#{params[:key_word]}%'").limit 5
+    render json: {list_user: render_to_string(partial: "users/user", collection: @users)}
+  end
+  
   def show; end
 
   def edit; end
@@ -30,5 +35,9 @@ class UsersController < ApplicationController
   def find_user
     @user = User.find_by id: params[:id]
     redirect_to root_url unless @user
+  end
+
+  def find_model
+    @model = Users.find(params[:id]) if params[:id]
   end
 end

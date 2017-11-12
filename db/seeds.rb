@@ -10,7 +10,8 @@ tvd = User.create name: "Vu Duc Tuyen", email: "tuyenvuduc@gmail.com",
 puts "create project"
 
 10.times do |variable|
-  tvd.projects.create name: Faker::Name.name
+  project = tvd.projects.create name: Faker::Name.name
+  project.create_team name: "_team_project_#{project.id}"
 end
 
 puts "create status"

@@ -18,6 +18,7 @@
   </div>
 
   <%= hidden_field_tag :project_id, @project.id %>
+  <%= hidden_field_tag :team_id, @project.team.id %>
 
   <section class="board-container" id="connected">
     <div class="item-board" data-type-task="new">
@@ -167,13 +168,9 @@
   <section class="side-bar-menu-project">
     <h4 class="title-menu-info-project">Menu</h4>
     <div class="list-member-project">
-      <a href="#" class="item-member-project"><%= image_tag "avatar.jpg" %></a>
-      <a href="#" class="item-member-project"><%= image_tag "avatar.jpg" %></a>
-      <a href="#" class="item-member-project"><%= image_tag "avatar.jpg" %></a>
-      <a href="#" class="item-member-project"><%= image_tag "avatar.jpg" %></a>
-      <a href="#" class="item-member-project"><%= image_tag "avatar.jpg" %></a>
-      <a href="#" class="item-member-project"><%= image_tag "avatar.jpg" %></a>
-      <a href="#" class="item-member-project"><%= image_tag "avatar.jpg" %></a>
+      <% @team_user.each do |user| %>
+        <a href="#" class="item-member-project"><%= image_tag "avatar.jpg" %></a>
+      <% end %>
       <span class="dropdown dropdown-add-label">
         <a class="dropdown-toggle" type="button" data-toggle="dropdown">
           10+
@@ -189,26 +186,81 @@
       </button>
       <div class="dropdown-menu form-search-member">
         <h3 class="title">members</h3>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control search-member">
         <div class="result-search-user-add">
           <strong><h5>Select to add</h5></strong>
           <ul class="list-group list-member-result">
-            <li class="list-group-item justify-content-between user-item">
-              Cras justo odio
-              <span class="badge badge-default badge-pill">14</span>
-            </li>
-            <li class="list-group-item justify-content-between user-item">
-              Dapibus ac facilisis in
-              <span class="badge badge-default badge-pill">2</span>
-            </li>
-            <li class="list-group-item justify-content-between user-item">
-              Morbi leo risus
-              <span class="badge badge-default badge-pill">1</span>
-            </li>
           </ul>
         </div>
       </div>
     </div>
     <hr>
+
+    <ul class="list-sitting">
+      <li><button class="btn"><i class="fa fa-filter" aria-hidden="true"></i> Filter Task</button></li>
+      <li><button class="btn"><i class="fa fa-cog" aria-hidden="true"></i> Settings</button></li>
+      <li><button class="btn"><i class="fa fa-tags" aria-hidden="true"></i> Labels</button></li>
+    </ul>
+    <hr>
+    <div class="list-sitting">
+      <button class="btn"><i class="fa fa-tasks" aria-hidden="true"></i> Activity</button></li>
+      <ul class="list-activity">
+        <li class="item-activity">
+          <div class="col-xs-2">
+            <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
+          </div>
+          <div class="col-xs-10 info-activity">
+            <a href="#">Vu Duc Tuyen</a>
+            <span>oined view thông tin người dùng</span>
+            <br>
+            <span class="time-stamp">3 hours ago</span>
+          </div>
+        </li>
+        <li class="item-activity">
+          <div class="col-xs-2">
+            <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
+          </div>
+          <div class="col-xs-10 info-activity">
+            <a href="#">Vu Duc Tuyen</a>
+            <span>oined view thông tin người dùng</span>
+            <br>
+            <span class="time-stamp">3 hours ago</span>
+          </div>
+        </li>
+        <li class="item-activity">
+          <div class="col-xs-2">
+            <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
+          </div>
+          <div class="col-xs-10 info-activity">
+            <a href="#">Vu Duc Tuyen</a>
+            <span>oined view thông tin người dùng</span>
+            <br>
+            <span class="time-stamp">3 hours ago</span>
+          </div>
+        </li>
+        <li class="item-activity">
+          <div class="col-xs-2">
+            <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
+          </div>
+          <div class="col-xs-10 info-activity">
+            <a href="#">Vu Duc Tuyen</a>
+            <span>oined view thông tin người dùng</span>
+            <br>
+            <span class="time-stamp">3 hours ago</span>
+          </div>
+        </li>
+        <li class="item-activity">
+          <div class="col-xs-2">
+            <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
+          </div>
+          <div class="col-xs-10 info-activity">
+            <a href="#">Vu Duc Tuyen</a>
+            <span>oined view thông tin người dùng</span>
+            <br>
+            <span class="time-stamp">3 hours ago</span>
+          </div>
+        </li>
+      </ul>
+    </div>
   </section>
 </div>

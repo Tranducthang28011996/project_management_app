@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
   def create
   	@project = current_user.projects.build project_params
   	if @project.save
+      @project.create_team name: "_team_project_#{@project.id}"
 			redirect_to root_url
 		else
 			flash.now[:error] = "not show"
@@ -16,6 +17,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @team_user = @project.team.users
   	@task = {
   		new: @project.tasks.any? ? @project.tasks.where(status_id: 1).order("updated_at DESC") : [],
   		in_process: @project.tasks.any? ? @project.tasks.where(status_id: 2) : [],
