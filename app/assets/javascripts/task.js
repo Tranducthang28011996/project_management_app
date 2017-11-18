@@ -30,4 +30,9 @@ $(function(){
 			$('body .show-description-task').click();
 		});
 	});
+
+	$('body').on('click', '.btn-edit-task', function(event){
+		event.stopPropagation();
+		alert(1);
+	});
 });
