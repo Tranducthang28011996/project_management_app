@@ -14,7 +14,7 @@
           <button class="btn btn-warning"></button>
           <button class="btn btn-danger"></button>
           <button class="btn btn-info"></button>
-          <span class="dropdown dropdown-add-label">
+<!--           <span class="dropdown dropdown-add-label">
             <button class="btn btn-add-label dropdown-toggle" type="button" data-toggle="dropdown">
               <i class="fa fa-plus" aria-hidden="true"></i>
             </button>
@@ -37,7 +37,7 @@
                 <span class="label-check"><input type="checkbox" name=""></span>
               </li>
             </ul>
-          </span>
+          </span> -->
         </span>
         <br>
         <span class="title-position-task">Description</span> 
@@ -128,7 +128,115 @@
       </div>
     </div>
   </div>
-  <div class="col-md-3">
-    hello
+  <div class="col-md-3 action-modal-task">
+    <h3 class="title">Add</h3>
+    <ul class="list-setting">
+      <li>
+        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+          <i class="fa fa-user" aria-hidden="true"></i> Members
+        </button>
+        <div class="dropdown-menu">
+          <h3>Members</h3>
+          <hr>
+          <input type="text" class="search-user-modal form-control" placeholder="Search members">
+          <ul class="list-member-modal">
+            <li class="item-member-modal">
+              <%= image_tag "avatar.jpg", class: "avatar-item-user-list-member" %>
+              <span>Vu Duc Tuyen</span>
+            </li>
+            <li class="item-member-modal">
+              <%= image_tag "avatar.jpg", class: "avatar-item-user-list-member" %>
+              <span>Vu Duc Tuyen</span>
+            </li>
+            <li class="item-member-modal">
+              <%= image_tag "avatar.jpg", class: "avatar-item-user-list-member" %>
+              <span>Vu Duc Tuyen</span>
+            </li>
+            <li class="item-member-modal">
+              <%= image_tag "avatar.jpg", class: "avatar-item-user-list-member" %>
+              <span>Vu Duc Tuyen</span>
+            </li>
+            <li class="item-member-modal">
+              <%= image_tag "avatar.jpg", class: "avatar-item-user-list-member" %>
+              <span>Vu Duc Tuyen</span>
+            </li>
+            <li class="item-member-modal">
+              <%= image_tag "avatar.jpg", class: "avatar-item-user-list-member" %>
+              <span>Vu Duc Tuyen</span>
+            </li>
+          </ul>
+          <div class="close-menu">&times</div>
+        </div>
+      </li>
+      <li>
+        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+          <i class="fa fa-tags" aria-hidden="true"></i> Labels
+        </button>
+        <div class="dropdown-menu">
+          <h3>Labels</h3>
+          <hr>
+          <input type="text" class="search-user-modal form-control" placeholder="Search members">
+          <ul class="list-member-modal">
+            <li class="item-label-modal btn-success">
+              <span>Vu Duc Tuyen</span>
+            </li>
+            <li class="item-label-modal btn-warning">
+              <span>Vu Duc Tuyen</span>
+            </li>
+            <li class="item-label-modal btn-info">
+              <span>Vu Duc Tuyen</span>
+            </li>
+            <li class="item-label-modal btn-danger">
+              <span>Vu Duc Tuyen</span>
+            </li>
+            <li class="item-label-modal btn-primary">
+              <span>Vu Duc Tuyen</span>
+            </li>
+          </ul>
+          <div class="close-menu">&times</div>
+        </div>
+      </li>
+      <li>
+        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+          <i class="fa fa-clock-o" aria-hidden="true"></i> Due Date
+        </button>
+        <div class="dropdown-menu">
+          <h3>Members</h3>
+          <hr>
+          <input type="text" class="search-user-modal form-control" placeholder="Search members">
+          <ul class="list-member-modal">
+            <li>
+              <%= image_tag "avatar.jpg", class: "avatar-item-user-list-member" %>
+              <span>Vu Duc Tuyen</span>
+            </li>
+            <li>
+              <%= image_tag "avatar.jpg", class: "avatar-item-user-list-member" %>
+              <span>Vu Duc Tuyen</span>
+            </li>
+            <li>
+              <%= image_tag "avatar.jpg", class: "avatar-item-user-list-member" %>
+              <span>Vu Duc Tuyen</span>
+            </li>
+            <li>
+              <%= image_tag "avatar.jpg", class: "avatar-item-user-list-member" %>
+              <span>Vu Duc Tuyen</span>
+            </li>
+            <li>
+              <%= image_tag "avatar.jpg", class: "avatar-item-user-list-member" %>
+              <span>Vu Duc Tuyen</span>
+            </li>
+            <li>
+              <%= image_tag "avatar.jpg", class: "avatar-item-user-list-member" %>
+              <span>Vu Duc Tuyen</span>
+            </li>
+          </ul>
+          <div class="close-menu">&times</div>
+        </div>
+      </li>
+    </ul>
+    <h3 class="title">Actions</h3>
+    <ul class="list-setting">
+      <li><button class="btn"><i class="fa fa-arrows" aria-hidden="true"></i> Move</button></li>
+    </ul>
   </div>
 </div>

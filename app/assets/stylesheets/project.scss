@@ -1,15 +1,13 @@
 body {
   font-family: arial, sans-serif;
   font-size: 14px;
+  overflow: hidden;
 }
 
 #header {
-  background-color: rgba(50, 51, 51, 0.21);
+  background-color: #529646;
   padding: 7px;
   height: 45px;
-  left: 0;
-  position: fixed;
-  top: 0;
 
   .logo {
     margin-right: -27px;
@@ -106,7 +104,6 @@ body {
 #content{
   background-color: #61bd4f;
   min-height: 100vh;
-  padding-top: 45px;
   width: 100%;
 
   .list-project {
@@ -178,6 +175,7 @@ body {
     .btn-invite-member {
       width: 100%;
       text-align: left;
+      border-bottom: 1px solid #b5a9a9;
 
       &:hover {
         background-color: #b7b7b7;
@@ -443,6 +441,7 @@ body {
   .task-info {
     height: 44px;
     width: 100% !important;
+    position: relative;
 
     .task-title {
       padding: 0;
@@ -452,6 +451,26 @@ body {
     .task-avatar {
       padding: 0;
       width: 20%;
+    }
+    
+    .btn-edit-task {
+      height: 20px;
+      padding: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 20px;
+      display: none;
+
+      .btn {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+      }
+    }
+
+    &:hover .btn-edit-task {
+      display: block;
     }
   }
 }
@@ -486,7 +505,7 @@ body {
   margin-bottom: 36px;
 }
 
-.list-sitting {
+.list-setting {
   padding: 5px;
   list-style: none;
 
@@ -494,6 +513,87 @@ body {
     width: 100%;
     border-radius: 4px;
     margin-bottom: 5px;
+    position: relative;
+
+    .dropdown-menu {
+      width: 300px;
+      height: 300px;
+      padding: 5px;
+      
+      .close-menu {
+        color: #bdbdbd;
+        cursor: pointer;
+        font-size: 23px;
+        position: absolute;
+        right: 8px;
+        top: 5px;
+      }
+
+      h3 {
+        font-size: 14px;
+        color: #bdbdbd;
+        text-align: center;
+        margin: 10px;
+      }
+
+      hr {
+        margin: 6px;
+        padding: 0 10px; 
+      }
+
+      .list-member-modal {
+        list-style: none;
+        margin-top: 10px;
+        padding: 0;
+        padding-right: 5px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        height: 200px;
+
+        .avatar-item-user-list-member {
+          width: 32px;
+          border-radius: 50%;
+          margin-right: 5px;
+        }
+
+        .item-member-modal {
+          padding: 5px;
+          border-radius: 4px;
+
+          &:hover {
+            background-color: #88888845;
+            color: white;
+            cursor: pointer;
+          }
+        }
+
+        .item-label-modal {
+          padding: 5px;
+          border-radius: 4px;
+
+          &:hover {
+            background-color: #5cb85c;
+            color: white;
+            cursor: pointer;
+          }
+        }
+      }
+
+      
+      .list-member-modal::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        background-color: #F5F5F5;
+      }
+
+      .list-member-modal::-webkit-scrollbar {
+        width: 6px;
+        background-color: #F5F5F5;
+      }
+
+      .list-member-modal::-webkit-scrollbar-thumb {
+        background-color: #9e9e9e;
+      }
+    }
   }
 
   button {
@@ -504,6 +604,7 @@ body {
 
     i {
       padding-right: 10px;
+      color: #a7a7a7;
     }
 
     &:hover {
