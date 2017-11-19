@@ -1,0 +1,10 @@
+<% if labels.any? %>
+  <span class="title-position-task">Labels</span>
+  <br>
+  <!-- list label -->
+  <span class="list-label-task">
+		<% labels.each do |label| %>
+			<button class="btn btn-<%= label.name %>"></button> 
+		<% end %>
+  </span>
+<% end %>
