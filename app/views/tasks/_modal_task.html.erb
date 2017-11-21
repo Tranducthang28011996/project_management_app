@@ -6,39 +6,9 @@
         <span class="title-position-task">in list <a href=""><%= task.status.name %></a></span>
         <%= hidden_field_tag :task_id, task.id %>
         <br>
-        <span class="title-position-task">labels</span>
-        <br>
-        <!-- list label -->
-        <span class="list-label-task">
-          <button class="btn btn-success"></button>
-          <button class="btn btn-warning"></button>
-          <button class="btn btn-danger"></button>
-          <button class="btn btn-info"></button>
-<!--           <span class="dropdown dropdown-add-label">
-            <button class="btn btn-add-label dropdown-toggle" type="button" data-toggle="dropdown">
-              <i class="fa fa-plus" aria-hidden="true"></i>
-            </button>
-            <ul class="dropdown-menu">
-              <li class="title-form-labels">Labels</li>
-              <li class="element-label">
-                <span class="label-item btn-success"></span>
-                <span class="label-check"><input type="checkbox" name=""></span>
-              </li>
-              <li class="element-label">
-                <span class="label-item btn-info"></span>
-                <span class="label-check"><input type="checkbox" name=""></span>
-              </li>
-              <li class="element-label">
-                <span class="label-item btn-danger"></span>
-                <span class="label-check"><input type="checkbox" name=""></span>
-              </li>
-              <li class="element-label">
-                <span class="label-item btn-primary"></span>
-                <span class="label-check"><input type="checkbox" name=""></span>
-              </li>
-            </ul>
-          </span> -->
-        </span>
+        <div class="block-label-modal">
+          <%= render partial: "labels/label_in_modal", locals: {labels: @task.labels} %>
+        </div>
         <br>
         <span class="title-position-task">Description</span> 
         <a data-toggle="collapse" data-target="#show-description-update" class="show-description-task">edit</a>
@@ -177,22 +147,13 @@
           <hr>
           <input type="text" class="search-user-modal form-control" placeholder="Search members">
           <ul class="list-member-modal">
-            <li class="item-label-modal btn-success">
-              <span>Vu Duc Tuyen</span>
-            </li>
-            <li class="item-label-modal btn-warning">
-              <span>Vu Duc Tuyen</span>
-            </li>
-            <li class="item-label-modal btn-info">
-              <span>Vu Duc Tuyen</span>
-            </li>
-            <li class="item-label-modal btn-danger">
-              <span>Vu Duc Tuyen</span>
-            </li>
-            <li class="item-label-modal btn-primary">
-              <span>Vu Duc Tuyen</span>
-            </li>
-          </ul>
+            <% Label.all.each do |label|%>
+              <li class="item-label-modal btn-<%= label.name %>" data-label-id="<%= label.id %>">
+                <span style="text-transform: capitalize"><%= label.name %></span>
+                <input type="checkbox" class="checked-task" 
+                  <%= "checked" if check_task_exists_label? @task, label.id %>>
+              </li>
+            <% end %> 
           <div class="close-menu">&times</div>
         </div>
       </li>

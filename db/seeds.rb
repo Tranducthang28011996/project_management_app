@@ -14,13 +14,12 @@ puts "create project"
   project.create_team name: "_team_project_#{project.id}"
 end
 
-puts "create status"
 
 %w(new in_process resolved testing done).each do |status|
   Status.create name: status, description: status
 end
 
-puts "create task"
+puts "create status done"
 
 (1..2).each do |time|
   project = Project.find_by id: time
@@ -30,3 +29,10 @@ puts "create task"
     end
   end
 end
+puts "create task done"
+
+Label.create [{name: "success"}, {name: "danger"},
+             {name: "info"}, {name: "primary"},
+             {name: "warning"}]
+
+puts "create label done"

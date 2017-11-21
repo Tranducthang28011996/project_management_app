@@ -1,0 +1,9 @@
+<% if labels.any? %>
+  <div class="task-labels">
+    <ul class="list-labels-in-task">
+      <% labels.each do |label| %>
+				<li class="btn-<%= label.name %> item-label-task"></li>
+      <%end %>
+    </ul>
+  </div>
+<% end %>

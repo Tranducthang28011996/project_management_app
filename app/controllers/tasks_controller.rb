@@ -36,6 +36,26 @@ class TasksController < ApplicationController
     render json: {task: @task}
   end
 
+  def update_label
+    @task = Task.find_by id: params[:id]
+    label = Label.find_by id: params[:task][:label_id]
+    format_error_js unless @task || label
+    if params[:task][:checked] == "checked"
+      @task.labels << label
+    else
+      @task.labels.delete label
+    end
+
+    render json: {
+      status: true,
+      data: {
+        task_id: @task.id,
+        label_in_modal: render_to_string(partial: "labels/label_in_modal", locals: {labels: @task.labels}),
+        label_in_show_project: render_to_string(partial: "labels/label_in_show_project", locals: {labels: @task.labels})
+      }
+    }
+  end
+
   private
 
   def load_project
@@ -46,5 +66,11 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(:name, :status_id, :user_id, :description)
+  end
+
+  def format_error_js
+    render json: {
+      status: false
+    }
   end
 end

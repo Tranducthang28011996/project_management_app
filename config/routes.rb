@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 		resources :tasks
 		patch '/update-status/:id', to: "tasks#update_status"
   end
+	patch '/update-label/:id', to: "tasks#update_label"
   resources :teams
   resources :users
 end
