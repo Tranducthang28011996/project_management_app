@@ -38,63 +38,8 @@
       <h4><i class="fa fa-tasks" aria-hidden="true"></i> Activity</h4>
       <div class="detail-content">
         <ul class="list-activity">
-          <li class="item-activity row">
-            <div class="col-xs-1">
-              <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
-            </div>
-            <div class="col-xs-10 info-activity">
-              <a href="#">Vu Duc Tuyen</a>
-              <span>oined view thông tin người dùng</span>
-              <br>
-              <span class="time-stamp">3 hours ago</span>
-            </div>
-          </li>
-          <li class="item-activity row">
-            <div class="col-xs-1">
-              <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
-            </div>
-            <div class="col-xs-10 info-activity">
-              <a href="#">Vu Duc Tuyen</a>
-              <span>oined view thông tin người dùng</span>
-              <br>
-              <span class="time-stamp">3 hours ago</span>
-            </div>
-          </li>
-          <li class="item-activity row">
-            <div class="col-xs-1">
-              <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
-            </div>
-            <div class="col-xs-10 info-activity">
-              <a href="#">Vu Duc Tuyen</a>
-              <span>oined view thông tin người dùng</span>
-              <br>
-              <span class="time-stamp">3 hours ago</span>
-            </div>
-          </li>
-          <li class="item-activity row">
-            <div class="col-xs-1">
-              <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
-            </div>
-            <div class="col-xs-10 info-activity">
-              <a href="#">Vu Duc Tuyen</a>
-              <span>oined view thông tin người dùng</span>
-              <br>
-              <span class="time-stamp">3 hours ago</span>
-            </div>
-          </li>
-          <li class="item-activity row">
-            <div class="col-xs-1">
-              <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
-            </div>
-            <div class="col-xs-10 info-activity">
-              <a href="#">Vu Duc Tuyen</a>
-              <span>oined view thông tin người dùng</span>
-              <br>
-              <span class="time-stamp">3 hours ago</span>
-            </div>
-          </li>
+          <%= render partial: "activities/list_activities", locals: {activities: task.activities} %>
         </ul>
-        
       </div>
     </div>
   </div>
@@ -108,32 +53,21 @@
         <div class="dropdown-menu">
           <h3>Members</h3>
           <hr>
-          <input type="text" class="search-user-modal form-control" placeholder="Search members">
+          <!-- <input type="text" class="search-user-modal form-control" placeholder="Search members"> -->
           <ul class="list-member-modal">
-            <li class="item-member-modal">
-              <%= image_tag "avatar.jpg", class: "avatar-item-user-list-member" %>
-              <span>Vu Duc Tuyen</span>
-            </li>
-            <li class="item-member-modal">
-              <%= image_tag "avatar.jpg", class: "avatar-item-user-list-member" %>
-              <span>Vu Duc Tuyen</span>
-            </li>
-            <li class="item-member-modal">
-              <%= image_tag "avatar.jpg", class: "avatar-item-user-list-member" %>
-              <span>Vu Duc Tuyen</span>
-            </li>
-            <li class="item-member-modal">
-              <%= image_tag "avatar.jpg", class: "avatar-item-user-list-member" %>
-              <span>Vu Duc Tuyen</span>
-            </li>
-            <li class="item-member-modal">
-              <%= image_tag "avatar.jpg", class: "avatar-item-user-list-member" %>
-              <span>Vu Duc Tuyen</span>
-            </li>
-            <li class="item-member-modal">
-              <%= image_tag "avatar.jpg", class: "avatar-item-user-list-member" %>
-              <span>Vu Duc Tuyen</span>
-            </li>
+            <% @member.each do |user| %>
+              <li class="item-member-modal">
+                <% if user.avatar.present? %>
+                  <%= image_tag user.avatar, class: "avatar-item-user-list-member" %>
+                <% else %>
+                  <%= image_tag "https://thesocietypages.org/socimages/files/2009/05/vimeo.jpg", class: "avatar-item-user-list-member" %>
+                <% end %>
+                <span><%= user.name %></span>
+                <span class="tick-user-handle-task" data-user-on-list-assign=<%= user.id %>>
+                  <input type="radio" name="assignee" <%= "checked" if task.user.present? && user.id == task.user.id %> >
+                </span>
+              </li>
+            <% end %>
           </ul>
           <div class="close-menu">&times</div>
         </div>
@@ -166,30 +100,6 @@
           <hr>
           <input type="text" class="search-user-modal form-control" placeholder="Search members">
           <ul class="list-member-modal">
-            <li>
-              <%= image_tag "avatar.jpg", class: "avatar-item-user-list-member" %>
-              <span>Vu Duc Tuyen</span>
-            </li>
-            <li>
-              <%= image_tag "avatar.jpg", class: "avatar-item-user-list-member" %>
-              <span>Vu Duc Tuyen</span>
-            </li>
-            <li>
-              <%= image_tag "avatar.jpg", class: "avatar-item-user-list-member" %>
-              <span>Vu Duc Tuyen</span>
-            </li>
-            <li>
-              <%= image_tag "avatar.jpg", class: "avatar-item-user-list-member" %>
-              <span>Vu Duc Tuyen</span>
-            </li>
-            <li>
-              <%= image_tag "avatar.jpg", class: "avatar-item-user-list-member" %>
-              <span>Vu Duc Tuyen</span>
-            </li>
-            <li>
-              <%= image_tag "avatar.jpg", class: "avatar-item-user-list-member" %>
-              <span>Vu Duc Tuyen</span>
-            </li>
           </ul>
           <div class="close-menu">&times</div>
         </div>

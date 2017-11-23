@@ -28,6 +28,7 @@ $(function(){
       $('.form-description-task').val(data.task.description);
       $('.description-task').html(data.task.description);
       $('body .show-description-task').click();
+      $('body .list-activity').html(data.list_activities);
     });
   });
 
@@ -56,6 +57,29 @@ $(function(){
     .done(function(data) {
       $('body .block-label-modal').html(data.data.label_in_modal);
       $('body #block-label-item-task-' + data.data.task_id).html(data.data.label_in_show_project);
+      $('body .list-activity').html(data.list_activities);
+    });    
+  });
+
+  $('body').on('change', '.tick-user-handle-task input[type=radio][name=assignee]', function(event) {
+    event.preventDefault();
+    var id_user = $(this).closest('.tick-user-handle-task').data('user-on-list-assign');
+    var id_task = $('#task_id').val();
+    var checked;
+    if ($(this).is(':checked') == true) {
+      checked = 'checked';
+    } else {
+      checked = 'unchecked';
+    }
+    var url = window.location.pathname + '/tasks/' + id_task;
+    $.ajax({
+      url: url,
+      type: 'PATCH',
+      dataType: 'JSON',
+      data: {task: {user_id: id_user, checked: checked}},
+    })
+    .done(function(data) {
+      $('body .list-activity').html(data.list_activities);
     });    
   });
 });

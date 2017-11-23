@@ -1,5 +1,4 @@
 class LabelsController < ApplicationController
-	before_filter :find_model
 
 	def update
 		
