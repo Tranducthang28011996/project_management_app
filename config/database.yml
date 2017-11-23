@@ -24,7 +24,7 @@ development:
 production:
   adapter: postgresql
   encoding: utf8
-  database: project_managerment_app_production
+  database: d32jq55c4esbpd
   pool: 5
   timeout: 5000
   username: rlafotlygaagla
