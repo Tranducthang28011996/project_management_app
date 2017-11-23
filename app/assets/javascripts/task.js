@@ -34,7 +34,6 @@ $(function(){
 
   $('body').on('click', '.btn-edit-task', function(event){
     event.stopPropagation();
-    alert(1);
   });
 
   $('body').on('change', '.checked-task', function(event) {
@@ -80,6 +79,19 @@ $(function(){
     })
     .done(function(data) {
       $('body .list-activity').html(data.list_activities);
+      $('body .task-avatar-' + data.task.id).html(data.user);
     });    
+  });
+
+  $('body').on('click', '.item-member-modal', function(event) {
+    event.stopPropagation();
+    $(this).find('input[type="radio"]').prop("checked", true);
+    $(this).find('input[type="radio"]').change();
+  });
+
+  $('body').on('click', '.item-label-modal', function(event) {
+    event.stopPropagation();
+    $(this).find('input[type="checkbox"]').trigger('click');
+    // $(this).find('input[type="checkbox"]').change();
   });
 });

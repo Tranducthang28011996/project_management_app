@@ -1,0 +1,8 @@
+<% if user.present? %>
+  <% if user.avatar.present? %>
+    <%= image_tag user.avatar, class: "avatar-task-owner", title: user.name %>
+  <% else %>
+    <%= image_tag "https://thesocietypages.org/socimages/files/2009/05/vimeo.jpg", 
+      class: "avatar-task-owner", title: user.name %>
+  <% end %>
+<% end %>
