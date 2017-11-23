@@ -24,8 +24,6 @@ development:
 production:
   adapter: postgresql
   encoding: utf8
-  database: d32jq55c4esbpd
+  database: project_managerment_app_product
   pool: 5
   timeout: 5000
-  username: tuyenvdos@gmail.com
-  password: 7895298752

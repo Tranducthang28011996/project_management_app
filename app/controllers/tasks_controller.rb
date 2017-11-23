@@ -13,7 +13,7 @@ class TasksController < ApplicationController
     rescue => detail
       render json: {
         status: false,
-        message: detail.backtrace.join("\n")
+        message: detail
       }
     end
   end

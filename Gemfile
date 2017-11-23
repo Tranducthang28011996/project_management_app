@@ -16,10 +16,10 @@ gem "rails", "~> 5.1.4"
 gem "sass-rails", "~> 5.0"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
+gem "faker"
 
 group :development, :test do
   gem "byebug", platform: :mri
-  gem "faker"
   gem "capybara", "~> 2.13"
   gem "selenium-webdriver"
 end
@@ -35,7 +35,6 @@ end
 
 group :production do
   gem "pg"
-  gem "faker"
   gem "rails_12factor"
 end
 

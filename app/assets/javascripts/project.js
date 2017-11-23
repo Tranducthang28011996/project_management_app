@@ -19,7 +19,7 @@ $(document).ready(function($) {
       case "done": status_id = 5;
       break;
     }
-
+    alert(status_id + " " + task_name);
     $.ajax({
       url: url,
       method: 'POST',
@@ -35,7 +35,7 @@ $(document).ready(function($) {
           connectWith: '.connected'
         });
       } else {
-        alert('error')
+        console.log(data.message);
       }
     })
   });
