@@ -19,7 +19,7 @@ $(document).ready(function($) {
       case "done": status_id = 5;
       break;
     }
-    alert(status_id + " " + task_name);
+    
     $.ajax({
       url: url,
       method: 'POST',
@@ -108,16 +108,22 @@ $(function(){
 $(function(){
   $('.search-member').keyup(function(event) {
     var key_word = $(this).val();
-    $.ajax({
-      url: '/users',
-      type: 'GET',
-      dataType: 'JSON',
-      data: {key_word: key_word},
-    })
-    .done(function(data) {
-      console.log(data);
-      $('.list-member-result').html(data.list_user);
-    });
+    if (key_word == '') {
+      $('.show-info-user-search').html('Search for a person in Trello by name or email address, or enter an email address to invite someone new.');
+    } else {
+      $.ajax({
+        url: '/users',
+        type: 'GET',
+        dataType: 'JSON',
+        data: {key_word: key_word},
+      })
+      .done(function(data) {
+        var list_user = '<strong><h5>Select to add</h5></strong>' +
+              '<ul class="list-group list-member-result">' +
+              data.list_user + '</ul>'
+        $('.show-info-user-search').html(list_user);
+      });
+    }
   });
 
 // add user to team

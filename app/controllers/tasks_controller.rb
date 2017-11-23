@@ -33,6 +33,11 @@ class TasksController < ApplicationController
         @task.update_attributes description: params[:task][:description]
         @task.activities.create activity_type: "description", content: "update", 
           activity_id: @task.id, user_id: current_user.id
+        render json: {
+          task: @task,
+          list_activities: render_to_string(partial: "activities/list_activities", 
+            locals: {activities: @task.activities}),
+        }
       end
 
       if params[:task][:status].present?
@@ -40,6 +45,11 @@ class TasksController < ApplicationController
         @task.update_attributes status_id: status.id
         @task.activities.create activity_type: "status", content: "update", 
           activity_id: @task.id, user_id: current_user.id
+        render json: {
+          task: @task,
+          list_activities: render_to_string(partial: "activities/list_activities", 
+            locals: {activities: @task.activities}),
+        }
       end
 
       if params[:task][:user_id].present?
@@ -50,14 +60,14 @@ class TasksController < ApplicationController
         end
         @task.activities.create activity_type: "assignee", content: "update", 
           activity_id: @task.id, user_id: current_user.id
+        render json: {
+          task: @task,
+          list_activities: render_to_string(partial: "activities/list_activities", 
+            locals: {activities: @task.activities}),
+          user: render_to_string(partial: "users/assignee_item_task", locals: {user: @task.user})
+        }
       end
     end
-
-    render json: {
-      task: @task,
-      list_activities: render_to_string(partial: "activities/list_activities", 
-        locals: {activities: @task.activities})
-    }
   end
 
   def update_label

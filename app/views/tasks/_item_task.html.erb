@@ -3,15 +3,8 @@
     <span class="task-title">
       <%= task.name %>
     </span>
-    <span class="task-avatar">
-      <% if task.user.present? %>
-        <% if task.user.avatar.present? %>
-          <%= image_tag task.user.avatar, class: "avatar-task-owner", title: task.user.name %>
-        <% else %>
-          <%= image_tag "https://thesocietypages.org/socimages/files/2009/05/vimeo.jpg", 
-            class: "avatar-task-owner", title: task.user.name %>
-        <% end %>
-      <% end %>
+    <span class="task-avatar-<%= task.id %>">
+      <%= render partial: "users/assignee_item_task", locals: {user: task.user} %>
     </span>
     <span id="block-label-item-task-<%= task.id %>">
       <%= render partial: "labels/label_in_show_project", locals: {labels: task.labels} %>

@@ -168,12 +168,12 @@
   <section class="side-bar-menu-project">
     <h4 class="title-menu-info-project">Menu</h4>
     <div class="list-member-project">
-      <% @team_user.each do |user| %>
+      <% @team_user[0..7].each do |user| %>
         <a href="#" class="item-member-project"><%= image_tag "avatar.jpg" %></a>
       <% end %>
       <span class="dropdown dropdown-add-label">
-        <a class="dropdown-toggle" type="button" data-toggle="dropdown">
-          10+
+        <a class="dropdown-toggle btn btn-xs" type="button" data-toggle="dropdown">
+          ...
         </a>
         <div class="dropdown-menu list-full-member">
           abc
@@ -186,11 +186,11 @@
       </button>
       <div class="dropdown-menu form-search-member">
         <h3 class="title">members</h3>
-        <input type="text" class="form-control search-member">
+        <input type="text" class="form-control search-member" placeholder="abc@gmail.com">
         <div class="result-search-user-add">
-          <strong><h5>Select to add</h5></strong>
-          <ul class="list-group list-member-result">
-          </ul>
+          <div class="show-info-user-search">
+            Search for a person in Trello by name or email address, or enter an email address to invite someone new.
+          </div>
         </div>
       </div>
     </div>
