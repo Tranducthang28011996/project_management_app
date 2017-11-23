@@ -1,4 +1,4 @@
-<% if labels.any? %>
+<% if labels.present? && labels.any? %>
   <div class="task-labels">
     <ul class="list-labels-in-task">
       <% labels.each do |label| %>
