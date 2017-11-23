@@ -23,6 +23,9 @@ development:
 
 production:
   adapter: postgresql
+  encoding: utf8
   database: project_managerment_app_production
   pool: 5
   timeout: 5000
+  username: rlafotlygaagla
+  password: 6ab526f80eac2d7a9a649fe07f0aa9eb28dc663afe684d5ce0891e91763175be
