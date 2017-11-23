@@ -27,12 +27,16 @@ $(document).ready(function($) {
       data: {task: {status_id: status_id, name: task_name}},
     })
     .done(function(data) {
-      position.find('.position-add-task').before(data.task);
-      position.find('.item-new-task').hide();
-      position.find('.footer-board a').show();
-      $('.connected').sortable({
-        connectWith: '.connected'
-      });
+      if (data.status == true) {
+        position.find('.position-add-task').before(data.task);
+        position.find('.item-new-task').hide();
+        position.find('.footer-board a').show();
+        $('.connected').sortable({
+          connectWith: '.connected'
+        });
+      } else {
+        alert('error')
+      }
     })
   });
 });

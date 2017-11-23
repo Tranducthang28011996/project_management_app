@@ -4,9 +4,18 @@ class TasksController < ApplicationController
 
   def create
     # params[:task][:user_id] = current_user.id
-  	@task = @project.tasks.create task_params
-
-    render json: {task:render_to_string(partial: "tasks/item_task", locals: {task: @task})}
+    begin
+    	@task = @project.tasks.create! task_params
+      render json: {
+        status: true,
+        task:render_to_string(partial: "tasks/item_task", locals: {task: @task})
+      }
+    rescue => detail
+      render json: {
+        status: false,
+        message: detail.backtrace.join("\n")
+      }
+    end
   end
 
   def show
@@ -86,7 +95,7 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:name, :status_id, :user_id, :description)
+    params.require(:task).permit :name, :status_id, :user_id, :description
   end
 
   def format_error_js
