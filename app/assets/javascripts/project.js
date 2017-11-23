@@ -1,7 +1,7 @@
 $(document).ready(function($) {
   $('body').on('click', '.btn-add-task', function(event) {
     event.preventDefault();
-    var url = $(this).closest('form').attr('action');
+    var url = window.location.pathname + '/tasks';
     var status = $(this).closest('.item-board').data('type-task');
     var task_name = $(this).closest('form').find('#task_name').val();
     var position = $(this).closest('.item-board');
