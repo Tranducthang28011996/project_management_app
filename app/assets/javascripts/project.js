@@ -70,7 +70,7 @@ $(function() {
       event.preventDefault();
       var id_task = ui.item.data('id-task');
       var status_task = $(this).data('status-request');
-      var url = window.location.pathname + '/update-status/' + id_task;
+      var url = window.location.pathname + '/tasks/' + id_task;
       console.log(id_task + " " + status_task);
 
       $.ajax({

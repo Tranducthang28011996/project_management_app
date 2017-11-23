@@ -4,7 +4,14 @@
       <%= task.name %>
     </span>
     <span class="task-avatar">
-      <%= image_tag "img.jpg", class: "avatar-task-owner" %>
+      <% if task.user.present? %>
+        <% if task.user.avatar.present? %>
+          <%= image_tag task.user.avatar, class: "avatar-task-owner", title: task.user.name %>
+        <% else %>
+          <%= image_tag "https://thesocietypages.org/socimages/files/2009/05/vimeo.jpg", 
+            class: "avatar-task-owner", title: task.user.name %>
+        <% end %>
+      <% end %>
     </span>
     <span id="block-label-item-task-<%= task.id %>">
       <%= render partial: "labels/label_in_show_project", locals: {labels: task.labels} %>

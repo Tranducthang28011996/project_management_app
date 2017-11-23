@@ -113,7 +113,7 @@ body {
     .item-project {
       margin: 5px;
       border-radius: 4px;
-      padding: 10px;
+      padding: 5px;
       background-color: white;
       width: 250px;
       height: 100px;
@@ -548,7 +548,7 @@ body {
         padding-right: 5px;
         overflow-x: hidden;
         overflow-y: auto;
-        height: 200px;
+        height: 242px;
 
         .avatar-item-user-list-member {
           width: 32px;
@@ -653,4 +653,40 @@ body {
 
 .side-bar-menu-project::-webkit-scrollbar-thumb {
   background-color: #9e9e9e;
+}
+
+.persent {
+  display: inline-block;
+  height: 42%;
+  margin-right: -4px;
+  margin-top: 52px;
+}
+
+.persent-new {
+  width: 10%;
+  background-color: #5bc0de;
+}
+
+.persent-in-process {
+  width: 20%;
+  background-color: #337ab7;
+}
+
+.persent-resolved {
+  width: 30%;
+  background-color: #d9534f;
+}
+
+.persent-testing {
+  width: 10%;
+  background-color: #f0ad4e;
+}
+
+.persent-done {
+  width: 30%;
+  background-color: #5cb85c;
+}
+
+.link-view-project {
+  position: absolute;
 }

@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :projects, foreign_key: :owner_id 
   has_many :comments
   has_many :tasks
+  has_many :activities
 end

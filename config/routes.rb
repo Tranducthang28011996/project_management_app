@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   patch "edit/avatar", to: "users#update_avatar", as: "edit_avatar"
   resources :projects do
 		resources :tasks
-		patch '/update-status/:id', to: "tasks#update_status"
   end
 	patch '/update-label/:id', to: "tasks#update_label"
   resources :teams
