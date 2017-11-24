@@ -5,7 +5,18 @@
         <div class="col-md-5 col-md-offset-4 profile-infor">
           <div class="col-md-12">
             <div class="col-md-3">
-              <%= image_tag "avatar.jpg", class: "avatar-profile" %>
+              <% unless current_user.avatar.nil? %>
+                <%= image_tag @user.avatar.url, class: "avatar-profile"%>
+              <% else %>
+                <%= image_tag "https://thesocietypages.org/socimages/files/2009/05/vimeo.jpg", 
+                  class: "avatar-profile" %>
+              <% end %>
+              <%= form_for @user do |f| %>
+                <div class="file-upload">
+                  <%= f.file_field :avatar %>
+                  <i class="fa fa-camera" aria-hidden="true"></i>
+                </div>
+              <% end %>
             </div>
             <div class="col-md-9 pull-right">
               <table class="user-infor">

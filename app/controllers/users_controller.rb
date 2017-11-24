@@ -15,21 +15,19 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update_attributes params_user
-
-    if @user.save
+    if @user.update_attributes params_user
       flash[:success] = "Update success!"
-      redirect_to root_url
+      redirect_to @user
     else
       flash[:error] = "Update no success!"
-      redirect_to @user
+      redirect_to root_url
     end
   end
 
   private
 
   def params_user
-    params.require(:user).permit :name, :password, :email, :password_confirmation
+    params.require(:user).permit :avatar, :name, :password, :email, :password_confirmation
   end
 
   def find_user

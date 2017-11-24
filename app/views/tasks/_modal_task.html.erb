@@ -32,7 +32,11 @@
       <div class="detail-content-comment">
         <div class="row">
           <div class="col-md-1">
-            <%= image_tag "avatar.jpg", class: "avatar-comment-task"%>
+            <% if current_user.avatar.present? %>
+              <%= image_tag current_user.avatar.url, class: "avatar-comment-task"%>
+            <% else %>
+              <%= image_tag "https://thesocietypages.org/socimages/files/2009/05/vimeo.jpg", class: "avatar-comment-task" %>
+            <% end %>
           </div>
           <div class="col-md-11 box-comment">
             <textarea rows="3" class="form-control comment-textarea" placeholder="Write a comment…"></textarea>
