@@ -94,4 +94,10 @@ $(function(){
     $(this).find('input[type="checkbox"]').trigger('click');
     // $(this).find('input[type="checkbox"]').change();
   });
+
+  $('body').on('click', '.close-edit-description', function(event) {
+    event.preventDefault();
+    $('body .show-description-task').trigger('click');
+  });
 });
+

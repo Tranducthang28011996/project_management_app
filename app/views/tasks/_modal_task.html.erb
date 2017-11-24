@@ -11,26 +11,31 @@
         </div>
         <br>
         <span class="title-position-task">Description</span> 
-        <a data-toggle="collapse" data-target="#show-description-update" class="show-description-task">edit</a>
+        <button data-toggle="collapse" data-target="#show-description-update" 
+          class="btn btn-sm show-description-task">
+          <i class="fa fa-align-left" aria-hidden="true"></i> Edit the description...
+        </button>
         <br>
         <%= form_for [project, task] do |f| %>
 	        <div class="collapse" id="show-description-update">
-	        	<%= f.text_area :description, class: "form-control form-description-task", rows: "5" %>
-	        	<%= f.submit :save, class: "btn btn-sm btn-success btn-save-description" %>
+	        	<%= f.text_area :description, class: "form-control form-description-task", rows: "5",
+              placeholder: "Add a more detailed description…" %>
+	        	<%= f.submit "Save",class: "btn btn-sm btn-success btn-save-description" %>
+            <button class="close-edit-description" >&times</button>
 	        </div>
         <% end %>
         <p class="description-task"><%= task.description %></p>
       </div>
     </div>
     <div class="content-task">
-      <h4><i class="fa fa-comments-o" aria-hidden="true"></i> Add comment</h4>
+      <h4><i class="fa fa-comments-o" aria-hidden="true"></i> Add Comment</h4>
       <div class="detail-content-comment">
         <div class="row">
           <div class="col-md-1">
             <%= image_tag "avatar.jpg", class: "avatar-comment-task"%>
           </div>
           <div class="col-md-11 box-comment">
-            <textarea rows="3" class="form-control comment-textarea">abc</textarea>
+            <textarea rows="3" class="form-control comment-textarea" placeholder="Write a comment…"></textarea>
             <button class="btn btn-sm btn-success">save</button>
           </div>
         </div>

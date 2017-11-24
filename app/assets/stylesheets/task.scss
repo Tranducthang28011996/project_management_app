@@ -1,11 +1,5 @@
 .task-info {
-  // position: relative;
-
   .task-labels {
-    // position: absolute;
-    // top: 45px;
-  //   left: -40px;
-
     .list-labels-in-task {
       list-style-type: none;
       padding: 0;
@@ -39,5 +33,42 @@
         background-color: #c1c1c1;
       }
     }
+  }
+}
+
+.show-description-task {
+  background-color: unset;
+  color: #a9a5a5 !important;
+  font-size: 14px !important;
+
+  &:hover {
+    background-color: #c1c1c1;
+    color: #444242;
+  }
+}
+
+.collapse {
+  transition: height 0.01s;
+}
+
+.edit_task {
+  position: relative;
+  top: -34px;
+
+  .form-description-task {
+    background: #ddd;
+  }
+
+  .btn-save-description {
+    padding: 5px 17px;
+  }
+
+  .close-edit-description {
+    background: unset;
+    border: unset;
+    font-size: 29px;
+    position: absolute;
+    bottom: -7px;
+    left: 75px;
   }
 }
