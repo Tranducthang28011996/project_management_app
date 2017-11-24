@@ -5,7 +5,7 @@ body {
 }
 
 #header {
-  background-color: #529646;
+  background-color: rgb(68, 167, 50);
   padding: 7px;
   height: 45px;
 
@@ -23,7 +23,7 @@ body {
       top: 43px;
       left: unset !important;
       right: 5px !important;
-      background: #e2e4e6;
+      background: #ffffff;
 
       hr {
         margin: 5px 0 !important;
@@ -37,8 +37,7 @@ body {
       }
 
       .user-name {
-        color: #716e6e;
-        font-weight: bold;
+        color: #9c9b9b;
       }
 
       .close-icon {
@@ -111,12 +110,14 @@ body {
     flex-wrap: wrap;
 
     .item-project {
-      margin: 5px;
+      background-color: #f7f7f7;
       border-radius: 4px;
-      padding: 5px;
-      background-color: white;
-      width: 250px;
+      border: 1px solid #e6e2e2;
       height: 100px;
+      margin: 5px;
+      padding: 5px;
+      position: relative;
+      width: 250px;
     }
   }
 
@@ -245,8 +246,12 @@ body {
 }
 
 .show-owner-project {
+  background-color: white;
+  height: calc( 100vh - 45px );
+  overflow-y: auto;
+
   .title-group-project {
-    color: white;
+    color: #333;
     font-weight: bold;
     font-size: 15px;
   }
@@ -255,9 +260,10 @@ body {
 .btn-project {
   background-color: rgba(255,255,255,.3);
   color: #f3f3f3;
+  font-size: 15px !important;
   font-weight: bold;
-  padding: 6px;
-  margin-right: 10px;
+  margin-right: 10px !important;
+  padding: 3px 5px !important;
 
   &:hover {
     background-color: rgba(255,255,255,.2);
@@ -349,6 +355,11 @@ body {
   color: #f3f3f3;
   font-weight: bold;
   padding: 6px;
+  font-size: 14px;
+
+  &:hover {
+    background-color: rgba(99, 97, 99, .51) !important;
+  }
 }
 
 #nav-menu .btn-nav:hover {
@@ -363,9 +374,10 @@ body {
 }
 
 .board-container {
+  display: flex;
+  margin-top: 5px;
   padding: 0 10px;
   width: 100%;
-  display: flex;
 }
 
 .item-board {
