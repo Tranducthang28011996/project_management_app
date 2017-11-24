@@ -5,7 +5,7 @@
         <div class="col-md-5 col-md-offset-4 profile-infor">
           <div class="col-md-12">
             <div class="col-md-3">
-              <% unless current_user.avatar.nil? %>
+              <% if @user.avatar.present? %>
                 <%= image_tag @user.avatar.url, class: "avatar-profile"%>
               <% else %>
                 <%= image_tag "https://thesocietypages.org/socimages/files/2009/05/vimeo.jpg", 
