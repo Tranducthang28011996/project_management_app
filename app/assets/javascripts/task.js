@@ -124,7 +124,7 @@ $(function(){
     })
     .done(function(data) {
       $('body .block-due-date-modal').html(data.due_date_info);
-      $('body .block-due-date-task').html(data.due_date_task);
+      $('body #block-due-date-task-' + data.task.id).html(data.due_date_task);
     })
     .fail(function() {
       console.log("error");
