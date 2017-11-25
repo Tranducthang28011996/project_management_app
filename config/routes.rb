@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root "projects#index"
   devise_for :users
   patch "edit/avatar", to: "users#update_avatar", as: "edit_avatar"
