@@ -8,4 +8,10 @@ class Task < ApplicationRecord
   has_many :labels, through: :label_tasks
   has_many :activities
   # enum status: [:new_task, :in_process, :resolved, :testing, :done]
+
+  search = lambda do |keyword|
+    where("name LIKE :keyword", keyword: "%#{keyword}%").order id: :desc
+  end
+
+  scope :search, search
 end

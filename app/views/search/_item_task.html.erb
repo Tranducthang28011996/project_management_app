@@ -1,0 +1,23 @@
+<div class="task" task-id="<%= task.id %>" project-id="<%= task.project.id %>">
+  <div class="task-name">
+    <div class="search-task-item ui-sortable-handle">
+      <div class="task-info">
+        <span class="task-title">
+          <%= task.name %>
+        </span>
+        <span class="task-avatar-<%= task.id %>">
+          <%= render partial: "users/assignee_item_task", locals: {user: task.user} %>
+        </span>
+        <span id="block-label-item-task-<%= task.id %>">
+          <%= render partial: "labels/label_in_show_project", locals: {labels: task.labels} %>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="task-detail">
+    <div style="margin-bottom: 5px;">
+      <a href="#"><b style="color: black"><%= task.name %></b></a>
+    </div>
+    <div>in <b>doing</b> on <a href="<%= project_path task.project %>"><b><%= task.project.name %></b></a></div>
+  </div>
+</div>

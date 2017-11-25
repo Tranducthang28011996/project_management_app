@@ -9,4 +9,5 @@ Rails.application.routes.draw do
 	patch '/update-label/:id', to: "tasks#update_label"
   resources :teams
   resources :users
+  resources :search
 end
