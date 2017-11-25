@@ -1,7 +1,7 @@
 <div class="search-title">Task</div>
 <div class="search-task">
-  <% if @tasks.count > 0 %>
-    <% @tasks.each do |task| %>
+  <% if tasks.count > 0 %>
+    <% tasks.each do |task| %>
       <%= render "search/item_task", task: task %>
     <% end %>
   <% else %>
@@ -10,8 +10,8 @@
 </div>
 <div class="search-title">Project</div>
 <div class="search-project">
-  <% if @projects.count > 0 %>
-    <% @projects.each do |project| %>
+  <% if projects.count > 0 %>
+    <% projects.each do |project| %>
       <div class="col-md-6 project">
         <span class="color"></span>
         <span class="name-project"><a href="<%= project_path project %>"><%= project.name %></a></span>

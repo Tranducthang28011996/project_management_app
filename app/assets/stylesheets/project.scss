@@ -4,6 +4,29 @@ body {
   overflow: hidden;
 }
 
+.nav-tabs > li {
+  display: inline-block !important;
+  float: none !important;
+}
+
+.projects {
+  .project {
+    background-color: #4bbf6b;
+    padding: 6px 10px;
+    border-radius: 3px;
+    float: left;
+    width: 100%;
+    margin-bottom: 20px;
+
+    .title {
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 3px 3px;
+    }
+  }
+}
+
 #header {
   background-color: rgb(68, 167, 50);
   padding: 7px;
