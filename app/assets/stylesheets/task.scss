@@ -25,7 +25,7 @@
   }
 
   .list-setting {
-    button {
+    .btn-menu-modal-task {
       background-color: #dddddd;
       border-bottom: 1px solid #a7a7a7;
 
@@ -71,4 +71,18 @@
     bottom: -7px;
     left: 75px;
   }
+}
+
+#datetimepicker {
+  margin-left: 54px;
+  margin-top: -18px;
+}
+
+.block-due-date-modal {
+  margin-bottom: 10px;
+}
+
+.block-due-date-task {
+  position: absolute;
+  top: 50px;
 }

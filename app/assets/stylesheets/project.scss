@@ -162,12 +162,13 @@ body {
       img {
         border-radius: 50%;
         width: 28px;
+        height: 28px;
       }
 
       .list-full-member {
         width: 247px;
         height: 200px;
-        right:  -114px;
+        right: -98px;
         top: 29px;
         left: unset;
       }
@@ -448,20 +449,18 @@ body {
   background-color: white;
   border-radius: 4px;
   margin-bottom: 10px;
-  min-height: 69px;
+  min-height: 79px;
   padding: 3px;
   width: 100%;
-  // position: relative;
-  // z-index: 1 !important;
-  //
+
   .avatar-task-owner {
     width: 25px;
     height: 25px;
     border: none;
     border-radius: 50%;
-    float: right;
-    margin-top: 37px;
-    margin-right: 1px;
+    position: absolute;
+    right: 0;
+    bottom: -29px;
   }
 
   .task-info {
@@ -577,9 +576,10 @@ body {
         height: 242px;
 
         .avatar-item-user-list-member {
-          width: 32px;
           border-radius: 50%;
+          height: 32px;
           margin-right: 5px;
+          width: 32px;
         }
 
         .item-member-modal {
@@ -631,7 +631,7 @@ body {
     }
   }
 
-  button {
+  .btn-menu-modal-task {
     width: 100%;
     text-align: left;
     background-color: transparent;
@@ -736,4 +736,9 @@ body {
 
 .link-view-project {
   position: absolute;
+}
+
+.btn-settings {
+  text-align: left !important;
+  width: 100%;
 }

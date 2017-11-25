@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @team_user = @project.team.users
+    @team_user = @project.get_member
   	@task = {
   		new: @project.tasks.any? ? @project.tasks.where(status_id: 1).order("updated_at DESC") : [],
   		in_process: @project.tasks.any? ? @project.tasks.where(status_id: 2) : [],

@@ -1,0 +1,5 @@
+<% if task.deadline.present? %>
+  <div class="due-date btn btn-xs <%= check_due_date task.deadline %>">
+  	<i class="fa fa-clock-o" aria-hidden="true"></i> <%= task.deadline %>
+  </div>
+<% end %>

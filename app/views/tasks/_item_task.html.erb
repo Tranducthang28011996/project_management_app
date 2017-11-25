@@ -9,6 +9,9 @@
     <span id="block-label-item-task-<%= task.id %>">
       <%= render partial: "labels/label_in_show_project", locals: {labels: task.labels} %>
     </span>
+    <div class="block-due-date-task">
+      <%= render partial: "tasks/due_date_task", locals: {task: task} %>
+    </div>
     <div class="btn-edit-task">
       <button class="btn"><i class="fa fa-pencil" aria-hidden="true"></i></button>
     </div>

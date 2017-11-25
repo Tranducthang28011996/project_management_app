@@ -10,6 +10,13 @@ $(function(){
     })
     .done(function(data) {
       $('body .modal-body').html(data.task);
+      datepickerDefault = new MtrDatepicker({
+        target: "datetimepicker",
+      });
+      var datepickerOutputElement = document.getElementById('due_date');
+      datepickerDefault.onChange('all', function() {
+        $('#due_date').val(datepickerDefault.format('YYYY-MM-DD HH:mm'))
+      });
     });
   });
 
@@ -98,6 +105,34 @@ $(function(){
   $('body').on('click', '.close-edit-description', function(event) {
     event.preventDefault();
     $('body .show-description-task').trigger('click');
+  });
+
+  $('body').on('click', '.list-member-modal', function(event) {
+    event.stopPropagation();
+  });
+
+  $('body').on('click', '.change-due-date', function(event) {
+    event.preventDefault();
+    var task_id = $(this).data('task-id');
+    var deadline = $('#due_date').val();
+    var url = window.location.pathname + '/tasks/' + task_id;
+    $.ajax({
+      url: url,
+      type: 'PATCH',
+      dataType: 'json',
+      data: {task:{deadline: deadline}},
+    })
+    .done(function(data) {
+      $('body .block-due-date-modal').html(data.due_date_info);
+      $('body .block-due-date-task').html(data.due_date_task);
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+    });
+    
   });
 });
 
