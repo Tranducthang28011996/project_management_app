@@ -14,7 +14,7 @@
 
     <button class="btn btn-sm btn-nav pull-right btn-show-menu-project">
       <i class="fa fa-bars" aria-hidden="true"></i>
-      Show Menu
+      <%= t "project.show_menu" %>
     </button>
   </div>
 
@@ -22,152 +22,15 @@
   <%= hidden_field_tag :team_id, @project.team.id %>
 
   <section class="board-container" id="connected">
-    <div class="item-board" data-type-task="new">
-      <div class="header-board">
-        <span>New</span>
-        <button class="btn btn-sm btn-info-item-board">
-          <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-        </button>
-      </div>
-      <div class="task-board connected sortable list" data-status-request="new">
-        
-        <% if @task[:new].any? %>
-          <% @task[:new].each do |task| %>
-            <%= render partial: "tasks/item_task", locals: {task: task} %>
-          <% end %>
-        <% end %>
-        <div class="position-add-task"></div>
-        <div class="item-new-task">
-          <%= form_for [@project, @project.tasks.build],
-            html:{method: :post, :class => "form form-add-task"} do |f| %>
-            <%= f.text_area :name, class: "field-info-new-task" %>
-            <%= f.submit "Add", class: "btn btn-success btn-add-task" %>
-            <button class="btn-close-form-new-task"><i class="fa fa-times" aria-hidden="true"></i></button>
-          <% end %>
-        </div>
-        <div class="footer-board">
-          <a href="#">Add Task...</a>
-        </div>
-      </div>
-    </div>
-    <div class="item-board" data-type-task="in_process">
-      <div class="header-board">
-        <span>In Process</span>
-        <button class="btn btn-sm btn-info-item-board">
-          <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-        </button>
-      </div>
-      <div class="task-board connected sortable list" data-status-request="in_process">
-        
-        <% if @task[:in_process].any? %>
-          <% @task[:in_process].each do |task| %>
-            <%= render partial: "tasks/item_task", locals: {task: task} %>
-          <% end %>
-        <% end %>
-        <div class="position-add-task"></div>
-        <div class="item-new-task">
-          <%= form_for [@project, @project.tasks.build],
-            html:{method: :post, :class => "form form-add-task"} do |f| %>
-            <%= f.text_area :name, class: "field-info-new-task" %>
-            <%= f.submit "Add", class: "btn btn-success btn-add-task" %>
-            <button class="btn-close-form-new-task">
-              <i class="fa fa-times" aria-hidden="true"></i>
-            </button>
-          <% end %>
-        </div>
-        <div class="footer-board">
-          <a href="#">Add Task...</a>
-        </div>
-      </div>
-    </div>
-    <div class="item-board" data-type-task="resolved">
-      <div class="header-board">
-        <span>Resolved</span>
-        <button class="btn btn-sm btn-info-item-board">
-          <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-        </button>
-      </div>
-      <div class="task-board connected sortable list" data-status-request="resolved">
-        
-        <% if @task[:resolved].any? %>
-          <% @task[:resolved].each do |task| %>
-            <%= render partial: "tasks/item_task", locals: {task: task} %>
-          <% end %>
-        <% end %>
-        <div class="position-add-task"></div>
-        <div class="item-new-task">
-          <%= form_for [@project, @project.tasks.build],
-            html:{method: :post, :class => "form form-add-task"} do |f| %>
-            <%= f.text_area :name, class: "field-info-new-task" %>
-            <%= f.submit "Add", class: "btn btn-success btn-add-task" %>
-            <button class="btn-close-form-new-task"><i class="fa fa-times" aria-hidden="true"></i></button>
-          <% end %>
-        </div>
-        <div class="footer-board">
-          <a href="#">Add Task...</a>
-        </div>
-      </div>
-    </div>
-    <div class="item-board" data-type-task="testing">
-      <div class="header-board">
-        <span>Testing</span>
-        <button class="btn btn-sm btn-info-item-board">
-          <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-        </button>
-      </div>
-      <div class="task-board connected sortable list" data-status-request="testing">
-        
-        <% if @task[:testing].any? %>
-          <% @task[:testing].each do |task| %>
-            <%= render partial: "tasks/item_task", locals: {task: task} %>
-          <% end %>
-        <% end %>
-        <div class="position-add-task"></div>
-        <div class="item-new-task">
-          <%= form_for [@project, @project.tasks.build],
-            html:{method: :post, :class => "form form-add-task"} do |f| %>
-            <%= f.text_area :name, class: "field-info-new-task" %>
-            <%= f.submit "Add", class: "btn btn-success btn-add-task" %>
-            <button class="btn-close-form-new-task"><i class="fa fa-times" aria-hidden="true"></i></button>
-          <% end %>
-        </div>
-        <div class="footer-board">
-          <a href="#">Add Task...</a>
-        </div>
-      </div>
-    </div>
-    <div class="item-board" data-type-task="done">
-      <div class="header-board">
-        <span>Done</span>
-        <button class="btn btn-sm btn-info-item-board">
-          <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
-        </button>
-      </div>
-      <div class="task-board connected sortable list" data-status-request="done">
-        
-        <% if @task[:done].any? %>
-          <% @task[:done].each do |task| %>
-            <%= render partial: "tasks/item_task", locals: {task: task} %>
-          <% end %>
-        <% end %>
-        <div class="position-add-task"></div>
-        <div class="item-new-task">
-          <%= form_for [@project, @project.tasks.build],
-            html:{method: :post, :class => "form form-add-task"} do |f| %>
-            <%= f.text_area :name, class: "field-info-new-task" %>
-            <%= f.submit "Add", class: "btn btn-success btn-add-task" %>
-            <button class="btn-close-form-new-task"><i class="fa fa-times" aria-hidden="true"></i></button>
-          <% end %>
-        </div>
-        <div class="footer-board">
-          <a href="#">Add Task...</a>
-        </div>
-      </div>
-    </div>
+    <%= render partial: "projects/item_board", locals: {status: "new"} %>
+    <%= render partial: "projects/item_board", locals: {status: "in_process"} %>
+    <%= render partial: "projects/item_board", locals: {status: "resolved"} %>
+    <%= render partial: "projects/item_board", locals: {status: "testing"} %>
+    <%= render partial: "projects/item_board", locals: {status: "done"} %>
   </section> 
 
   <section class="side-bar-menu-project">
-    <h4 class="title-menu-info-project">Menu</h4>
+    <h4 class="title-menu-info-project"><%= t "project.menu" %></h4>
     <div class="list-member-project">
       <% @team_user[0..7].each do |user| %>
         <%= link_to user, class: "item-member-project" do %>
@@ -189,10 +52,10 @@
     </div>
     <div class="dropdown">
       <button class="btn btn-invite-member dropdown-toggle" type="button" data-toggle="dropdown">
-        <i class="fa fa-user-plus" aria-hidden="true"></i> Invite...
+        <i class="fa fa-user-plus" aria-hidden="true"></i> <%= t "project.invite" %>...
       </button>
       <div class="dropdown-menu form-search-member">
-        <h3 class="title">members</h3>
+        <h3 class="title"><%= t "project.member" %></h3>
         <input type="text" class="form-control search-member" placeholder="abc@gmail.com">
         <div class="result-search-user-add">
           <div class="show-info-user-search">
@@ -206,24 +69,24 @@
     <ul class="list-setting">
       <li>
         <button class="btn btn-settings">
-          <i class="fa fa-filter" aria-hidden="true"></i> Filter Task
+          <i class="fa fa-filter" aria-hidden="true"></i> <%= t "project.filter_task" %>
         </button>
       </li>
       <li>
         <button class="btn btn-settings">
-          <i class="fa fa-cog" aria-hidden="true"></i> Settings
+          <i class="fa fa-cog" aria-hidden="true"></i> <%= t "project.setting" %>
         </button>
       </li>
       <li>
         <button class="btn btn-settings">
-          <i class="fa fa-tags" aria-hidden="true"></i> Labels
+          <i class="fa fa-tags" aria-hidden="true"></i> <%= t "project.labels" %>
         </button>
       </li>
     </ul>
     <hr>
     <div class="list-setting">
       <button class="btn btn-settings">
-        <i class="fa fa-tasks" aria-hidden="true"></i> Activity
+        <i class="fa fa-tasks" aria-hidden="true"></i> <%= t "project.activity" %>
       </button>
       <ul class="list-activity">
         <li class="item-activity">
@@ -281,7 +144,63 @@
             <span class="time-stamp">3 hours ago</span>
           </div>
         </li>
+        <li class="item-activity">
+          <div class="col-xs-2">
+            <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
+          </div>
+          <div class="col-xs-10 info-activity">
+            <a href="#">Vu Duc Tuyen</a>
+            <span>oined view thông tin người dùng</span>
+            <br>
+            <span class="time-stamp">3 hours ago</span>
+          </div>
+        </li>
+        <li class="item-activity">
+          <div class="col-xs-2">
+            <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
+          </div>
+          <div class="col-xs-10 info-activity">
+            <a href="#">Vu Duc Tuyen</a>
+            <span>oined view thông tin người dùng</span>
+            <br>
+            <span class="time-stamp">3 hours ago</span>
+          </div>
+        </li>
+        <li class="item-activity">
+          <div class="col-xs-2">
+            <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
+          </div>
+          <div class="col-xs-10 info-activity">
+            <a href="#">Vu Duc Tuyen</a>
+            <span>oined view thông tin người dùng</span>
+            <br>
+            <span class="time-stamp">3 hours ago</span>
+          </div>
+        </li>
+        <li class="item-activity">
+          <div class="col-xs-2">
+            <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
+          </div>
+          <div class="col-xs-10 info-activity">
+            <a href="#">Vu Duc Tuyen</a>
+            <span>oined view thông tin người dùng</span>
+            <br>
+            <span class="time-stamp">3 hours ago</span>
+          </div>
+        </li>
+        <li class="item-activity">
+          <div class="col-xs-2">
+            <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
+          </div>
+          <div class="col-xs-10 info-activity">
+            <a href="#">Vu Duc Tuyen</a>
+            <span>oined view thông tin người dùng</span>
+            <br>
+            <span class="time-stamp">3 hours ago</span>
+          </div>
+        </li>
       </ul>
     </div>
+    <div class="icon-close-menu">×</div>
   </section>
 </div>

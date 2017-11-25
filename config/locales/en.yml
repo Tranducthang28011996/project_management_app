@@ -30,4 +30,21 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  project:
+    owner_project: "Project Owner"
+    member_project: "You are a member of the project"
+    show_menu: "Show Menu"
+    menu: "Menu"
+    invite: "Mời"
+    filter_task: "Lọc công việc"
+    setting: "Thiết lập"
+    labels: "Nhãn"
+    activity: "Hoạt động"
+  task:
+    status:
+      new: "New"
+      in_process: "In Process"
+      resolved: "Resolved"
+      testing: "Testing"
+      done: "Done"
+    add_task: "Add Task"

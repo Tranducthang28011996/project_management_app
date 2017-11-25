@@ -1,0 +1,21 @@
+vi:
+  project:
+    owner_project: "Dự án của bạn:"
+    member_project: "Bạn thuộc các dự án:"
+    show_menu: "Hiện Menu"
+    menu: "Menu"
+    member: "Thành viên"
+    invite: "Mời"
+    filter_task: "Lọc công việc"
+    setting: "Thiết lập"
+    labels: "Nhãn"
+    activity: "Hoạt động"
+  task:
+    status:
+      new: "Mới"
+      in_process: "Đang xử lý"
+      resolved: "Đã làm xong"
+      testing: "Đang kiểm tra"
+      done: "Hoàn thiện"
+    add_task: "Thêm công việc"
+    add: "Thêm"
