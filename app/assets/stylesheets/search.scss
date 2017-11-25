@@ -1,0 +1,72 @@
+.form-search-project {
+  position: relative;
+
+  .result {
+    position: absolute;
+    left: 0;
+    width: 600px;
+    top: 35px;
+    background: #e2e4e7;
+    border-radius: 3px;
+    min-height: 100px;
+    z-index: 1;
+    box-shadow: 0 1px 6px rgba(0,0,0,.15);
+    border: 1px solid #D6DADC;
+    text-align: left;
+
+    .search-title {
+      padding: 9px 8px;
+      font-weight: bold;
+      clear: both;
+    }
+
+    .search-task {
+      padding: 0px 9px;
+
+      .task {
+        clear: both;
+
+        .task-name {
+          width: 40%;
+          float: left;
+        }
+
+        .task-detail {
+          float: left;
+          padding: 0px 15px;
+        }
+      }
+    }
+
+    .search-project {
+      padding: 0px 9px;
+      margin-bottom: 10px;
+
+      .project {
+        height: 35px;
+        background: #e4f6ed;
+        padding: 0;
+        border-radius: 3px;
+        margin-bottom: 5px;
+        margin-right: 5px;
+        width: 49%;
+
+        .color {
+          width: 35px;
+          float: left;
+          height: 35px;
+          background: #66ce92;
+          border-top-left-radius: 3px;
+          border-bottom-left-radius: 3px;
+        }
+
+        .name-project {
+          float: left;
+          line-height: 35px;
+          padding: 0px 16px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
