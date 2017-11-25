@@ -7,7 +7,7 @@ RailsAdmin.config do |config|
 
   ## == Devise ==
   config.authenticate_with do
-    redirect_to "/" unless warden.user.role == 1
+    redirect_to "/" unless warden.user.role == "admin"
   end
   #config.current_user_method(&:current_user)
 

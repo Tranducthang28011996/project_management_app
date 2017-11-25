@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   mount_uploader :avatar, AvatarUploader
   
+  enum role: [:admin, :member]
   has_many :team_users
   has_many :teams, through: :team_users
   has_many :projects, foreign_key: :owner_id 
