@@ -67,6 +67,17 @@ class TasksController < ApplicationController
           user: render_to_string(partial: "users/assignee_item_task", locals: {user: @task.user})
         }
       end
+
+      if params[:task][:deadline].present?
+        @task.update_attributes deadline: params[:task][:deadline]
+        @task.activities.create activity_type: "deadline", content: "update", 
+          activity_id: @task.id, user_id: current_user.id
+        render json: {
+          task: @task,
+          due_date_info: render_to_string(partial: "tasks/due_date_modal", locals: {task: @task}),
+          due_date_task: render_to_string(partial: "tasks/due_date_task", locals: {task: @task})
+        }
+      end
     end
   end
 

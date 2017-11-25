@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :find_user, only: %i(update show)
 
   def index
-    @users = User.where("name LIKE '%#{params[:key_word]}%'").limit 5
+    @users = User.where("name LIKE '%#{params[:key_word]}%'").where.not(id: load_member_project).limit 5
     render json: {list_user: render_to_string(partial: "users/user", collection: @users)}
   end
   
@@ -33,5 +33,11 @@ class UsersController < ApplicationController
   def find_user
     @user = User.find_by id: params[:id]
     redirect_to root_url unless @user
+  end
+
+  def load_member_project
+    @project = Project.find_by id: params[:project_id]
+    return @project.get_member.pluck :id if @project
+    []
   end
 end

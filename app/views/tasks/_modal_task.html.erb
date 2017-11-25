@@ -9,7 +9,9 @@
         <div class="block-label-modal">
           <%= render partial: "labels/label_in_modal", locals: {labels: @task.labels} %>
         </div>
-        <br>
+        <div class="block-due-date-modal">
+          <%= render partial: "tasks/due_date_modal", locals: {task: @task} %>
+        </div>
         <span class="title-position-task">Description</span> 
         <button data-toggle="collapse" data-target="#show-description-update" 
           class="btn btn-sm show-description-task">
@@ -56,7 +58,7 @@
     <h3 class="title">Add</h3>
     <ul class="list-setting">
       <li>
-        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+        <button class="btn dropdown-toggle btn-menu-modal-task" type="button" data-toggle="dropdown">
           <i class="fa fa-user" aria-hidden="true"></i> Members
         </button>
         <div class="dropdown-menu">
@@ -73,7 +75,7 @@
                 <% end %>
                 <span><%= user.name %></span>
                 <span class="tick-user-handle-task" data-user-on-list-assign=<%= user.id %>>
-                  <input type="radio" name="assignee" <%= "checked" if task.user.present? && user.id == task.user.id %> >
+                  <input type="radio" name="assignee" <%= "checked" if task.user.present? && user.id == task.user.id %>>
                 </span>
               </li>
             <% end %>
@@ -82,7 +84,7 @@
         </div>
       </li>
       <li>
-        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+        <button class="btn dropdown-toggle btn-menu-modal-task" type="button" data-toggle="dropdown">
           <i class="fa fa-tags" aria-hidden="true"></i> Labels
         </button>
         <div class="dropdown-menu">
@@ -101,13 +103,19 @@
         </div>
       </li>
       <li>
-        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+        <button class="btn dropdown-toggle btn-menu-modal-task" type="button" data-toggle="dropdown">
           <i class="fa fa-clock-o" aria-hidden="true"></i> Due Date
         </button>
         <div class="dropdown-menu">
-          <h3>Due Date</h3>
+          <button class="btn btn-success change-due-date pull-left" data-task-id="<%= @task.id %>">
+            Save
+          </button><h3>Due Date</h3>
           <hr>
           <ul class="list-member-modal">
+            <div id='datetimepicker'>
+            </div>
+            <%= hidden_field_tag :due_date %>
+            
           </ul>
           <div class="close-menu">&times</div>
         </div>
@@ -115,7 +123,22 @@
     </ul>
     <h3 class="title">Actions</h3>
     <ul class="list-setting">
-      <li><button class="btn"><i class="fa fa-arrows" aria-hidden="true"></i> Move</button></li>
+      <button class="btn dropdown-toggle btn-menu-modal-task" type="button" data-toggle="dropdown">
+        <i class="fa fa-arrows" aria-hidden="true"></i> Move
+      </button>
+      <div class="dropdown-menu">
+        <h3>Due Date</h3>
+        <hr>
+        <ul class="list-member-modal">
+          <div id='datetimepicker'>
+          </div>
+            <%= hidden_field_tag :due_date %>
+            <button class="btn btn-success change-due-date">
+              Save
+            </button>
+        </ul>
+        <div class="close-menu">&times</div>
+      </div>
     </ul>
   </div>
 </div>

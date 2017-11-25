@@ -111,11 +111,12 @@ $(function(){
     if (key_word == '') {
       $('.show-info-user-search').html('Search for a person in Trello by name or email address, or enter an email address to invite someone new.');
     } else {
+      var project_id = $('#project_id').val();
       $.ajax({
         url: '/users',
         type: 'GET',
         dataType: 'JSON',
-        data: {key_word: key_word},
+        data: {key_word: key_word, project_id: project_id},
       })
       .done(function(data) {
         var list_user = '<strong><h5>Select to add</h5></strong>' +

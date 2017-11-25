@@ -1,0 +1,8 @@
+<% if task.deadline.present? %>
+  <span class="title-position-task">Due Date</span>
+  <br>
+  <!-- list label -->
+  <div class="due-date btn btn-sm <%= check_due_date task.deadline %>">
+  	<i class="fa fa-clock-o" aria-hidden="true"></i> <%= task.deadline %>
+  </div>
+<% end %>
