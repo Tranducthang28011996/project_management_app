@@ -148,4 +148,9 @@ $(function(){
       }
     });    
   });
+
+  $('body').on('click', '.icon-close-menu', function(event) {
+    event.preventDefault();
+    $('.btn-show-menu-project').trigger('click');
+  });
 });
