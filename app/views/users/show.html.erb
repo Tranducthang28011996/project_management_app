@@ -2,7 +2,7 @@
   <div id="content" style="background-color: #ffffff">
     <div class="profile-content" style="background-color: #e2e4e6; height: 200px; position: relative; ">
       <div class="row justify-content-md-center">
-        <div class="col-md-5 col-md-offset-4 profile-infor">
+        <div class="col-md-5 col-md-offset-3 profile-infor">
           <div class="col-md-12">
             <div class="col-md-3">
               <% if @user.avatar.present? %>
@@ -21,7 +21,7 @@
             <div class="col-md-9 pull-right">
               <table class="user-infor">
                 <tr>
-                  <th><%= @user.name%>(<%= @user.email %>)</th>
+                  <th><%= @user.name%> <span><%= @user.email %></span></th>
                 </tr>
                   <tr>
                     <td><button class="btn btn-secondary edit-profile">

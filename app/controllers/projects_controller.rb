@@ -1,7 +1,8 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!
   before_action :load_project, only: :show
-
+  before_action :check_permission, only: :show
+  
   def index
     @own_projects = current_user.projects
   end
@@ -40,5 +41,10 @@ class ProjectsController < ApplicationController
   	@project = Project.find_by id: params[:id]
   	return if @project
   	redirect_to root_url
+  end
+
+  def check_permission
+    return if @project.get_member.pluck(:id).include? current_user.id
+    redirect_to root_url
   end
 end

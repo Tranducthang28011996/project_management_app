@@ -42,10 +42,10 @@ $(document).ready(function($) {
 });
 
 $(function() {
-  $('.step-menu .close-icon').on('click', function(e){
-    e.preventDefault();
-    $('.step-menu.form-create-project').hide();
-  });
+  // $('.step-menu .close-icon').on('click', function(e){
+  //   e.preventDefault();
+  //   $('.step-menu.form-create-project').hide();
+  // });
 
   $('.form-create-project .back-icon').on('click', function(e){
     e.preventDefault();
@@ -109,7 +109,7 @@ $(function(){
   $('.search-member').keyup(function(event) {
     var key_word = $(this).val();
     if (key_word == '') {
-      $('.show-info-user-search').html('Search for a person in Trello by name or email address, or enter an email address to invite someone new.');
+      $('.show-info-user-search').html('Tìm kiếm một người trên Trello bằng tên hoặc địa chỉ email, hoặc nhập địa chỉ email để mời một người mới.');
     } else {
       var project_id = $('#project_id').val();
       $.ajax({

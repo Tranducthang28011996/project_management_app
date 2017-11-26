@@ -1,0 +1,36 @@
+.btn-page {
+  background: #E2E4E6;
+  box-shadow: 0 1px 0 0 #C4C9CC;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  height: 2pc;
+  margin-top: 8px;
+  padding: 7px 7px 7px 11px;
+  position: relative;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.btn-width-full {
+	width: 100%;
+}
+
+.text-left {
+	text-align: left !important;
+}
+
+.btn-icon {
+  padding: 0px 8px !important;
+  font-size: 19px !important;
+  line-height: 1.5 !important;
+  border-radius: 3px !important;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.35);
+
+  &:hover, &:active {
+  	color: white !important;
+  	background-color: rgba(255, 255, 255, 0.2);
+  }
+}

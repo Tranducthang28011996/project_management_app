@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
   before_action :load_project, only: %i(show create update update_status)
-
+  before_action :check_permission, only: %i(update create)
   def create
     # params[:task][:user_id] = current_user.id
     begin
@@ -31,12 +31,9 @@ class TasksController < ApplicationController
     if @task
       if params[:task][:description].present?
         @task.update_attributes description: params[:task][:description]
-        @task.activities.create activity_type: "description", content: "update", 
-          activity_id: @task.id, user_id: current_user.id
+
         render json: {
-          task: @task,
-          list_activities: render_to_string(partial: "activities/list_activities", 
-            locals: {activities: @task.activities}),
+          task: @task
         }
       end
 
@@ -117,6 +114,11 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit :name, :status_id, :user_id, :description
+  end
+
+  def check_permission
+    return if @project.get_member.pluck(:id).include? current_user.id
+    format_error_js
   end
 
   def format_error_js
