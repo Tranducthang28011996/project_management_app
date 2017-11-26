@@ -31,176 +31,182 @@
 
   <section class="side-bar-menu-project">
     <h4 class="title-menu-info-project"><%= t "project.menu" %></h4>
-    <div class="list-member-project">
-      <% @team_user[0..7].each do |user| %>
-        <%= link_to user, class: "item-member-project" do %>
-          <% if user.avatar.present? %>
-            <%= image_tag user.avatar.url, title: user.name, class: "avatar-item-user-list-member" %>
-          <% else %>
-            <%= image_tag "https://thesocietypages.org/socimages/files/2009/05/vimeo.jpg", title: user.name,
-              class: "avatar-item-user-list-member" %>
+    <div class="icon-close-menu">×</div>
+    <section class="step-chosen scroll-bar-style">
+      <div class="list-member-project">
+        <% @team_user[0..7].each do |user| %>
+          <%= link_to user, class: "item-member-project" do %>
+            <% if user.avatar.present? %>
+              <%= image_tag user.avatar.url, title: user.name, class: "avatar-item-user-list-member" %>
+            <% else %>
+              <%= image_tag "https://thesocietypages.org/socimages/files/2009/05/vimeo.jpg", title: user.name,
+                class: "avatar-item-user-list-member" %>
+            <% end %>
           <% end %>
         <% end %>
-      <% end %>
-      <span class="dropdown dropdown-add-label">
-        <a class="dropdown-toggle btn btn-xs" type="button" data-toggle="dropdown">
-          ...
-        </a>
-        <div class="dropdown-menu list-full-member">  
-        </div>
-      </span>
-    </div>
-    <div class="dropdown">
-      <button class="btn btn-invite-member dropdown-toggle" type="button" data-toggle="dropdown">
-        <i class="fa fa-user-plus" aria-hidden="true"></i> <%= t "project.invite" %>...
-      </button>
-      <div class="dropdown-menu form-search-member">
-        <h3 class="title"><%= t "project.member" %></h3>
-        <input type="text" class="form-control search-member" placeholder="abc@gmail.com">
-        <div class="result-search-user-add">
-          <div class="show-info-user-search">
-            Search for a person in Trello by name or email address, or enter an email address to invite someone new.
+      </div>
+      <div class="dropdown">
+        <button class="btn btn-width-full text-left btn-page dropdown-toggle" type="button" data-toggle="dropdown">
+          <i class="fa fa-user-plus" aria-hidden="true"></i> <%= t "project.invite" %>...
+        </button>
+        <div class="dropdown-menu form-search-member">
+          <span class="header">
+            <%= t "project.member" %>
+          </span>
+          <a class="pop-over-header-close-btn">
+            &times
+          </a>
+          <input type="text" class="form-control input-text search-member" placeholder="abc@gmail.com">
+          <div class="result-search-user-add">
+            <div class="show-info-user-search">
+              Tìm kiếm một người trên Trello bằng tên hoặc địa chỉ email, hoặc nhập địa chỉ email để mời một người mới.
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <hr>
-
-    <ul class="list-setting">
-      <li>
-        <button class="btn btn-settings">
-          <i class="fa fa-filter" aria-hidden="true"></i> <%= t "project.filter_task" %>
-        </button>
-      </li>
-      <li>
-        <button class="btn btn-settings">
-          <i class="fa fa-cog" aria-hidden="true"></i> <%= t "project.setting" %>
-        </button>
-      </li>
-      <li>
-        <button class="btn btn-settings">
-          <i class="fa fa-tags" aria-hidden="true"></i> <%= t "project.labels" %>
-        </button>
-      </li>
-    </ul>
-    <hr>
-    <div class="list-setting">
-      <button class="btn btn-settings">
-        <i class="fa fa-tasks" aria-hidden="true"></i> <%= t "project.activity" %>
-      </button>
-      <ul class="list-activity">
-        <li class="item-activity">
-          <div class="col-xs-2">
-            <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
-          </div>
-          <div class="col-xs-10 info-activity">
-            <a href="#">Vu Duc Tuyen</a>
-            <span>oined view thông tin người dùng</span>
-            <br>
-            <span class="time-stamp">3 hours ago</span>
-          </div>
+      <hr>
+      <ul class="list-setting">
+        <li>
+          <button class="btn btn-settings">
+            <i class="ion-android-funnel" aria-hidden="true"></i> <%= t "project.filter_task" %>
+          </button>
         </li>
-        <li class="item-activity">
-          <div class="col-xs-2">
-            <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
-          </div>
-          <div class="col-xs-10 info-activity">
-            <a href="#">Vu Duc Tuyen</a>
-            <span>oined view thông tin người dùng</span>
-            <br>
-            <span class="time-stamp">3 hours ago</span>
-          </div>
-        </li>
-        <li class="item-activity">
-          <div class="col-xs-2">
-            <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
-          </div>
-          <div class="col-xs-10 info-activity">
-            <a href="#">Vu Duc Tuyen</a>
-            <span>oined view thông tin người dùng</span>
-            <br>
-            <span class="time-stamp">3 hours ago</span>
-          </div>
-        </li>
-        <li class="item-activity">
-          <div class="col-xs-2">
-            <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
-          </div>
-          <div class="col-xs-10 info-activity">
-            <a href="#">Vu Duc Tuyen</a>
-            <span>oined view thông tin người dùng</span>
-            <br>
-            <span class="time-stamp">3 hours ago</span>
-          </div>
-        </li>
-        <li class="item-activity">
-          <div class="col-xs-2">
-            <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
-          </div>
-          <div class="col-xs-10 info-activity">
-            <a href="#">Vu Duc Tuyen</a>
-            <span>oined view thông tin người dùng</span>
-            <br>
-            <span class="time-stamp">3 hours ago</span>
-          </div>
-        </li>
-        <li class="item-activity">
-          <div class="col-xs-2">
-            <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
-          </div>
-          <div class="col-xs-10 info-activity">
-            <a href="#">Vu Duc Tuyen</a>
-            <span>oined view thông tin người dùng</span>
-            <br>
-            <span class="time-stamp">3 hours ago</span>
-          </div>
-        </li>
-        <li class="item-activity">
-          <div class="col-xs-2">
-            <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
-          </div>
-          <div class="col-xs-10 info-activity">
-            <a href="#">Vu Duc Tuyen</a>
-            <span>oined view thông tin người dùng</span>
-            <br>
-            <span class="time-stamp">3 hours ago</span>
-          </div>
-        </li>
-        <li class="item-activity">
-          <div class="col-xs-2">
-            <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
-          </div>
-          <div class="col-xs-10 info-activity">
-            <a href="#">Vu Duc Tuyen</a>
-            <span>oined view thông tin người dùng</span>
-            <br>
-            <span class="time-stamp">3 hours ago</span>
-          </div>
-        </li>
-        <li class="item-activity">
-          <div class="col-xs-2">
-            <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
-          </div>
-          <div class="col-xs-10 info-activity">
-            <a href="#">Vu Duc Tuyen</a>
-            <span>oined view thông tin người dùng</span>
-            <br>
-            <span class="time-stamp">3 hours ago</span>
-          </div>
-        </li>
-        <li class="item-activity">
-          <div class="col-xs-2">
-            <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
-          </div>
-          <div class="col-xs-10 info-activity">
-            <a href="#">Vu Duc Tuyen</a>
-            <span>oined view thông tin người dùng</span>
-            <br>
-            <span class="time-stamp">3 hours ago</span>
+        <li>
+          <div class="dropdown">
+            <button class="btn dropdown-toggle btn-settings" type="button" data-toggle="dropdown">
+              <i class="ion-ios-gear-outline" aria-hidden="true"></i> <%= t "project.setting" %>
+            </button>
+            <div class="dropdown-menu form-search-member">
+              <h3 class="title"><%= t "project.setting" %></h3>
+              <input type="text" class="form-control search-member" placeholder="abc@gmail.com">
+              <div class="result-search-user-add">
+                <div class="show-info-user-search">
+                  Search for a person in Trello by name or email address, or enter an email address to invite someone new.
+                </div>
+              </div>
+            </div>
           </div>
         </li>
       </ul>
-    </div>
-    <div class="icon-close-menu">×</div>
+      <hr>
+      <div class="list-setting">
+        <button class="btn btn-settings">
+          <i class="ion-ios-barcode-outline" aria-hidden="true"></i> <%= t "project.activity" %>
+        </button>
+        <ul class="list-activity">
+          <li class="item-activity">
+            <div class="col-xs-2">
+              <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
+            </div>
+            <div class="col-xs-10 info-activity">
+              <a href="#">Vu Duc Tuyen</a>
+              <span>oined view thông tin người dùng</span>
+              <br>
+              <span class="time-stamp">3 hours ago</span>
+            </div>
+          </li>
+          <li class="item-activity">
+            <div class="col-xs-2">
+              <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
+            </div>
+            <div class="col-xs-10 info-activity">
+              <a href="#">Vu Duc Tuyen</a>
+              <span>oined view thông tin người dùng</span>
+              <br>
+              <span class="time-stamp">3 hours ago</span>
+            </div>
+          </li>
+          <li class="item-activity">
+            <div class="col-xs-2">
+              <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
+            </div>
+            <div class="col-xs-10 info-activity">
+              <a href="#">Vu Duc Tuyen</a>
+              <span>oined view thông tin người dùng</span>
+              <br>
+              <span class="time-stamp">3 hours ago</span>
+            </div>
+          </li>
+          <li class="item-activity">
+            <div class="col-xs-2">
+              <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
+            </div>
+            <div class="col-xs-10 info-activity">
+              <a href="#">Vu Duc Tuyen</a>
+              <span>oined view thông tin người dùng</span>
+              <br>
+              <span class="time-stamp">3 hours ago</span>
+            </div>
+          </li>
+          <li class="item-activity">
+            <div class="col-xs-2">
+              <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
+            </div>
+            <div class="col-xs-10 info-activity">
+              <a href="#">Vu Duc Tuyen</a>
+              <span>oined view thông tin người dùng</span>
+              <br>
+              <span class="time-stamp">3 hours ago</span>
+            </div>
+          </li>
+          <li class="item-activity">
+            <div class="col-xs-2">
+              <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
+            </div>
+            <div class="col-xs-10 info-activity">
+              <a href="#">Vu Duc Tuyen</a>
+              <span>oined view thông tin người dùng</span>
+              <br>
+              <span class="time-stamp">3 hours ago</span>
+            </div>
+          </li>
+          <li class="item-activity">
+            <div class="col-xs-2">
+              <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
+            </div>
+            <div class="col-xs-10 info-activity">
+              <a href="#">Vu Duc Tuyen</a>
+              <span>oined view thông tin người dùng</span>
+              <br>
+              <span class="time-stamp">3 hours ago</span>
+            </div>
+          </li>
+          <li class="item-activity">
+            <div class="col-xs-2">
+              <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
+            </div>
+            <div class="col-xs-10 info-activity">
+              <a href="#">Vu Duc Tuyen</a>
+              <span>oined view thông tin người dùng</span>
+              <br>
+              <span class="time-stamp">3 hours ago</span>
+            </div>
+          </li>
+          <li class="item-activity">
+            <div class="col-xs-2">
+              <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
+            </div>
+            <div class="col-xs-10 info-activity">
+              <a href="#">Vu Duc Tuyen</a>
+              <span>oined view thông tin người dùng</span>
+              <br>
+              <span class="time-stamp">3 hours ago</span>
+            </div>
+          </li>
+          <li class="item-activity">
+            <div class="col-xs-2">
+              <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
+            </div>
+            <div class="col-xs-10 info-activity">
+              <a href="#">Vu Duc Tuyen</a>
+              <span>oined view thông tin người dùng</span>
+              <br>
+              <span class="time-stamp">3 hours ago</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    
   </section>
 </div>

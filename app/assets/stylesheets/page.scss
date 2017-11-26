@@ -227,3 +227,48 @@ label {
     color:#2590EB;
   }
 }
+
+.dropdown-menu {
+  .header {
+    border-bottom: 1px solid #D6DADC;
+    box-sizing: border-box;
+    color: #838c91;
+    display: block;
+    line-height: 33px;
+    margin: 0 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    padding: 0 2pc;
+    position: relative;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    z-index: 1;
+  }
+
+  .pop-over-header-close-btn {
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px 10px 10px 4px !important;
+    position: absolute;
+    right: 0;
+    text-decoration: none;
+    top: 0;
+    z-index: 2;
+  }
+
+  .input-text {
+    -webkit-appearance: none;
+    background-color: #E2E4E6;
+    border-radius: 3px;
+    border: 1px solid #CDD2D4;
+    box-sizing: border-box;
+    display: block;
+    margin-bottom: 9pt;
+    padding: 7px;
+  }
+}
+
+.show-info-user-search {
+  color: #838c91;
+}

@@ -35,7 +35,6 @@ $(function(){
       $('.form-description-task').val(data.task.description);
       $('.description-task').html(data.task.description);
       $('body .show-description-task').click();
-      $('body .list-activity').html(data.list_activities);
     });
   });
 

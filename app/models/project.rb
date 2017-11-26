@@ -9,7 +9,15 @@ class Project < ApplicationRecord
 
   scope :search, search
 
+  # scope :get_leader, (lambda do
+  #   team.team_users.where is_leader: true
+  # end)
+
   def get_member
   	User.where id: (team.users.pluck(:id) + [owner_id])
+  end
+
+  def get_leader
+    team.team_users.where is_leader: true
   end
 end

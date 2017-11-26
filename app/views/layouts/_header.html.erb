@@ -26,28 +26,27 @@
     <div class="row right-header-menu pull-right">
       <div class="col-md-2 col-xs-2 col-xs-offset-3 col-md-offset-3">
         <span class="right-dropdown-menu">
-          <button class="btn btn-sm btn-project btn-notify dropdown-toggle" data-toggle="dropdown">
-            <i class="fa fa-plus" aria-hidden="true"></i>
+          <button class="btn btn-sm btn-icon dropdown-toggle" data-toggle="dropdown">
+            <i class="ion-plus-round" aria-hidden="true"></i>
           </button>
-          <ul class="dropdown-menu">
-            <li><h5 class="user-name text-center">Create</h5></li>
-            <hr>
-            <li>
-              <a href="#" class="btn-create-new-project">
-                Create new table...
-                <p>
-                  A board is made up of cards ordered on lists. Use it to manage projects, track information, or organize anything.
-                </p>
-              </a>
-              
-            </li>
-            <li>
-              <a href="#">Create new team...</a>
-            </li>
-            <div class="close-icon">
+          <div class="dropdown-menu">
+            <span class="header">
+              Tạo mới
+            </span>
+            <a class="pop-over-header-close-btn">
               &times
-            </div>
-          </ul>
+            </a>
+            <ul>
+              <li>
+                <a href="#" class="btn-create-new-project">
+                  Tạo dự án mới...
+                </a>
+                <span>
+                  Một bảng được tạo thành từ các thẻ được sắp xếp trong danh sách. Sử dụng bảng để quản lý các dự án, theo dõi thông tin, hoặc tổ chức bất cứ việc gì.
+                </span>
+              </li>
+            </ul>
+          </div>
           <div class="step-menu form-create-project">
             <li><h5 class="user-name text-center">Create new</h5></li>
             <hr>
@@ -75,23 +74,24 @@
       </div>
 
       <div class="col-md-2 col-xs-2">
-        <button class="btn btn-sm btn-project btn-notify">
-          <i class="fa fa-question-circle" aria-hidden="true"></i>
+        <button class="btn btn-sm btn-icon dropdown-toggle" data-toggle="dropdown">
+          <i class="ion-ios-help" aria-hidden="true"></i>
         </button>
       </div>
 
       <div class="col-md-2 col-xs-2">
         <span class="right-dropdown-menu">
-          <button class="btn btn-sm btn-project btn-notify dropdown-toggle" data-toggle="dropdown">
-            <i class="fa fa-bell-o" aria-hidden="true"></i>
+          <button class="btn btn-sm btn-icon dropdown-toggle" data-toggle="dropdown">
+            <i class="ion-android-notifications" aria-hidden="true"></i>
           </button>
           <ul class="dropdown-menu">
-            <li><h5 class="user-name text-center">Notification</h5></li>
-            <hr>
-            <li><a href="#">HTML</a></li>
-            <div class="close-icon">
+            <span class="header">
+              Thông báo
+            </span>
+            <a class="pop-over-header-close-btn">
               &times
-            </div>
+            </a>
+            <li><a href="#">HTML</a></li>
           </ul>
         </span>
       </div>
@@ -106,17 +106,18 @@
             <% end %>
           </a>
           <ul class="dropdown-menu">
-            <li><h5 class="user-name text-center"><%= current_user.name %></h5></li>
-            <hr>
+            <span class="header">
+              <%= current_user.name %>
+            </span>
+            <a class="pop-over-header-close-btn">
+              &times
+            </a>
             <li><%= link_to "Profile", user_path(current_user) %></li>
             <hr>
             <li><a href="#">JavaScript</a></li>
             <li><a href="#">JavaScript</a></li>
             <hr>
             <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-            <div class="close-icon">
-              &times
-            </div>
           </ul>
         </span>
       </div>
