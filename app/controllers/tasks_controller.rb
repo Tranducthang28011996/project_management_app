@@ -29,6 +29,14 @@ class TasksController < ApplicationController
   def update
     @task = @project.tasks.find_by id: params[:id]
     if @task
+      if params[:task][:name].present?
+        @task.update_attributes name: params[:task][:name]
+
+        render json: {
+          task: @task
+        }
+      end
+
       if params[:task][:description].present?
         @task.update_attributes description: params[:task][:description]
 

@@ -125,13 +125,29 @@ $(function(){
       $('body .block-due-date-modal').html(data.due_date_info);
       $('body #block-due-date-task-' + data.task.id).html(data.due_date_task);
     })
-    .fail(function() {
-      console.log("error");
-    })
-    .always(function() {
-      console.log("complete");
-    });
-    
+  });
+
+  $('body').on('change', '.title-task', function(event) {
+    event.preventDefault();
+    var task_id = $('#task_id').val();
+    var url = window.location.pathname + '/tasks/' + task_id;
+    var name = $(this).val();
+    if (name != '') {
+      $.ajax({
+        url: url,
+        type: 'PATCH',
+        dataType: 'json',
+        data: {task: {name: name}},
+      })
+      .done(function(data) {
+        if (data != undefined) {
+          $('body .title-task').val(data.task.name);
+          $('body #task-name-' + data.task.id).html(data.task.name);
+        } else {
+          alert('Vui lòng thử lại cập nhật tên của task');
+        }
+      })
+    }
   });
 });
 
