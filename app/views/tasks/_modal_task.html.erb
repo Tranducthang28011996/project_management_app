@@ -61,11 +61,12 @@
     <ul class="list-setting">
       <li>
         <button class="btn dropdown-toggle btn-menu-modal-task" type="button" data-toggle="dropdown">
-          <i class="fa fa-user" aria-hidden="true"></i> Members
+          <i class="fa fa-user" aria-hidden="true"></i> <%= t "project.member" %>
         </button>
         <div class="dropdown-menu">
-          <h3>Members</h3>
+          <h3><%= t "project.member" %></h3>
           <hr>
+          <input type="text" class="search-user-modal form-control" placeholder="Tìm kiếm các thành viên">
           <ul class="list-member-modal">
             <% @member.each do |user| %>
               <li class="item-member-modal">
@@ -76,7 +77,8 @@
                 <% end %>
                 <span><%= user.name %></span>
                 <span class="tick-user-handle-task" data-user-on-list-assign=<%= user.id %>>
-                  <input type="radio" name="assignee" <%= "checked" if task.user.present? && user.id == task.user.id %>>
+                  <input id="radio-1" class="radio-custom" name="assignee" type="radio" <%= "checked" if task.user.present? && user.id == task.user.id %>>
+                  <label for="radio-1" class="radio-custom-label"></label>
                 </span>
               </li>
             <% end %>
@@ -89,7 +91,7 @@
           <i class="fa fa-tags" aria-hidden="true"></i> Labels
         </button>
         <div class="dropdown-menu">
-          <h3>Labels</h3>
+          <h3>Nhãn</h3>
           <hr>
           <input type="text" class="search-user-modal form-control" placeholder="Search members">
           <ul class="list-member-modal">
@@ -105,19 +107,33 @@
       </li>
       <li>
         <button class="btn dropdown-toggle btn-menu-modal-task" type="button" data-toggle="dropdown">
-          <i class="fa fa-clock-o" aria-hidden="true"></i> Due Date
+          <i class="fa fa-clock-o" aria-hidden="true"></i> Ngày hết hạn
         </button>
-        <div class="dropdown-menu">
-          <button class="btn btn-success change-due-date pull-left" data-task-id="<%= @task.id %>">
-            Save
-          </button><h3>Due Date</h3>
+        <div class="dropdown-menu form-due-date">
+          <h3>Ngày hết hạn</h3>
           <hr>
-          <ul class="list-member-modal">
-            <div id='datetimepicker'>
+          <div class="form-group">
+            <div class='input-group date' id='datetimepicker1'>
+              <%= text_field_tag :deadline, @task.deadline, class: "form-control" %>
+              <span class="input-group-addon btn-date-picker">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </span>
             </div>
-            <%= hidden_field_tag :due_date %>
-            
-          </ul>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <button class="btn btn-page btn-success change-due-date pull-left" 
+                data-task-id="<%= @task.id %>">
+                Lưu
+              </button>
+            </div>
+            <div class="col-md-6">
+              <button class="btn btn-page btn-danger change-due-date remove-due-date pull-right">
+                Hủy ngày hết hạn
+              </button>
+            </div>  
+          </div>
+          
           <div class="close-menu">&times</div>
         </div>
       </li>

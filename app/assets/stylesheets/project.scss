@@ -605,7 +605,7 @@ body {
         padding-right: 5px;
         overflow-x: hidden;
         overflow-y: auto;
-        height: 242px;
+        height: 192px;
 
         .avatar-item-user-list-member {
           border-radius: 50%;
@@ -615,7 +615,7 @@ body {
         }
 
         .item-member-modal {
-          padding: 5px;
+          padding: 3px 5px;
           border-radius: 4px;
 
           &:hover {
@@ -633,7 +633,8 @@ body {
         .item-label-modal {
           padding: 5px;
           border-radius: 4px;
-
+          margin-bottom: 3px;
+          
           &:hover {
             background-color: #5cb85c;
             color: white;
