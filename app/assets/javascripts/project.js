@@ -159,4 +159,14 @@ $(function(){
     event.preventDefault();
     $('body .btn-menu-modal-task').trigger('click');
   });
+
+  $('body').on('click', '.label-list-item-link', function() {
+    var url = $(this).attr('href');
+
+    $.ajax({
+      url: url
+    });
+
+    return false;
+  });
 });

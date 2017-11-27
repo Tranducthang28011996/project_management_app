@@ -17,13 +17,7 @@
   <%= hidden_field_tag :project_id, @project.id %>
   <%= hidden_field_tag :team_id, @project.team.id %>
 
-  <section class="board-container" id="connected">
-    <%= render partial: "projects/item_board", locals: {status: "new"} %>
-    <%= render partial: "projects/item_board", locals: {status: "in_process"} %>
-    <%= render partial: "projects/item_board", locals: {status: "resolved"} %>
-    <%= render partial: "projects/item_board", locals: {status: "testing"} %>
-    <%= render partial: "projects/item_board", locals: {status: "done"} %>
-  </section>
+  <%= render "projects/board" %>
 
   <div class="multi-dropdown">
     <section class="main step step-1 side-bar-menu-project">
@@ -123,7 +117,51 @@
       <div class="icon-back-menu pop-over-header-back-btn"><i class="ion-android-arrow-back"></i></i></div>
       <div class="icon-close-menu pop-over-header-close-btn"><i class="ion-android-close"></i></div>
       <span class="header">
-        Tạo dự án mới
+        <div class="filter-project">
+          <hr>
+          <input type="" class="input-filter-task" name="">
+          <ul class="label-list">
+            <li class="label-list-item">
+              <a class="label-list-item-link js-toggle-label-filter"
+                href="<%= project_path @project %>">
+                <div class="label-list-item-link-label color-default" >
+                  <span class="card-label mod-square card-label-"></span>
+                </div>
+                <span class="label-list-item-link-name">Tất cả</span>
+              </a>
+            </li>
+            <% if @labels.any? %>
+              <% @labels.each do |label| %>
+                <li class="label-list-item">
+                  <a class="label-list-item-link js-toggle-label-filter"
+                    href="<%= project_path @project %>?label=<%= label.id %>">
+                    <div class="label-list-item-link-label color-<%= label.name %>">
+                      <span class="card-label mod-square card-label-"></span>
+                    </div>
+                    <span class="label-list-item-link-name"><%= label.name %></span>
+                  </a>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+          <hr>
+          <ul class="label-list">
+            <% if @users.any? %>
+              <% @users.each do |user| %>
+                <li class="label-list-item">
+                  <a class="label-list-item-link js-toggle-label-filter"
+                    href="<%= project_path @project %>?user=<%= user.user_id %>">
+                    <div class="label-list-item-link-label" style="border-radius: 50px;">
+                      <%= image_tag "https://thesocietypages.org/socimages/files/2009/05/vimeo.jpg", 
+                        class: "avatar-filter", title: user.name %>
+                    </div>
+                    <span class="label-list-item-link-name"><%= user.name %> (<%= user.email %>)</span>
+                  </a>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
       </span>
     </section>
   </div>
