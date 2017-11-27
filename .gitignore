@@ -20,5 +20,5 @@
 public/*
 test/*
 
-config/database.yml
-config/secrets.yml
+# config/database.yml
+# config/secrets.yml
