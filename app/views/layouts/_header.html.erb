@@ -48,7 +48,12 @@
             </ul>
           </div>
           <div class="step-menu form-create-project">
-            <li><h5 class="user-name text-center">Create new</h5></li>
+            <span class="header">
+              Tạo mới
+            </span>
+            <a class="pop-over-header-close-btn">
+              &times
+            </a>
             <hr>
             <%= form_for(:project, url: projects_path, html:{method: :post, :class => "form"}) do |f| %>
               <div class="form-group">
@@ -66,9 +71,6 @@
             <div class="back-icon">
               <i class="fa fa-angle-left" aria-hidden="true"></i>
             </div>
-            <div class="close-icon">
-              &times
-            </div>
           </div>
         </span>
       </div>
@@ -82,7 +84,7 @@
       <div class="col-md-2 col-xs-2">
         <span class="right-dropdown-menu">
           <button class="btn btn-sm btn-icon dropdown-toggle" data-toggle="dropdown">
-            <i class="ion-android-notifications" aria-hidden="true"></i>
+            <i class="ion-android-notifications-none" aria-hidden="true"></i>
           </button>
           <ul class="dropdown-menu">
             <span class="header">

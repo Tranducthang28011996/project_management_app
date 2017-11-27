@@ -19,3 +19,6 @@
 .byebug_history
 public/*
 test/*
+
+config/database.yml
+config/secrets.yml
