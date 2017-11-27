@@ -1,6 +1,6 @@
 <div class="row">
   <div id="content" style="background-color: #ffffff">
-    <div class="profile-content" style="background-color: #e2e4e6; height: 200px; position: relative; ">
+    <div class="profile-content" style="background-color: #e2e4e6; height: 200px;">
       <div class="row justify-content-md-center">
         <div class="col-md-5 col-md-offset-3 profile-infor">
           <div class="col-md-12">
@@ -26,7 +26,7 @@
                   <tr>
                     <td><button class="btn btn-secondary edit-profile">
                     <i class="fa fa-pencil" aria-hidden="true"></i>
-                    <%= link_to "Edit profile", edit_user_path(current_user), medthod: :patch, remote: :true %></button></td>
+                    <%= link_to "Edit profile", edit_user_path(current_user), method: :patch, remote: :true %></button></td>
                   </tr>
               </table>
               <div class="show-edit-profile" style="display: none;">
@@ -68,24 +68,130 @@
           </div>
         </div>
       </div>
-      <div style="position: absolute; bottom: -86px; right: 47%">
-        <ul class="nav nav-tabs text-center">
-          <li class="active"><a data-toggle="tab" href="#home">Profile</a></li>
-          <li><a data-toggle="tab" href="#menu1">Card</a></li>
-          <li><a data-toggle="tab" href="#menu2">Settings</a></li>
-        </ul>
-        <div class="tab-content">
-          <div id="home" class="tab-pane fade in active">
-            <h3>HOME</h3>
-            <p>Some content.</p>
-          </div>
-          <div id="menu1" class="tab-pane fade">
-            <h3>Menu 1</h3>
-            <p>Some content in menu 1.</p>
-          </div>
-          <div id="menu2" class="tab-pane fade">
-            <h3>Menu 2</h3>
-            <p>Some content in menu 2.</p>
+    </div>
+    <div class="row" style="position: relative;">
+      <div class="body-content col-md-offset-1 col-md-10" style="position: absolute;top: -42px;">
+        <div >
+          <ul class="nav nav-tabs text-center">
+            <li class="active"><a data-toggle="tab" href="#home">Profile</a></li>
+            <li><a data-toggle="tab" href=".cards">Card</a></li>
+            <li><a data-toggle="tab" href=".menu2">Settings</a></li>
+          </ul>
+          <div class="tab-content">
+            <div id="home" class="tab-pane fade in active">
+              <h3>HOME</h3>
+              <p>Some content.</p>
+            </div>
+            <div class="cards tab-pane fade">
+              <br>
+              <div class="projects">
+                <% @projects.each  do |project| %>
+                <% @task = {
+                    new: project.tasks.any? ? project.tasks.where(status_id: 1).order("updated_at DESC") : [],
+                    in_process: project.tasks.any? ? project.tasks.where(status_id: 2) : [],
+                    resolved: project.tasks.any? ? project.tasks.where(status_id: 3) : [],
+                    testing: project.tasks.any? ? project.tasks.where(status_id: 4) : [],
+                    done: project.tasks.any? ? project.tasks.where(status_id: 5) : []
+                  } %>
+                  <div class="project">
+                    <div class="title" style="clear: both;">
+                      <%= project.name %>
+                    </div>
+                    <div class="content">
+                      
+                        <div class="item-board" data-type-task="new" style="float: left">
+                          <div class="header-board">
+                            <span>New</span>
+                            <button class="btn btn-sm btn-info-item-board">
+                              <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                            </button>
+                          </div>
+                          <div class="task-board connected sortable list" data-status-request="new">
+                            <% if @task[:new].any? %>
+                              <% @task[:new].each do |task| %>
+                                <%= render partial: "tasks/item_task", locals: {task: task} %>
+                              <% end %>
+                            <% end %>
+                          </div>
+                        </div>
+                      
+                      
+                        <div class="item-board" data-type-task="in_process" style="float: left">
+                          <div class="header-board">
+                            <span>In Process</span>
+                            <button class="btn btn-sm btn-info-item-board">
+                              <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                            </button>
+                          </div>
+                          <div class="task-board connected sortable list" data-status-request="in_process">
+                            <% if @task[:in_process].any? %>
+                              <% @task[:in_process].each do |task| %>
+                                <%= render partial: "tasks/item_task", locals: {task: task} %>
+                              <% end %>
+                            <% end %>
+                          </div>
+                        </div>
+                      
+                      
+                        <div class="item-board" data-type-task="resolved" style="float: left">
+                          <div class="header-board">
+                            <span>Resolved</span>
+                            <button class="btn btn-sm btn-info-item-board">
+                              <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                            </button>
+                          </div>
+                          <div class="task-board connected sortable list" data-status-request="resolved">
+                            <% if @task[:resolved].any? %>
+                              <% @task[:resolved].each do |task| %>
+                                <%= render partial: "tasks/item_task", locals: {task: task} %>
+                              <% end %>
+                            <% end %>
+                          </div>
+                        </div>
+                      
+                      
+                        <div class="item-board" data-type-task="testing" style="float: left">
+                          <div class="header-board">
+                            <span>Testing</span>
+                            <button class="btn btn-sm btn-info-item-board">
+                              <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                            </button>
+                          </div>
+                          <div class="task-board connected sortable list" data-status-request="testing">
+                            <% if @task[:testing].any? %>
+                              <% @task[:testing].each do |task| %>
+                                <%= render partial: "tasks/item_task", locals: {task: task} %>
+                              <% end %>
+                            <% end %>
+                          </div>
+                        </div>
+                      
+                      
+                        <div class="item-board" data-type-task="done" style="float: left">
+                          <div class="header-board">
+                            <span>Done</span>
+                            <button class="btn btn-sm btn-info-item-board">
+                              <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                            </button>
+                          </div>
+                          <div class="task-board connected sortable list" data-status-request="done">
+                            <% if @task[:done].any? %>
+                              <% @task[:done].each do |task| %>
+                                <%= render partial: "tasks/item_task", locals: {task: task} %>
+                              <% end %>
+                            <% end %>
+                          </div>
+                        </div>
+                      
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <div class="menu2 tab-pane fade">
+              <h3>Menu 2</h3>
+              <p>Some content in menu 2.</p>
+            </div>
           </div>
         </div>
       </div>

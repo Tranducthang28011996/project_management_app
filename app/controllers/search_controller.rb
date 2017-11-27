@@ -8,7 +8,11 @@ class SearchController < ApplicationController
 
       render json: {
         status: true,
-        html: render_to_string(partial: "search/result", layout: false)
+        html: render_to_string(
+          partial: "search/result",
+          layout: false,
+          locals: {projects: @projects, tasks: @tasks}
+        )
       }
     end
   end

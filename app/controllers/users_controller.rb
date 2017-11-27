@@ -6,7 +6,17 @@ class UsersController < ApplicationController
     render json: {list_user: render_to_string(partial: "users/user", collection: @users)}
   end
   
-  def show; end
+  def show
+    @projects = current_user.projects
+    # @team_user = @project.get_member
+    # @task = {
+    #   new: @project.tasks.any? ? @project.tasks.where(status_id: 1).order("updated_at DESC") : [],
+    #   in_process: @project.tasks.any? ? @project.tasks.where(status_id: 2) : [],
+    #   resolved: @project.tasks.any? ? @project.tasks.where(status_id: 3) : [],
+    #   testing: @project.tasks.any? ? @project.tasks.where(status_id: 4) : [],
+    #   done: @project.tasks.any? ? @project.tasks.where(status_id: 5) : []
+    # }
+  end
 
   def edit; end
 
