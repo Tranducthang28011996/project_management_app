@@ -8,7 +8,7 @@
         <a href="#"><%= activity.user.name %></a>
         <span><%= activity.activity_type + " " + activity.content %></span>
         <br>
-        <span class="time-stamp">3 hours ago</span>
+        <span class="time-stamp">3 <%= t "activities.time_ago" %></span>
       </div>
     </li>
   <% end %>

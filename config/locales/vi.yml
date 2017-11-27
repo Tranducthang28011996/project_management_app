@@ -1,15 +1,16 @@
 vi:
-  project:
-    owner_project: "Dự án của bạn:"
-    member_project: "Bạn thuộc các dự án:"
-    show_menu: "Hiện Menu"
-    menu: "Menu"
-    member: "Thành viên"
-    invite: "Mời"
-    filter_task: "Lọc công việc"
-    setting: "Thiết lập"
-    labels: "Nhãn"
-    activity: "Hoạt động"
+  projects:
+    show:
+      user_search: "Tìm kiếm một người trên Trello bằng tên hoặc địa chỉ email, hoặc nhập địa chỉ email để mời một người mới."
+      menu: "Menu"
+      invite: "Mời"
+      setting: "Thiết lập"
+      show_menu: "Hiện Menu"
+      filter_task: "Lọc công việc"
+      activity: "Hoạt động"
+    index:
+      owner_project: "Dự án của bạn:"
+      member_project: "Bạn thuộc các dự án:"
   task:
     status:
       new: "Mới"
@@ -19,3 +20,18 @@ vi:
       done: "Hoàn thiện"
     add_task: "Thêm công việc"
     add: "Thêm"
+  search:
+    result:
+      result: "Không có kết quả tìm kiếm."
+  tasks:
+    due_date: "Ngày hết hạn"
+    remove_due_date: "Hủy ngày hết hạn"
+    action: "Hành động"
+    label: "Nhãn"
+    add_comment: "Thêm bình luận"
+    edit_desciption: "Chỉnh sửa mô tả"
+    description: "Mô tả"
+    add: "Thêm"
+    activity: "Hoạt động"
+    in_list: "Trong danh sách "
+    member: "Thành viên"

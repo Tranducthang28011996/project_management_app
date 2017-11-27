@@ -1,5 +1,5 @@
 <% if task.deadline.present? %>
-  <span class="title-position-task">Due Date</span>
+  <span class="title-position-task"><%= t ".due_date" %></span>
   <br>
   <!-- list label -->
   <div class="due-date btn btn-sm <%= check_due_date task.deadline %>">
