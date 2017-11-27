@@ -80,9 +80,23 @@
 
 .block-due-date-modal {
   margin-bottom: 10px;
+
+}
+
+.due-date i {
+  color: white !important;
 }
 
 .block-due-date-task {
   position: absolute;
   top: 50px;
+}
+
+.btn-label {
+  border-radius: 2px !important;
+}
+
+.form-due-date {
+  padding: 8px !important;
+  height: 156px !important;
 }

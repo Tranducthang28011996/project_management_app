@@ -10,12 +10,11 @@ $(function(){
     })
     .done(function(data) {
       $('body .modal-body').html(data.task);
-      datepickerDefault = new MtrDatepicker({
-        target: "datetimepicker",
+      $('.btn-date-picker').on('click', function(event) {
+        event.stopPropagation();
       });
-      var datepickerOutputElement = document.getElementById('due_date');
-      datepickerDefault.onChange('all', function() {
-        $('#due_date').val(datepickerDefault.format('YYYY-MM-DD HH:mm'))
+      $('#datetimepicker1').datetimepicker({
+        format: 'YYYY-MM-DD hh:mm:ss'
       });
     });
   });
@@ -113,7 +112,15 @@ $(function(){
   $('body').on('click', '.change-due-date', function(event) {
     event.preventDefault();
     var task_id = $(this).data('task-id');
-    var deadline = $('#due_date').val();
+    var deadline;
+    var check_remove = $(this).hasClass('remove-due-date');
+    
+    if (check_remove) {
+      deadline = null;
+    } else {
+      deadline = $(this).closest('.form-due-date').find('input[name="deadline"]').val();
+    }
+
     var url = window.location.pathname + '/tasks/' + task_id;
     $.ajax({
       url: url,
@@ -122,8 +129,13 @@ $(function(){
       data: {task:{deadline: deadline}},
     })
     .done(function(data) {
-      $('body .block-due-date-modal').html(data.due_date_info);
-      $('body #block-due-date-task-' + data.task.id).html(data.due_date_task);
+      if (check_remove) {
+        $('body .block-due-date-modal').html('');
+        $('body #block-due-date-task-' + data.task.id).html('');
+      } else {
+        $('body .block-due-date-modal').html(data.due_date_info);
+        $('body #block-due-date-task-' + data.task.id).html(data.due_date_task);
+      }
     })
   });
 
