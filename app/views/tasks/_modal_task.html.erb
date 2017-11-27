@@ -5,7 +5,7 @@
         <i class="fa fa-braille" aria-hidden="true"></i> 
         <input type="text" name="" class="title-task" value="<%= task.name %>">
       <div class="detail-content">
-        <span class="title-position-task">in list <a href=""><%= task.status.name %></a></span>
+        <span class="title-position-task"><%= t "tasks.in_list"%><a href=""><%= task.status.name %></a></span>
         <%= hidden_field_tag :task_id, task.id %>
         <br>
         <div class="block-label-modal">
@@ -14,17 +14,17 @@
         <div class="block-due-date-modal">
           <%= render partial: "tasks/due_date_modal", locals: {task: @task} %>
         </div>
-        <span class="title-position-task">Description</span> 
+        <span class="title-position-task"><%= t "tasks.description" %></span> 
         <button data-toggle="collapse" data-target="#show-description-update" 
           class="btn btn-sm show-description-task">
-          <i class="fa fa-align-left" aria-hidden="true"></i> Edit the description...
+          <i class="fa fa-align-left" aria-hidden="true"></i><%= t "tasks.edit_desciption" %>
         </button>
         <br>
         <%= form_for [project, task] do |f| %>
 	        <div class="collapse" id="show-description-update">
 	        	<%= f.text_area :description, class: "form-control form-description-task", rows: "5",
               placeholder: "Add a more detailed description…" %>
-	        	<%= f.submit "Save",class: "btn btn-sm btn-success btn-save-description" %>
+	        	<%= f.submit t("save"),class: "btn btn-sm btn-success btn-save-description" %>
             <button class="close-edit-description" >&times</button>
 	        </div>
         <% end %>
@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="content-task">
-      <h4><i class="fa fa-comments-o" aria-hidden="true"></i> Add Comment</h4>
+      <h4><i class="fa fa-comments-o" aria-hidden="true"></i><%= t "tasks.add_comment" %></h4>
       <div class="detail-content-comment">
         <div class="row">
           <div class="col-md-1">
@@ -43,12 +43,12 @@
             <% end %>
           </div>
           <div class="col-md-11 box-comment">
-            <textarea rows="3" class="form-control comment-textarea" placeholder="Write a comment…"></textarea>
-            <button class="btn btn-sm btn-success">save</button>
+            <textarea rows="3" class="form-control comment-textarea" placeholder="Viết bình luận..."></textarea>
+            <button class="btn btn-sm btn-success"><%= t "save" %></button>
           </div>
         </div>
       </div>
-      <h4><i class="fa fa-tasks" aria-hidden="true"></i> Activity</h4>
+      <h4><i class="fa fa-tasks" aria-hidden="true"></i><%= t "tasks.activity" %></h4>
       <div class="detail-content">
         <ul class="list-activity">
           <%= render partial: "activities/list_activities", locals: {activities: task.activities} %>
@@ -57,11 +57,11 @@
     </div>
   </div>
   <div class="col-md-3 action-modal-task">
-    <h3 class="title">Add</h3>
+    <h3 class="title"><%= t "tasks.add" %></h3>
     <ul class="list-setting">
       <li>
         <button class="btn dropdown-toggle btn-menu-modal-task" type="button" data-toggle="dropdown">
-          <i class="fa fa-user" aria-hidden="true"></i> <%= t "project.member" %>
+          <i class="fa fa-user" aria-hidden="true"></i> <%= t "tasks.member" %>
         </button>
         <div class="dropdown-menu">
           <h3><%= t "project.member" %></h3>
@@ -88,12 +88,12 @@
       </li>
       <li>
         <button class="btn dropdown-toggle btn-menu-modal-task" type="button" data-toggle="dropdown">
-          <i class="fa fa-tags" aria-hidden="true"></i> Labels
+          <i class="fa fa-tags" aria-hidden="true"></i><%= t "tasks.label" %>
         </button>
         <div class="dropdown-menu">
-          <h3>Nhãn</h3>
+          <h3><%= "tasks.label" %></h3>
           <hr>
-          <input type="text" class="search-user-modal form-control" placeholder="Search members">
+          <input type="text" class="search-user-modal form-control" placeholder="Tìm kiếm thành viên">
           <ul class="list-member-modal">
             <% Label.all.each do |label|%>
               <li class="item-label-modal btn-<%= label.name %>" data-label-id="<%= label.id %>">
@@ -107,10 +107,10 @@
       </li>
       <li>
         <button class="btn dropdown-toggle btn-menu-modal-task" type="button" data-toggle="dropdown">
-          <i class="fa fa-clock-o" aria-hidden="true"></i> Ngày hết hạn
+          <i class="fa fa-clock-o" aria-hidden="true"></i> <%= t "tasks.due_date"%>
         </button>
         <div class="dropdown-menu form-due-date">
-          <h3>Ngày hết hạn</h3>
+          <h3><%= t "tasks.due_date"%></h3>
           <hr>
           <div class="form-group">
             <div class='input-group date' id='datetimepicker1'>
@@ -124,12 +124,12 @@
             <div class="col-md-6">
               <button class="btn btn-page btn-success change-due-date pull-left" 
                 data-task-id="<%= @task.id %>">
-                Lưu
+                <%= t "save" %>
               </button>
             </div>
             <div class="col-md-6">
               <button class="btn btn-page btn-danger change-due-date remove-due-date pull-right">
-                Hủy ngày hết hạn
+                <% t "tasks.remove_due_date" %>
               </button>
             </div>  
           </div>
@@ -138,20 +138,20 @@
         </div>
       </li>
     </ul>
-    <h3 class="title">Actions</h3>
+    <h3 class="title"><%= t "tasks.action" %></h3>
     <ul class="list-setting">
       <button class="btn dropdown-toggle btn-menu-modal-task" type="button" data-toggle="dropdown">
-        <i class="fa fa-arrows" aria-hidden="true"></i> Move
+        <i class="fa fa-arrows" aria-hidden="true"></i><%= t "move" %>
       </button>
       <div class="dropdown-menu">
-        <h3>Due Date</h3>
+        <h3><%= t "tasks.due_date"%></h3>
         <hr>
         <ul class="list-member-modal">
           <div id='datetimepicker'>
           </div>
             <%= hidden_field_tag :due_date %>
             <button class="btn btn-success change-due-date">
-              Save
+              <%= t "save" %>
             </button>
         </ul>
         <div class="close-menu">&times</div>

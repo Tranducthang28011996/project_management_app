@@ -5,7 +5,7 @@
       <%= render "search/item_task", task: task %>
     <% end %>
   <% else %>
-    <div>Không có kết quả tìm kiếm.</div>
+    <div><%= t ".result" %></div>
   <% end %>
 </div>
 <div class="search-title">Project</div>
@@ -18,6 +18,6 @@
       </div>
     <% end %>
   <% else %>
-  <div>Không có kết quả tìm kiếm.</div>
+  <div><%= t ".result" %></div>
   <% end %>
 </div>

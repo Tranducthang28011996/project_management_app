@@ -8,13 +8,9 @@
       <i class="fa fa-heart-o" aria-hidden="true"></i>
     </button>
 
-    <button class="btn btn-sm btn-nav">
-      <i class="fa fa-lock" aria-hidden="true"></i> Private
-    </button>
-
     <button class="btn btn-sm btn-nav pull-right btn-show-menu-project">
       <i class="fa fa-bars" aria-hidden="true"></i>
-      <%= t "project.show_menu" %>
+      <%= t ".show_menu" %>
     </button>
   </div>
 
@@ -30,7 +26,7 @@
   </section> 
 
   <section class="side-bar-menu-project">
-    <h4 class="title-menu-info-project"><%= t "project.menu" %></h4>
+    <h4 class="title-menu-info-project"><%= t ".menu" %></h4>
     <div class="icon-close-menu">×</div>
     <section class="step-chosen scroll-bar-style">
       <div class="list-member-project">
@@ -47,11 +43,11 @@
       </div>
       <div class="dropdown">
         <button class="btn btn-width-full text-left btn-page dropdown-toggle" type="button" data-toggle="dropdown">
-          <i class="fa fa-user-plus" aria-hidden="true"></i> <%= t "project.invite" %>...
+          <i class="fa fa-user-plus" aria-hidden="true"></i> <%= t ".invite" %>...
         </button>
         <div class="dropdown-menu form-search-member">
           <span class="header">
-            <%= t "project.member" %>
+            <%= t ".member" %>
           </span>
           <a class="pop-over-header-close-btn">
             &times
@@ -59,7 +55,7 @@
           <input type="text" class="form-control input-text search-member" placeholder="abc@gmail.com">
           <div class="result-search-user-add">
             <div class="show-info-user-search">
-              Tìm kiếm một người trên Trello bằng tên hoặc địa chỉ email, hoặc nhập địa chỉ email để mời một người mới.
+              <%= t ".user_search" %>
             </div>
           </div>
         </div>
@@ -68,20 +64,20 @@
       <ul class="list-setting">
         <li>
           <button class="btn btn-settings">
-            <i class="ion-android-funnel" aria-hidden="true"></i> <%= t "project.filter_task" %>
+            <i class="ion-android-funnel" aria-hidden="true"></i> <%= t ".filter_task" %>
           </button>
         </li>
         <li>
           <div class="dropdown">
             <button class="btn dropdown-toggle btn-settings" type="button" data-toggle="dropdown">
-              <i class="ion-ios-gear-outline" aria-hidden="true"></i> <%= t "project.setting" %>
+              <i class="ion-ios-gear-outline" aria-hidden="true"></i> <%= t ".setting" %>
             </button>
             <div class="dropdown-menu form-search-member">
-              <h3 class="title"><%= t "project.setting" %></h3>
+              <h3 class="title"><%= t ".setting" %></h3>
               <input type="text" class="form-control search-member" placeholder="abc@gmail.com">
               <div class="result-search-user-add">
                 <div class="show-info-user-search">
-                  Search for a person in Trello by name or email address, or enter an email address to invite someone new.
+                  <%= t ".user_search" %>
                 </div>
               </div>
             </div>
@@ -91,7 +87,7 @@
       <hr>
       <div class="list-setting">
         <button class="btn btn-settings">
-          <i class="ion-ios-barcode-outline" aria-hidden="true"></i> <%= t "project.activity" %>
+          <i class="ion-ios-barcode-outline" aria-hidden="true"></i> <%= t ".activity" %>
         </button>
         <ul class="list-activity">
           <li class="item-activity">
