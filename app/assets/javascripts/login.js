@@ -13,8 +13,8 @@ $(document).ready(function(){
   $('.alert' ).fadeOut(3000);
   $('#error_explanation').fadeOut(3000);
 
-  $('.btn-create-new-project').on('click', function(e){
-    e.preventDefault();
-    $('.form-create-project').show();
-  });
+  // $('.btn-create-new-project').on('click', function(e){
+  //   e.preventDefault();
+  //   $('.form-create-project').show();
+  // });
 });

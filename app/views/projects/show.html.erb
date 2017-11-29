@@ -25,96 +25,104 @@
     <%= render partial: "projects/item_board", locals: {status: "done"} %>
   </section> 
 
-  <section class="side-bar-menu-project">
-    <h4 class="title-menu-info-project"><%= t ".menu" %></h4>
-    <div class="icon-close-menu">×</div>
-    <section class="step-chosen scroll-bar-style">
-      <div class="list-member-project">
-        <% @team_user[0..7].each do |user| %>
-          <%= link_to user, class: "item-member-project" do %>
-            <% if user.avatar.present? %>
-              <%= image_tag user.avatar.url, title: user.name, class: "avatar-item-user-list-member" %>
-            <% else %>
-              <%= image_tag "https://thesocietypages.org/socimages/files/2009/05/vimeo.jpg", title: user.name,
-                class: "avatar-item-user-list-member" %>
+  <div class="multi-dropdown">
+    <section class="main step step-1 side-bar-menu-project">
+      <h4 class="title-menu-info-project"><%= t ".menu" %></h4>
+      <div class="icon-close-menu">×</div>
+      <section class="step-chosen scroll-bar-style">
+        <div class="list-member-project">
+          <% @team_user[0..7].each do |user| %>
+            <%= link_to user, class: "item-member-project" do %>
+              <% if user.avatar.present? %>
+                <%= image_tag user.avatar.url, title: user.name, class: "avatar-item-user-list-member" %>
+              <% else %>
+                <%= image_tag "https://thesocietypages.org/socimages/files/2009/05/vimeo.jpg", title: user.name,
+                  class: "avatar-item-user-list-member" %>
+              <% end %>
             <% end %>
           <% end %>
-        <% end %>
-      </div>
-      <div class="dropdown">
-        <button class="btn btn-width-full text-left btn-page dropdown-toggle" type="button" data-toggle="dropdown">
-          <i class="fa fa-user-plus" aria-hidden="true"></i> <%= t ".invite" %>...
-        </button>
-        <div class="dropdown-menu form-search-member">
-          <span class="header">
-            <%= t ".member" %>
-          </span>
-          <a class="pop-over-header-close-btn">
-            &times
-          </a>
-          <input type="text" class="form-control input-text search-member" placeholder="abc@gmail.com">
-          <div class="result-search-user-add">
-            <div class="show-info-user-search">
-              <%= t ".user_search" %>
-            </div>
-          </div>
         </div>
-      </div>
-      <hr>
-      <ul class="list-setting">
-        <li>
-          <button class="btn btn-settings">
-            <i class="ion-android-funnel" aria-hidden="true"></i> <%= t ".filter_task" %>
+        <div class="dropdown">
+          <button class="btn btn-width-full text-left btn-page dropdown-toggle" type="button" data-toggle="dropdown">
+            <i class="fa fa-user-plus" aria-hidden="true"></i> <%= t ".invite" %>...
           </button>
-        </li>
-        <li>
-          <div class="dropdown">
-            <button class="btn dropdown-toggle btn-settings" type="button" data-toggle="dropdown">
-              <i class="ion-ios-gear-outline" aria-hidden="true"></i> <%= t ".setting" %>
-            </button>
-            <div class="dropdown-menu form-search-member">
-              <h3 class="title"><%= t ".setting" %></h3>
-              <input type="text" class="form-control search-member" placeholder="abc@gmail.com">
-              <div class="result-search-user-add">
-                <div class="show-info-user-search">
-                  <%= t ".user_search" %>
-                </div>
+          <div class="dropdown-menu form-search-member">
+            <span class="header">
+              <%= t ".member" %>
+            </span>
+            <a class="pop-over-header-close-btn">
+              &times
+            </a>
+            <input type="text" class="form-control input-text search-member" placeholder="abc@gmail.com">
+            <div class="result-search-user-add">
+              <div class="show-info-user-search">
+                <%= t ".user_search" %>
               </div>
             </div>
           </div>
-        </li>
-      </ul>
-      <hr>
-      <div class="list-setting">
-        <button class="btn btn-settings">
-          <i class="ion-ios-barcode-outline" aria-hidden="true"></i> <%= t ".activity" %>
-        </button>
-        <ul class="list-activity">
-          <li class="item-activity">
-            <div class="col-xs-2">
-              <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
-            </div>
-            <div class="col-xs-10 info-activity">
-              <a href="#">Vu Duc Tuyen</a>
-              <span>oined view thông tin người dùng</span>
-              <br>
-              <span class="time-stamp">3 hours ago</span>
-            </div>
+        </div>
+        <hr>
+        <ul class="list-setting">
+          <li>
+            <button class="btn btn-settings next-step" data-change-window="3">
+              <i class="ion-android-funnel" aria-hidden="true"></i> <%= t ".filter_task" %>
+            </button>
           </li>
-          <li class="item-activity">
-            <div class="col-xs-2">
-              <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
-            </div>
-            <div class="col-xs-10 info-activity">
-              <a href="#">Vu Duc Tuyen</a>
-              <span>oined view thông tin người dùng</span>
-              <br>
-              <span class="time-stamp">3 hours ago</span>
+          <li>
+            <div class="dropdown">
+              <button class="btn dropdown-toggle btn-settings next-step" data-change-window="2">
+                <i class="ion-ios-gear-outline" aria-hidden="true"></i> <%= t ".setting" %>
+              </button>
             </div>
           </li>
         </ul>
-      </div>
+        <hr>
+        <div class="list-setting">
+          <button class="btn btn-settings">
+            <i class="ion-ios-barcode-outline" aria-hidden="true"></i> <%= t ".activity" %>
+          </button>
+          <ul class="list-activity">
+            <li class="item-activity">
+              <div class="col-xs-2">
+                <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
+              </div>
+              <div class="col-xs-10 info-activity">
+                <a href="#">Vu Duc Tuyen</a>
+                <span>oined view thông tin người dùng</span>
+                <br>
+                <span class="time-stamp">3 hours ago</span>
+              </div>
+            </li>
+            <li class="item-activity">
+              <div class="col-xs-2">
+                <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
+              </div>
+              <div class="col-xs-10 info-activity">
+                <a href="#">Vu Duc Tuyen</a>
+                <span>oined view thông tin người dùng</span>
+                <br>
+                <span class="time-stamp">3 hours ago</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
     </section>
-    
-  </section>
+    <section class="step step-2 side-bar-menu-project">
+      <h4 class="title-menu-info-project"><%= t ".setting" %></h4>
+      <div class="icon-back-menu pop-over-header-back-btn"><i class="ion-android-arrow-back"></i></i></div>
+      <div class="icon-close-menu pop-over-header-close-btn"><i class="ion-android-close"></i></div>
+      <span class="header">
+        Tạo dự án mới
+      </span>
+    </section>
+    <section class="step step-3 side-bar-menu-project">
+      <h4 class="title-menu-info-project"><%= t ".filter_task" %></h4>
+      <div class="icon-back-menu pop-over-header-back-btn"><i class="ion-android-arrow-back"></i></i></div>
+      <div class="icon-close-menu pop-over-header-close-btn"><i class="ion-android-close"></i></div>
+      <span class="header">
+        Tạo dự án mới
+      </span>
+    </section>
+  </div>
 </div>

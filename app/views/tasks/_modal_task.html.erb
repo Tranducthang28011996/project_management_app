@@ -4,6 +4,7 @@
       <h3>
         <i class="fa fa-braille" aria-hidden="true"></i> 
         <input type="text" name="" class="title-task" value="<%= task.name %>">
+      </h3>
       <div class="detail-content">
         <span class="title-position-task"><%= t "tasks.in_list"%><a href=""><%= task.status.name %></a></span>
         <%= hidden_field_tag :task_id, task.id %>
@@ -129,7 +130,7 @@
             </div>
             <div class="col-md-6">
               <button class="btn btn-page btn-danger change-due-date remove-due-date pull-right">
-                <% t "tasks.remove_due_date" %>
+                <%= t "tasks.remove_due_date" %>
               </button>
             </div>  
           </div>
@@ -143,19 +144,6 @@
       <button class="btn dropdown-toggle btn-menu-modal-task" type="button" data-toggle="dropdown">
         <i class="fa fa-arrows" aria-hidden="true"></i><%= t "move" %>
       </button>
-      <div class="dropdown-menu">
-        <h3><%= t "tasks.due_date"%></h3>
-        <hr>
-        <ul class="list-member-modal">
-          <div id='datetimepicker'>
-          </div>
-            <%= hidden_field_tag :due_date %>
-            <button class="btn btn-success change-due-date">
-              <%= t "save" %>
-            </button>
-        </ul>
-        <div class="close-menu">&times</div>
-      </div>
     </ul>
   </div>
 </div>

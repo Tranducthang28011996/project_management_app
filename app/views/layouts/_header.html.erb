@@ -29,48 +29,49 @@
           <button class="btn btn-sm btn-icon dropdown-toggle" data-toggle="dropdown">
             <i class="ion-plus-round" aria-hidden="true"></i>
           </button>
-          <div class="dropdown-menu">
-            <span class="header">
-              Tạo mới
-            </span>
-            <a class="pop-over-header-close-btn">
-              &times
-            </a>
-            <ul>
-              <li>
-                <a href="#" class="btn-create-new-project">
-                  Tạo dự án mới...
-                </a>
-                <span>
-                  Một bảng được tạo thành từ các thẻ được sắp xếp trong danh sách. Sử dụng bảng để quản lý các dự án, theo dõi thông tin, hoặc tổ chức bất cứ việc gì.
-                </span>
-              </li>
-            </ul>
-          </div>
-          <div class="step-menu form-create-project">
-            <span class="header">
-              Tạo mới
-            </span>
-            <a class="pop-over-header-close-btn">
-              &times
-            </a>
-            <hr>
-            <%= form_for(:project, url: projects_path, html:{method: :post, :class => "form"}) do |f| %>
-              <div class="form-group">
-                <%= f.label :name, "Title project" %>
-                <%= f.text_field :name, class: "form-control" %>
-              </div>
-              <div class="form-group">
-                <%= f.label :description, "Description project" %>
-                <%= f.text_area :description, class: "form-control" %>
-              </div>
-              <div class="form-group">
-                <%= f.submit "Create", class: "form-control col-md-2 create-new-project btn btn-success" %>
-              </div>
-            <% end %>
-            <div class="back-icon">
-              <i class="fa fa-angle-left" aria-hidden="true"></i>
-            </div>
+          <div class="dropdown-menu multi-dropdown">
+            <section class="main step step-1" >
+              <span class="header">
+                Tạo mới
+              </span>
+              <a class="pop-over-header-close-btn">
+                <i class="ion-android-close"></i>
+              </a>
+              <ul>
+                <li class="next-step" data-change-window="2">
+                  <a href="#" class="btn-create-new-project">
+                    Tạo dự án mới...
+                  </a>
+                  <span>
+                    Một bảng được tạo thành từ các thẻ được sắp xếp trong danh sách. Sử dụng bảng để quản lý các dự án, theo dõi thông tin, hoặc tổ chức bất cứ việc gì.
+                  </span>
+                </li>
+              </ul>
+            </section>
+            <section class="step step-2">
+              <span class="header">
+                Tạo dự án mới
+              </span>
+              <a class="pop-over-header-back-btn">
+                <i class="ion-android-arrow-back"></i>
+              </a>
+              <a class="pop-over-header-close-btn">
+                <i class="ion-android-close"></i>
+              </a>
+              <%= form_for(:project, url: projects_path, html:{method: :post, :class => "form"}) do |f| %>
+                <div class="form-group">
+                  <%= f.label :name, "Title project" %>
+                  <%= f.text_field :name, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :description, "Description project" %>
+                  <%= f.text_area :description, class: "form-control" %>
+                </div>
+                <div class="form-group">
+                  <%= f.submit "Create", class: "form-control col-md-2 create-new-project btn btn-success" %>
+                </div>
+              <% end %>
+            </section>
           </div>
         </span>
       </div>

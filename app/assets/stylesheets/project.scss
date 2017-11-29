@@ -190,6 +190,7 @@ body {
     right: 0;
     top: 46px;
     width: 344px;
+    z-index: 0;
 
     .title-menu-info-project {
       border-bottom: 1px solid #dedede;
@@ -280,13 +281,23 @@ body {
       margin-top: 17px;
     }
 
+    .icon-back-menu {
+      cursor: pointer;
+      font-size: 18px;
+      position: absolute;
+      left: 10px;
+      text-decoration: none;
+      top: 9px;
+      z-index: 2;
+    }
+
     .icon-close-menu {
       cursor: pointer;
-      font-size: 28px;
+      font-size: 18px;
       position: absolute;
-      right: 5px;
+      right: 10px;
       text-decoration: none;
-      top: 0;
+      top: 9px;
       z-index: 2;
     }
   }

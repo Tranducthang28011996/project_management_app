@@ -258,6 +258,17 @@ label {
     z-index: 1;
   }
 
+  .pop-over-header-back-btn {
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px 10px 10px 4px !important;
+    position: absolute;
+    left: 6px;
+    text-decoration: none;
+    top: 0;
+    z-index: 2;
+  }
+
   .pop-over-header-close-btn {
     cursor: pointer;
     font-size: 18px;
