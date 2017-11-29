@@ -1,0 +1,9 @@
+.step-1, .step-2 {
+	display: none;
+	z-index: 0;
+}
+
+.main {
+	display: block;
+	z-index: 1 !important;
+}

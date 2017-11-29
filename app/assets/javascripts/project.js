@@ -47,10 +47,10 @@ $(function() {
   //   $('.step-menu.form-create-project').hide();
   // });
 
-  $('.form-create-project .back-icon').on('click', function(e){
-    e.preventDefault();
-    $(this).closest('.form-create-project').hide();
-  });
+  // $('.form-create-project .back-icon').on('click', function(e){
+  //   e.preventDefault();
+  //   $(this).closest('.form-create-project').hide();
+  // });
 
   $('.footer-board a').on('click', function(event) {
     event.preventDefault();
@@ -152,5 +152,10 @@ $(function(){
   $('body').on('click', '.icon-close-menu', function(event) {
     event.preventDefault();
     $('.btn-show-menu-project').trigger('click');
+  });
+
+  $('body').on('click', '.close-menu', function(event) {
+    event.preventDefault();
+    $('body .btn-menu-modal-task').trigger('click');
   });
 });

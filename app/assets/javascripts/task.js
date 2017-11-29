@@ -10,7 +10,7 @@ $(function(){
     })
     .done(function(data) {
       $('body .modal-body').html(data.task);
-      $('.btn-date-picker').on('click', function(event) {
+      $('body .btn-date-picker').on('click', function(event) {
         event.stopPropagation();
       });
       $('#datetimepicker1').datetimepicker({
