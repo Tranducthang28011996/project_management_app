@@ -20,8 +20,8 @@ $(function(){
 
 	$('body').on('click', '.pop-over-header-close-btn', function(event) {
 		event.stopPropagation();
-		var parent = $(this).closest('.multi-dropdown');
-		parent.find('.header').click();
+		var parent = $(this).closest('.dropdown-menu');
+		parent.click();
 
 		parent.find('.main').each(function() {
 			$(this).removeClass('main')

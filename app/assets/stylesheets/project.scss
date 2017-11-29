@@ -293,7 +293,7 @@ body {
 
     .icon-close-menu {
       cursor: pointer;
-      font-size: 18px;
+      font-size: 20px;
       position: absolute;
       right: 10px;
       text-decoration: none;
@@ -333,7 +333,9 @@ body {
 
 .item-new-task {
   display: none;
-
+  height: 135px;
+  clear: both;
+  
   .form-add-task {
     position: relative;
 
@@ -484,7 +486,7 @@ body {
   min-height: 50px;
   max-height: calc(100vh - 160px);
   padding: 0 7px;
-  overflow-y: auto;
+  overflow-x: hidden; 
 }
 
 .task-board::-webkit-scrollbar-track
@@ -571,15 +573,13 @@ body {
 }
 
 .footer-board {
-  clear: both;
-  height: 30px;
-  margin-top: 19px;
-  padding: 0 7px;
+  padding: 1px 7px;
+  
+  a {
+    color: #929292;
+  }
 }
 
-.footer-board a {
-  color: #929292;
-}
 
 .ui-sortable-placeholder {
   width: 100%;
