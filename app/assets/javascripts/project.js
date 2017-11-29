@@ -55,14 +55,15 @@ $(function() {
   $('.footer-board a').on('click', function(event) {
     event.preventDefault();
     $(this).hide();
-    $(this).closest('.task-board').find('.item-new-task').show();
-    $(this).closest('.item-board').scrollTop($(this).closest('.item-board').height());
+    $(this).closest('.item-board').find('.item-new-task').show();
+    var height = $(this).closest('.item-board').find('.task-board').height();
+    $(this).closest('.item-board').find('.task-board').animate({ scrollTop: (height + 500) }, 1000);
   });
 
   $('.btn-close-form-new-task').on('click', function(event) {
     event.preventDefault();
-    $(this).closest('.task-board').find('.item-new-task').hide();
-    $(this).closest('.task-board').find('.footer-board a').show();
+    $(this).closest('.item-board').find('.item-new-task').hide();
+    $(this).closest('.item-board').find('.footer-board a').show();
   });
 });
 

@@ -106,7 +106,7 @@
                               <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
                             </button>
                           </div>
-                          <div class="task-board connected sortable list" data-status-request="new">
+                          <div class="task-board" data-status-request="new">
                             <% if @task[:new].any? %>
                               <% @task[:new].each do |task| %>
                                 <%= render partial: "tasks/item_task", locals: {task: task} %>
@@ -123,7 +123,7 @@
                               <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
                             </button>
                           </div>
-                          <div class="task-board connected sortable list" data-status-request="in_process">
+                          <div class="task-board" data-status-request="in_process">
                             <% if @task[:in_process].any? %>
                               <% @task[:in_process].each do |task| %>
                                 <%= render partial: "tasks/item_task", locals: {task: task} %>
@@ -140,7 +140,7 @@
                               <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
                             </button>
                           </div>
-                          <div class="task-board connected sortable list" data-status-request="resolved">
+                          <div class="task-board" data-status-request="resolved">
                             <% if @task[:resolved].any? %>
                               <% @task[:resolved].each do |task| %>
                                 <%= render partial: "tasks/item_task", locals: {task: task} %>
@@ -157,7 +157,7 @@
                               <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
                             </button>
                           </div>
-                          <div class="task-board connected sortable list" data-status-request="testing">
+                          <div class="task-board" data-status-request="testing">
                             <% if @task[:testing].any? %>
                               <% @task[:testing].each do |task| %>
                                 <%= render partial: "tasks/item_task", locals: {task: task} %>
@@ -174,7 +174,7 @@
                               <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
                             </button>
                           </div>
-                          <div class="task-board connected sortable list" data-status-request="done">
+                          <div class="task-board" data-status-request="done">
                             <% if @task[:done].any? %>
                               <% @task[:done].each do |task| %>
                                 <%= render partial: "tasks/item_task", locals: {task: task} %>

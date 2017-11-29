@@ -6,14 +6,13 @@
     </button>
   </div>
   <div class="task-board connected sortable list" data-status-request="<%= status %>">
-    
     <% if @task[status.to_sym].any? %>
       <% @task[status.to_sym].each do |task| %>
         <%= render partial: "tasks/item_task", locals: {task: task} %>
       <% end %>
     <% end %>
     <div class="position-add-task"></div>
-    <div class="item-new-task">
+    <div class="item-new-task clear-fix">
       <%= form_for [@project, @project.tasks.build],
         html:{method: :post, :class => "form form-add-task"} do |f| %>
         <%= f.text_area :name, class: "field-info-new-task" %>
@@ -23,8 +22,8 @@
         </button>
       <% end %>
     </div>
-    <div class="footer-board">
-      <a href="#"><%= t "task.add_task" %>...</a>
-    </div>
+  </div>
+  <div class="footer-board" draggable="false">
+    <a href="#" draggable="false"><%= t "task.add_task" %>...</a>
   </div>
 </div>
