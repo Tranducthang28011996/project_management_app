@@ -23,12 +23,14 @@
     <%= render partial: "projects/item_board", locals: {status: "resolved"} %>
     <%= render partial: "projects/item_board", locals: {status: "testing"} %>
     <%= render partial: "projects/item_board", locals: {status: "done"} %>
-  </section> 
+  </section>
 
   <div class="multi-dropdown">
     <section class="main step step-1 side-bar-menu-project">
       <h4 class="title-menu-info-project"><%= t ".menu" %></h4>
-      <div class="icon-close-menu">×</div>
+      <div class="icon-close-menu pop-over-header-close-btn">
+        <i class="ion-android-close"></i>
+      </div>
       <section class="step-chosen scroll-bar-style">
         <div class="list-member-project">
           <% @team_user[0..7].each do |user| %>
@@ -84,7 +86,7 @@
           <ul class="list-activity">
             <li class="item-activity">
               <div class="col-xs-2">
-                <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
+                <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>
               </div>
               <div class="col-xs-10 info-activity">
                 <a href="#">Vu Duc Tuyen</a>
@@ -95,7 +97,7 @@
             </li>
             <li class="item-activity">
               <div class="col-xs-2">
-                <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>  
+                <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>
               </div>
               <div class="col-xs-10 info-activity">
                 <a href="#">Vu Duc Tuyen</a>
