@@ -1,12 +1,12 @@
 <div id="header" class="row">
   <div class="col-md-6 col-xs-6">
-    <div class="row left-header-menu pull-left">
-      <div class="col-md-2 col-xs-4 logo">
+    <div class="row">
+      <div class="col-md-2 col-xs-4 col-header">
         <%= link_to root_path, class: "btn btn-sm btn-project" do %>
           <strong><i class="fa fa-braille" aria-hidden="true"></i> Project</strong>
         <% end %>
       </div>
-      <div class="col-md-5 col-xs-5">
+      <div class="col-md-4 col-xs-4 col-header">
         <span class="input-group stylish-input-group form-search-project">
           <input type="text" class="form-control search-input">
           <span class="input-group-addon ">
@@ -14,7 +14,7 @@
               <i class="fa fa-search" aria-hidden="true"></i>
             </button>
             <div class="result hide">
-              
+
             </div>
           </span>
         </span>
@@ -104,7 +104,7 @@
             <% if current_user.avatar.present? %>
               <%= image_tag current_user.avatar.url, class: "img-avatar"%>
             <% else %>
-              <%= image_tag "https://thesocietypages.org/socimages/files/2009/05/vimeo.jpg", 
+              <%= image_tag "https://thesocietypages.org/socimages/files/2009/05/vimeo.jpg",
                 class: "img-avatar" %>
             <% end %>
           </a>
