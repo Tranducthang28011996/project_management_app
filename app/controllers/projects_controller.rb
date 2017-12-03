@@ -19,13 +19,31 @@ class ProjectsController < ApplicationController
 
   def show
     @team_user = @project.get_member
+    @tasks = @project.tasks
+
+    if params[:label]
+      @tasks = @project.tasks.joins(:labels).where(labels: {id: params[:label]})
+    end
+
+    if params[:user]
+      @tasks = @project.tasks.joins(:user).where(users: {id: params[:user]})
+    end
+
   	@task = {
-  		new: @project.tasks.any? ? @project.tasks.where(status_id: 1).order("updated_at DESC") : [],
-  		in_process: @project.tasks.any? ? @project.tasks.where(status_id: 2) : [],
-  		resolved: @project.tasks.any? ? @project.tasks.where(status_id: 3) : [],
-  		testing: @project.tasks.any? ? @project.tasks.where(status_id: 4) : [],
-  		done: @project.tasks.any? ? @project.tasks.where(status_id: 5) : []
-  	} 
+  		new: @tasks.any? ? @tasks.where(status_id: 1).order("updated_at DESC") : [],
+  		in_process: @tasks.any? ? @tasks.where(status_id: 2) : [],
+  		resolved: @tasks.any? ? @tasks.where(status_id: 3) : [],
+  		testing: @tasks.any? ? @tasks.where(status_id: 4) : [],
+  		done: @tasks.any? ? @tasks.where(status_id: 5) : []
+  	}
+    @labels = Label.all
+    @users = @project.tasks.joins(:user).select("users.avatar, users.email, users.name, user_id")
+      .group(:user_id, "users.avatar", "users.name", "users.email")
+
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
   
   def new

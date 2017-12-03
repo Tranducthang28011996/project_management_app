@@ -1,0 +1,7 @@
+<section class="board-container" id="connected">
+  <%= render partial: "projects/item_board", locals: {status: "new"} %>
+  <%= render partial: "projects/item_board", locals: {status: "in_process"} %>
+  <%= render partial: "projects/item_board", locals: {status: "resolved"} %>
+  <%= render partial: "projects/item_board", locals: {status: "testing"} %>
+  <%= render partial: "projects/item_board", locals: {status: "done"} %>
+</section>
