@@ -9,6 +9,10 @@ class Project < ApplicationRecord
 
   scope :search, search
 
+  def load_activity
+    Activity.where(project_id: id).order('created_at DESC')
+  end
+
   def get_member
   	User.where id: (team.users.pluck(:id) + [owner_id])
   end

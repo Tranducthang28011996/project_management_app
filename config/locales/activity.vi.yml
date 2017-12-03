@@ -1,0 +1,8 @@
+vi:
+  add_task: "%{user} đã thêm thẻ <b>%{task_name}</b> vào danh sách <b>%{status_name}</b>"
+  move_task: "%{user} đã chuyển thẻ <b>%{task_name}</b> từ danh sách <b>%{status_name_source}</b> vào danh sách <b>%{status_name_dest}</b>"
+  update_info_task: "%{user} đã cập nhật %{task_name}"
+  assign_member: "%{user} đã nhận thực hiện thẻ <b>%{task_name}</b>"
+  assign_for_member: "%{user} đã gán thẻ <b>%{task_name}</b> cho %{user_receive} thực hiện "
+  move_member: "%{user} đã rời thẻ <b>%{task_name}</b>"
+  move_for_member: "%{user} đã rời %{user_receive} từ thẻ <b>%{task_name}</b>"

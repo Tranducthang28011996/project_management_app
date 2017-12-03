@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!
   before_action :load_project, only: :show
   before_action :check_permission, only: :show
-  
+
   def index
     @own_projects = current_user.projects
   end
@@ -20,6 +20,7 @@ class ProjectsController < ApplicationController
   def show
     @team_user = @project.get_member
     @tasks = @project.tasks
+    @activities = @project.load_activity
 
     if params[:label]
       @tasks = @project.tasks.joins(:labels).where(labels: {id: params[:label]})
@@ -45,7 +46,7 @@ class ProjectsController < ApplicationController
       format.html
     end
   end
-  
+
   def new
   end
 

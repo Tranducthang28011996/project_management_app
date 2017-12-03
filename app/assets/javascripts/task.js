@@ -62,7 +62,7 @@ $(function(){
       $('body .block-label-modal').html(data.data.label_in_modal);
       $('body #block-label-item-task-' + data.data.task_id).html(data.data.label_in_show_project);
       $('body .list-activity').html(data.list_activities);
-    });    
+    });
   });
 
   $('body').on('change', '.tick-user-handle-task input[type=radio][name=assignee]', function(event) {
@@ -85,13 +85,15 @@ $(function(){
     .done(function(data) {
       $('body .list-activity').html(data.list_activities);
       $('body .task-avatar-' + data.task.id).html(data.user);
-    });    
+    });
   });
 
   $('body').on('click', '.item-member-modal', function(event) {
     event.stopPropagation();
-    $(this).find('input[type="radio"]').prop("checked", true);
-    $(this).find('input[type="radio"]').change();
+    if ($(this).find('input[type="radio"]').is(':checked') == false) {
+      $(this).find('input[type="radio"]').prop("checked", true);
+      $(this).find('input[type="radio"]').change();
+    }
   });
 
   $('body').on('click', '.item-label-modal', function(event) {
@@ -114,7 +116,7 @@ $(function(){
     var task_id = $(this).data('task-id');
     var deadline;
     var check_remove = $(this).hasClass('remove-due-date');
-    
+
     if (check_remove) {
       deadline = null;
     } else {
