@@ -2,11 +2,14 @@
   <div class="col-md-9">
     <div class="header-modal">
       <h3>
-        <i class="fa fa-braille" aria-hidden="true"></i> 
+        <i class="fa fa-braille" aria-hidden="true"></i>
         <input type="text" name="" class="title-task" value="<%= task.name %>">
       </h3>
       <div class="detail-content">
-        <span class="title-position-task"><%= t "tasks.in_list"%><a href=""><%= task.status.name %></a></span>
+        <span class="title-position-task">
+          <%= t "tasks.in_list"%>
+          <a href=""><b><%= task.status.name %></b></a>
+        </span>
         <%= hidden_field_tag :task_id, task.id %>
         <br>
         <div class="block-label-modal">
@@ -15,8 +18,8 @@
         <div class="block-due-date-modal">
           <%= render partial: "tasks/due_date_modal", locals: {task: @task} %>
         </div>
-        <span class="title-position-task"><%= t "tasks.description" %></span> 
-        <button data-toggle="collapse" data-target="#show-description-update" 
+        <span class="title-position-task"><%= t "tasks.description" %></span>
+        <button data-toggle="collapse" data-target="#show-description-update"
           class="btn btn-sm show-description-task">
           <i class="fa fa-align-left" aria-hidden="true"></i><%= t "tasks.edit_desciption" %>
         </button>
@@ -52,7 +55,8 @@
       <h4><i class="fa fa-tasks" aria-hidden="true"></i><%= t "tasks.activity" %></h4>
       <div class="detail-content">
         <ul class="list-activity">
-          <%= render partial: "activities/list_activities", locals: {activities: task.activities} %>
+          <%= render @activities %>
+          <%#= render partial: "activities/list_activities", locals: {activities: task.activities} %>
         </ul>
       </div>
     </div>
@@ -99,10 +103,10 @@
             <% Label.all.each do |label|%>
               <li class="item-label-modal btn-<%= label.name %>" data-label-id="<%= label.id %>">
                 <span style="text-transform: capitalize"><%= label.name %></span>
-                <input type="checkbox" class="checked-task" 
+                <input type="checkbox" class="checked-task"
                   <%= "checked" if check_task_exists_label? @task, label.id %>>
               </li>
-            <% end %> 
+            <% end %>
           <div class="close-menu">&times</div>
         </div>
       </li>
@@ -123,7 +127,7 @@
           </div>
           <div class="row">
             <div class="col-md-6">
-              <button class="btn btn-page btn-success change-due-date pull-left" 
+              <button class="btn btn-page btn-success change-due-date pull-left"
                 data-task-id="<%= @task.id %>">
                 <%= t "save" %>
               </button>
@@ -132,9 +136,9 @@
               <button class="btn btn-page btn-danger change-due-date remove-due-date pull-right">
                 <%= t "tasks.remove_due_date" %>
               </button>
-            </div>  
+            </div>
           </div>
-          
+
           <div class="close-menu">&times</div>
         </div>
       </li>

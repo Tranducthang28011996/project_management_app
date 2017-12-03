@@ -78,28 +78,7 @@
             <i class="ion-ios-barcode-outline" aria-hidden="true"></i> <%= t ".activity" %>
           </button>
           <ul class="list-activity">
-            <li class="item-activity">
-              <div class="col-xs-2">
-                <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>
-              </div>
-              <div class="col-xs-10 info-activity">
-                <a href="#">Vu Duc Tuyen</a>
-                <span>oined view thông tin người dùng</span>
-                <br>
-                <span class="time-stamp">3 hours ago</span>
-              </div>
-            </li>
-            <li class="item-activity">
-              <div class="col-xs-2">
-                <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>
-              </div>
-              <div class="col-xs-10 info-activity">
-                <a href="#">Vu Duc Tuyen</a>
-                <span>oined view thông tin người dùng</span>
-                <br>
-                <span class="time-stamp">3 hours ago</span>
-              </div>
-            </li>
+            <%= render @activities %>
           </ul>
         </div>
       </section>
@@ -152,7 +131,7 @@
                   <a class="label-list-item-link js-toggle-label-filter"
                     href="<%= project_path @project %>?user=<%= user.user_id %>">
                     <div class="label-list-item-link-label" style="border-radius: 50px;">
-                      <%= image_tag "https://thesocietypages.org/socimages/files/2009/05/vimeo.jpg", 
+                      <%= image_tag "https://thesocietypages.org/socimages/files/2009/05/vimeo.jpg",
                         class: "avatar-filter", title: user.name %>
                     </div>
                     <span class="label-list-item-link-name"><%= user.name %> (<%= user.email %>)</span>

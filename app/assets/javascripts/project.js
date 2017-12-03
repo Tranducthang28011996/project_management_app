@@ -19,7 +19,7 @@ $(document).ready(function($) {
       case "done": status_id = 5;
       break;
     }
-    
+
     $.ajax({
       url: url,
       method: 'POST',
@@ -129,7 +129,7 @@ $(function(){
   });
 
 // add user to team
-  $('body').on('click', '.user-item', function(){
+  $('body').on('click', '.user-item', function(event){
     event.stopPropagation();
     var id_user = $(this).data('user-id');
     var team_id = $('#team_id').val();
@@ -147,7 +147,7 @@ $(function(){
       }else {
         alert('Not add user for team');
       }
-    });    
+    });
   });
 
   $('body').on('click', '.icon-close-menu', function(event) {

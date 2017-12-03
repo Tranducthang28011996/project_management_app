@@ -3,7 +3,8 @@ class TasksController < ApplicationController
   before_action :load_project, only: %i(show create update update_status)
   before_action :check_permission, only: %i(update create)
   def create
-    # params[:task][:user_id] = current_user.id
+    params[:task][:creator_id] = current_user.id
+
     begin
     	@task = @project.tasks.create! task_params
       render json: {
@@ -21,6 +22,7 @@ class TasksController < ApplicationController
   def show
     @task = @project.tasks.includes(:status).find_by id: params[:id]
     @member = @project.get_member
+     @activities = @task.activities.order('created_at DESC')
     render json: {
       task: render_to_string(partial: "tasks/modal_task", locals: {task: @task, project: @project})
     }
@@ -28,62 +30,33 @@ class TasksController < ApplicationController
 
   def update
     @task = @project.tasks.find_by id: params[:id]
-    if @task
-      if params[:task][:name].present?
-        @task.update_attributes name: params[:task][:name]
+    params[:task][:updator_id] = current_user.id
 
-        render json: {
-          task: @task
-        }
-      end
+    @render_response = {}
 
-      if params[:task][:description].present?
-        @task.update_attributes description: params[:task][:description]
+    if params[:task][:status].present?
+      status = Status.find_by name: params[:task][:status]
+      params[:task][:status_id] = status.id if status
+    end
 
-        render json: {
-          task: @task
-        }
-      end
-
-      if params[:task][:status].present?
-        status = Status.find_by name: params[:task][:status]
-        @task.update_attributes status_id: status.id
-        @task.activities.create activity_type: "status", content: "update", 
-          activity_id: @task.id, user_id: current_user.id
-        render json: {
-          task: @task,
-          list_activities: render_to_string(partial: "activities/list_activities", 
-            locals: {activities: @task.activities}),
-        }
-      end
-
-      if params[:task][:user_id].present?
-        if params[:task][:checked] == "checked"
-          @task.update_attributes user_id: params[:task][:user_id]
-        else
-          @task.update_attributes user_id: nil
-        end
-        @task.activities.create activity_type: "assignee", content: "update", 
-          activity_id: @task.id, user_id: current_user.id
-        render json: {
-          task: @task,
-          list_activities: render_to_string(partial: "activities/list_activities", 
-            locals: {activities: @task.activities}),
-          user: render_to_string(partial: "users/assignee_item_task", locals: {user: @task.user})
-        }
-      end
-
-      if params[:task][:deadline].present?
-        @task.update_attributes deadline: params[:task][:deadline]
-        @task.activities.create activity_type: "deadline", content: "update", 
-          activity_id: @task.id, user_id: current_user.id
-        render json: {
-          task: @task,
-          due_date_info: render_to_string(partial: "tasks/due_date_modal", locals: {task: @task}),
-          due_date_task: render_to_string(partial: "tasks/due_date_task", locals: {task: @task})
-        }
+    if @task && @task.update_attributes(task_params)
+      if params[:task][:user_id].present? && params[:task][:user_id] != @task.user_id
+        @render_response.merge! user: render_to_string(
+            partial: "users/assignee_item_task",
+            locals: {user: @task.user})
+      elsif params[:task][:deadline].present?
+        @render_response.merge! due_date_info: render_to_string(
+                                  partial: "tasks/due_date_modal",
+                                  locals: {task: @task}),
+                                due_date_task: render_to_string(
+                                  partial: "tasks/due_date_task",
+                                  locals: {task: @task})
       end
     end
+
+    @render_response.merge! task: @task
+
+    render json: @render_response
   end
 
   def update_label
@@ -97,9 +70,6 @@ class TasksController < ApplicationController
       @task.labels.delete label
     end
 
-    @task.activities.create activity_type: "label", content: "update", 
-      activity_id: @task.id, user_id: current_user.id
-
     render json: {
       status: true,
       data: {
@@ -107,7 +77,7 @@ class TasksController < ApplicationController
         label_in_modal: render_to_string(partial: "labels/label_in_modal", locals: {labels: @task.labels}),
         label_in_show_project: render_to_string(partial: "labels/label_in_show_project", locals: {labels: @task.labels})
       },
-      list_activities: render_to_string(partial: "activities/list_activities", 
+      list_activities: render_to_string(partial: "activities/list_activities",
         locals: {activities: @task.activities})
     }
   end
@@ -121,7 +91,8 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit :name, :status_id, :user_id, :description
+    params.require(:task).permit :name, :status_id, :user_id, :description,
+      :creator_id, :updator_id, :deadline
   end
 
   def check_permission

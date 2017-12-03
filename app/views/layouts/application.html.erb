@@ -7,17 +7,17 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+     <%= action_cable_meta_tag %>
   </head>
 
   <body>
     <% unless devise_controller? %>
-      <%= render "layouts/header" %>      
+      <%= render "layouts/header" %>
     <% end %>
     <%= yield %>
     <div class="container">
       <div class="row">
-        <div class="modal fade bs-example-modal-lg modal-show-info" tabindex="-1" 
+        <div class="modal fade bs-example-modal-lg modal-show-info" tabindex="-1"
           role="dialog" aria-labelledby="myLargeModalLabel">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">

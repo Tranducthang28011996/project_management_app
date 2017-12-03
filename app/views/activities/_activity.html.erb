@@ -1,0 +1,45 @@
+<li class="item-activity">
+  <div class="col-xs-2">
+    <% if activity.creator.avatar.present? %>
+      <%= image_tag activity.creator.avatar, class: "avatar-user-activity" %>
+    <% else %>
+      <%= image_tag "avatar.jpg", class: "avatar-user-activity" %>
+    <% end %>
+  </div>
+  <div class="col-xs-10 info-activity">
+    <% if activity.add_task? %>
+      <%= raw t("add_task", user: link_to(activity.creator.name, activity.creator),
+      task_name: activity.task.name, status_name: Status.find_by(id: activity.source).name) %>
+    <% elsif activity.move_task? %>
+      <%= raw t("move_task",
+        user: link_to(activity.user.name, activity.user),
+        task_name: activity.task.name,
+        status_name_source: Status.find_by(id: activity.source).name,
+        status_name_dest: Status.find_by(id: activity.dest).name) %>
+    <% elsif activity.assign_member? %>
+      <% if activity.user_id == activity.creator_id %>
+        <%= raw t("assign_member",
+          user: link_to(activity.user.name, activity.user),
+          task_name: activity.task.name) %>
+      <% else %>
+        <%= raw t("assign_for_member",
+          user: link_to(activity.creator.name, activity.creator),
+          task_name: activity.task.name,
+          user_receive: link_to(activity.user.name, activity.user)) %>
+      <% end %>
+    <% elsif activity.move_member? %>
+      <% if activity.user_id == activity.creator_id %>
+        <%= raw t("move_member",
+          user: link_to(activity.user.name, activity.user),
+          task_name: activity.task.name) %>
+      <% else %>
+        <%= raw t("move_for_member",
+          user: link_to(activity.creator.name, activity.creator),
+          task_name: activity.task.name,
+          user_receive: link_to(activity.user.name, activity.user)) %>
+      <% end %>
+    <% end %>
+    <br>
+    <span class="time-stamp">3 hours ago</span>
+  </div>
+</li>
