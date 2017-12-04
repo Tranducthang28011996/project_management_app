@@ -197,3 +197,20 @@
 .login-form {
   border: 1px solid #cecece;
 }
+
+.about-us {
+  background: white;
+  border-radius: 6px;
+  bottom: 44px;
+  height: 130px;
+  left: 7px;
+  padding: 5px;
+  position: fixed;
+  text-align: center;
+  width: 300px;
+
+  a {
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
