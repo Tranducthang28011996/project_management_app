@@ -22,7 +22,7 @@ class TasksController < ApplicationController
   def show
     @task = @project.tasks.includes(:status).find_by id: params[:id]
     @member = @project.get_member
-     @activities = @task.activities.order('created_at DESC')
+     @activities = @task.activities.where.not(action_type: :add_task).order('created_at DESC')
     render json: {
       task: render_to_string(partial: "tasks/modal_task", locals: {task: @task, project: @project})
     }
@@ -76,9 +76,7 @@ class TasksController < ApplicationController
         task_id: @task.id,
         label_in_modal: render_to_string(partial: "labels/label_in_modal", locals: {labels: @task.labels}),
         label_in_show_project: render_to_string(partial: "labels/label_in_show_project", locals: {labels: @task.labels})
-      },
-      list_activities: render_to_string(partial: "activities/list_activities",
-        locals: {activities: @task.activities})
+      }
     }
   end
 
