@@ -10,6 +10,7 @@ class Activity < ApplicationRecord
   ]
 
   after_find :load_creator
+  after_create_commit {ActivityBroadcastJob.perform_later self}
 
   belongs_to :task
   belongs_to :user

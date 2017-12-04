@@ -1,6 +1,7 @@
 class Task < ApplicationRecord
   after_create :activity_create
   after_update :activity_update
+  after_update_commit {TaskBroadcastJob.perform_later self}
 
   belongs_to :project
   belongs_to :user, optional: true

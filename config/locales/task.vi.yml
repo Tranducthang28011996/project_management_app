@@ -1,0 +1,4 @@
+vi:
+  labels:
+    label_in_modal:
+      label_title: "Nhãn"
