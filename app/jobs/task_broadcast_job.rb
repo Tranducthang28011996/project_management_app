@@ -3,7 +3,8 @@ class TaskBroadcastJob < ApplicationJob
 
   def perform message
     ActionCable.server.broadcast "task_channel", status: message.status.name,
-      message: render_template(message), object_id: message.id, project_id: message.project_id
+      message: render_template(message), object_id: message.id,
+      project_id: message.project_id, user_id: message.creator_id
   end
 
   private
