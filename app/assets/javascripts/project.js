@@ -162,11 +162,40 @@ $(function(){
 
   $('body').on('click', '.label-list-item-link', function() {
     var url = $(this).attr('href');
+    var label_filters = [];
+    var user_filters = [];
+
+    if ($(this).find('[name=filter-label]').length) {
+      $(this).find('[name=filter-label]').prop('checked', !$(this).find('[name=filter-label]')[0].checked);
+    }
+
+    if ($(this).find('[name=filter-user]').length) {
+      $(this).find('[name=filter-user]').prop('checked', !$(this).find('[name=filter-user]')[0].checked);  
+    }
+
+    $('[name=filter-label]:checked').each(function() {
+      label_filters.push($(this).val());
+    });
+
+    $('[name=filter-user]:checked').each(function() {
+      user_filters.push($(this).val());
+    });
 
     $.ajax({
-      url: url
+      url: url,
+      data: {
+        label: label_filters,
+        user: user_filters
+      }
     });
 
     return false;
   });
+
+  $('.projects').css('max-height', $('#content').height() - $('.profile-content').height() - 70);
+
+  $('body').on('click', '.projects *', function(e) {
+    return false;
+  });
+
 });

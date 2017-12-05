@@ -11,6 +11,9 @@ body {
 }
 
 .projects {
+  float: left;
+  overflow: auto;
+
   .project {
     background-color: #4bbf6b;
     padding: 6px 10px;
@@ -868,6 +871,7 @@ ul {
   width: 100%;
   display: inline-block;
   text-transform: capitalize;
+  padding-right: 10px;
 }
 
 .label-list-item-link-label {
