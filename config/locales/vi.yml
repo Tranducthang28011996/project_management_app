@@ -23,6 +23,15 @@ vi:
   search:
     result:
       result: "Không có kết quả tìm kiếm."
+  sessions:
+    email: "Địa chỉ Email"
+    login_button: "Đăng nhập"
+    login_title: "Đăng nhập vào hệ thống"
+    password: "Mật khẩu"
+    remember: "Ghi nhớ mật khẩu"
+    sign_up: "Đăng ký"
+    create_account: "Đăng ký tài khoản"
+    password_confirmation: "Nhập lại mật khẩu"
   tasks:
     due_date: "Ngày hết hạn"
     remove_due_date: "Hủy ngày hết hạn"
