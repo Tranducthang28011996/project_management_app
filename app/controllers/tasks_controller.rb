@@ -80,6 +80,14 @@ class TasksController < ApplicationController
     }
   end
 
+  def update_comment
+    @task = Task.find_by id: params[:id]
+    if @task
+      @task.activities.create user_id: current_user.id, action_type: :comment_task,
+        creator_id: current_user.id, project_id: @task.project.id, content: params[:comment]
+    end
+  end
+
   private
 
   def load_project

@@ -47,14 +47,17 @@
             <% end %>
           </div>
           <div class="col-md-11 box-comment">
-            <textarea rows="3" class="form-control comment-textarea" placeholder="Viết bình luận..."></textarea>
-            <button class="btn btn-sm btn-success"><%= t "save" %></button>
+            <form>
+              <textarea rows="3" class="form-control comment-textarea" placeholder="Viết bình luận..." data-task-id="<%= task.id %>"
+                data-project-id="<%= task.project_id %>"></textarea>
+              <button type="button" class="btn btn-sm btn-success add-comment-task"><%= t "save" %></button>
+            </form>
           </div>
         </div>
       </div>
       <h4><i class="fa fa-tasks" aria-hidden="true"></i><%= t "tasks.activity" %></h4>
       <div class="detail-content">
-        <ul class="list-activity">
+        <ul class="list-activity" data-task-id="<%= task.id %>">
           <%= render @activities %>
         </ul>
       </div>

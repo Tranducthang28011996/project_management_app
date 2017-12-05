@@ -1,3 +1,4 @@
+
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root "projects#index"
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
 		resources :tasks
   end
 	patch '/update-label/:id', to: "tasks#update_label"
+  patch '/update-comment/:id', to: "tasks#update_comment"
   resources :teams
   resources :users
   resources :search

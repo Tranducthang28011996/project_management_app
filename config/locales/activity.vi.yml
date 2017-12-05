@@ -6,3 +6,4 @@ vi:
   assign_for_member: "%{user} đã gán thẻ <b>%{task_name}</b> cho %{user_receive} thực hiện "
   move_member: "%{user} đã rời thẻ <b>%{task_name}</b>"
   move_for_member: "%{user} đã rời %{user_receive} từ thẻ <b>%{task_name}</b>"
+  comment_task: "%{user} đã thêm bình luận cho thẻ <b>%{task_name}</b>: <br> <p>%{comment}</p>"
