@@ -23,47 +23,54 @@
                 <tr>
                   <th><%= @user.name%> <span><%= @user.email %></span></th>
                 </tr>
+                <% if @user.id == current_user.id %>
                   <tr>
-                    <td><button class="btn btn-secondary edit-profile">
-                    <i class="fa fa-pencil" aria-hidden="true"></i>
-                    <%= link_to "Edit profile", edit_user_path(current_user), method: :patch, remote: :true %></button></td>
+                    <td>
+                      <button class="btn btn-secondary edit-profile">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                        Chỉnh sửa thông tin
+                      </button>
+                    </td>
                   </tr>
-              </table>
-              <div class="show-edit-profile" style="display: none;">
-                <%= form_for @user do |f| %>
-                  <div class="form-group row input-profile">
-                    <div class="col-10">
-                      <%= f.label :name, "User Name:" %>
-                      <%= f.text_field :name, class: "form-control" %>
-                    </div>
-                  </div>
-
-                  <div class="form-group row input-profile">
-                    <div class="col-10">
-                      <%= f.label :name, "Email:" %>
-                      <%= f.text_field :email, class: "form-control" %>
-                    </div>
-                  </div>
-                  <b></b>
-                  <div class="form-group row input-profile">
-                    <div class="col-10">
-                      <%= f.label :name, "Password:" %>
-                      <%= f.password_field :password, class: "form-control" %>
-                    </div>
-                  </div>
-
-                  <b></b>
-                  <div class="form-group row input-profile">
-                    <div class="col-10">
-                      <%= f.label :name, "Password confirmation:" %>
-                      <%= f.password_field :password_confirmation, class: "form-control" %>
-                    </div>
-                  </div>
-
-                  <%= f.submit "Save", class: "btn btn-success" %>
-                  <button type="button" class="btn btn-default btn-secondary cancel-profile">Cancel</button>
                 <% end %>
-              </div>
+              </table>
+              <% if @user.id == current_user.id %>
+                <div class="show-edit-profile" style="display: none;">
+                  <%= form_for @user, method: :put do |f| %>
+                    <div class="form-group row input-profile">
+                      <div class="col-10">
+                        <%= f.label :name, "User Name:" %>
+                        <%= f.text_field :name, class: "form-control" %>
+                      </div>
+                    </div>
+
+                    <div class="form-group row input-profile">
+                      <div class="col-10">
+                        <%= f.label :name, "Email:" %>
+                        <%= f.text_field :email, class: "form-control" %>
+                      </div>
+                    </div>
+                    <b></b>
+                    <div class="form-group row input-profile">
+                      <div class="col-10">
+                        <%= f.label :name, "Password:" %>
+                        <%= f.password_field :password, class: "form-control" %>
+                      </div>
+                    </div>
+
+                    <b></b>
+                    <div class="form-group row input-profile">
+                      <div class="col-10">
+                        <%= f.label :name, "Password confirmation:" %>
+                        <%= f.password_field :password_confirmation, class: "form-control" %>
+                      </div>
+                    </div>
+
+                    <%= f.submit "Save", class: "btn btn-success" %>
+                    <button type="button" class="btn btn-default btn-secondary cancel-profile">Cancel</button>
+                  <% end %>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
@@ -73,7 +80,11 @@
       <div class="body-content col-md-offset-1 col-md-10" style="position: absolute;top: -42px;">
         <div >
           <ul class="nav nav-tabs text-center">
-            <li><a data-toggle="tab" href=".cards">Công việc của bạn</a></li>
+            <% if @user.id == current_user.id %>
+              <li><a data-toggle="tab" href=".cards">Công việc của bạn</a></li>
+            <% else %>
+              <li><a data-toggle="tab" href=".cards">Công việc của <%= @user.name %></a></li>
+            <% end %>
             <li class="active"><a data-toggle="tab" href="#home">Thông tin</a></li>
           </ul>
           <div class="tab-content">
