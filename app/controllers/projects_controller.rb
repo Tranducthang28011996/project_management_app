@@ -24,12 +24,14 @@ class ProjectsController < ApplicationController
     @activities = @project.load_activity
 
     if params[:label]
-      @tasks = @project.tasks.joins(:labels).where(labels: {id: params[:label]})
+      @tasks = @project.tasks.joins(:labels).where("labels.id IN (?)", params[:label])
     end
 
     if params[:user]
-      @tasks = @project.tasks.joins(:user).where(users: {id: params[:user]})
+      @tasks = @tasks.joins(:user).where("users.id IN (?)", params[:user])
     end
+
+    @tasks = @tasks.group(:id)
 
   	@task = {
   		new: @tasks.any? ? @tasks.where(status_id: 1).order("updated_at DESC") : [],

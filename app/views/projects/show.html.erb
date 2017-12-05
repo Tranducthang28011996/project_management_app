@@ -100,24 +100,19 @@
           <hr>
           <input type="" class="input-filter-task" name="">
           <ul class="label-list">
-            <li class="label-list-item">
-              <a class="label-list-item-link js-toggle-label-filter"
-                href="<%= project_path @project %>">
-                <div class="label-list-item-link-label color-default" >
-                  <span class="card-label mod-square card-label-"></span>
-                </div>
-                <span class="label-list-item-link-name">Tất cả</span>
-              </a>
-            </li>
             <% if @labels.any? %>
               <% @labels.each do |label| %>
                 <li class="label-list-item">
                   <a class="label-list-item-link js-toggle-label-filter"
-                    href="<%= project_path @project %>?label=<%= label.id %>">
+                    href="<%= project_path @project %>">
                     <div class="label-list-item-link-label color-<%= label.name %>">
                       <span class="card-label mod-square card-label-"></span>
                     </div>
-                    <span class="label-list-item-link-name"><%= label.name %></span>
+                    <span class="label-list-item-link-name">
+                      <%= label.name %><input type="checkbox" name="filter-label"
+                        class="pull-right" value="<%= label.id %>" style="margin-top: 9px;">
+                    </span>
+
                   </a>
                 </li>
               <% end %>
@@ -129,12 +124,16 @@
               <% @users.each do |user| %>
                 <li class="label-list-item">
                   <a class="label-list-item-link js-toggle-label-filter"
-                    href="<%= project_path @project %>?user=<%= user.user_id %>">
+                    href="<%= project_path @project %>">
                     <div class="label-list-item-link-label" style="border-radius: 50px;">
                       <%= image_tag "https://thesocietypages.org/socimages/files/2009/05/vimeo.jpg",
                         class: "avatar-filter", title: user.name %>
                     </div>
-                    <span class="label-list-item-link-name"><%= user.name %> (<%= user.email %>)</span>
+                    <span class="label-list-item-link-name">
+                      <%= user.name %> (<%= user.email %>)
+                      <input type="checkbox" name="filter-user"
+                          class="pull-right" value="<%= user.user_id %>" style="margin-top: 9px;">
+                    </span>
                   </a>
                 </li>
               <% end %>
