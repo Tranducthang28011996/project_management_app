@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :tasks
   has_many :activities
+  has_many :statistics
 
   def permission_user project
     return :owner if project.owner.id == id

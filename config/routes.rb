@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :users
   resources :search
   mount ActionCable.server => '/cable'
+  resources :statistics, only: %i(index create)
 end

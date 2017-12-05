@@ -1,0 +1,25 @@
+<% if project.statistic.present? %>
+<div class="view-chart">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <table class="highchart chart-table" style="display: none;" data-graph-container-before="1" data-graph-type=<%= project.statistic.chart_type %>>
+        <thead>
+          <tr>
+            <th>Status</th>
+            <th>Soluong</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% status_task.keys.each do |key| %>
+            <tr>
+              <td><%= key %></td>
+              <td><%= status_task[key.to_sym].size %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<% end %>

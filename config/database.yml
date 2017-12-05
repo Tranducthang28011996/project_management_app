@@ -14,17 +14,17 @@ development:
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: <%= ENV["USERNAME_DATABASE"] %>
-  password: <%= ENV["PASSWORD_DATABASE"] %>
-  database: project_managerment_app_development
+  username: thang@gmail
+  password: 12341234
+  database: demo_db
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 
-production:
-  adapter: postgresql
-  encoding: utf8
-  database: project_managerment_app_product
-  pool: 5
-  timeout: 5000
+# production:
+#   adapter: postgresql
+#   encoding: utf8
+#   database: demo_db
+#   pool: 5
+#   timeout: 5000

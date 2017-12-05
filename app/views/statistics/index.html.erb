@@ -1,0 +1,32 @@
+<% if @projects.present? %>
+  <%= render partial: "statistics/chart", locals: {status_task: @status_task, project: @projects.first} %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="panel panel-primary">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-3">
+                <i class="fa fa-line-chart fa-5x icon-chart"></i>
+              </div>
+              <div class="col-xs-9 text-left">
+                <div class="row">
+                  <div><%= t ".total_project" %><%= @projects.size %></div>
+                  <%= form_for :statistic, html: {method: :post} do |f| %>
+                    <div class="form-group">
+                      <label for="sel1">Select list:</label>
+                      <%= f.collection_select :project_id, @projects, :id, :name, class: "form-control" %>
+                    </div>
+                    <div><%= "Type chart:" %>
+                      <%= f.select :chart_type, options_for_select(["Pie", "Line", "column"]) %>
+                    </div>
+                    <button class="btn btn-danger statistic-form">View</button>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+

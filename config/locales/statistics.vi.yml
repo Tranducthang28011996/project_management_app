@@ -1,0 +1,5 @@
+vi:
+  statistics:
+    index:
+      total_project: "Số lượng dự án:"
+      total_group: "Số lượng nhóm:"
