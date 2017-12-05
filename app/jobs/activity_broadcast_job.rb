@@ -3,7 +3,7 @@ class ActivityBroadcastJob < ApplicationJob
 
   def perform message
     ActionCable.server.broadcast 'activity_channel', message: render_template(message),
-      project_id: message.project_id
+      project_id: message.project_id, task_id: message.task_id
   end
 
   private

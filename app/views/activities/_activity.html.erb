@@ -38,6 +38,11 @@
           task_name: activity.task.name,
           user_receive: link_to(activity.user.name, activity.user)) %>
       <% end %>
+    <% elsif activity.comment_task? %>
+      <%= raw t("comment_task",
+        user: link_to(activity.user.name, activity.user),
+        task_name: activity.task.name,
+        comment: activity.content) %>
     <% end %>
     <br>
     <span class="time-stamp">3 hours ago</span>

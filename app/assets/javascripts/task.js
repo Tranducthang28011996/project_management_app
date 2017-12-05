@@ -163,5 +163,24 @@ $(function(){
       })
     }
   });
+
+  $('body').on('click', '.add-comment-task', function(event){
+    event.preventDefault();
+    var task_id = $(this).closest('form').find('.comment-textarea').data('task-id');
+    var project_id = $(this).closest('form').find('.comment-textarea').data('project-id');
+    var comment = $(this).closest('form').find('.comment-textarea').val();
+    var url = '/update-comment/' + task_id;
+    if (comment != '') {
+      $.ajax({
+        url: url,
+        type: 'PATCH',
+        dataType: 'json',
+        data: {comment: comment},
+      })
+      .done(function() {
+        console.log("success");
+      });
+    }
+  });
 });
 
