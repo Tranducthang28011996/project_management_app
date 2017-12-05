@@ -25,7 +25,7 @@ RailsAdmin.config do |config|
   ## == Gravatar integration ==
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar = true
-
+  config.included_models = %i(Activity User Project Task Status Label)
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
@@ -34,7 +34,9 @@ RailsAdmin.config do |config|
     bulk_delete
     show
     edit
-    delete
+    delete do
+      except ["Label", "Level", "Status"]
+    end
     show_in_app
 
     ## With an audit adapter, you can add:

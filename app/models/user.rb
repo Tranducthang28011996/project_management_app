@@ -24,7 +24,7 @@ class User < ApplicationRecord
 
   def auto_assign_name
     self.name = self.email.split("@").first
-    self.role = :member
+    self.role = :member unless self.role
     self.save if self.name
   end
 end

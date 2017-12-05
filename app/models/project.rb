@@ -9,6 +9,11 @@ class Project < ApplicationRecord
 
   scope :search, search
 
+  scope :load_member_project, (lambda do |user_id|
+    joins(team: :users).where "users.id = :user_id AND projects.owner_id <> :user_id",
+      user_id: user_id
+  end)
+
   def load_activity
     Activity.where(project_id: id).order('created_at DESC')
   end
