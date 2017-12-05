@@ -170,7 +170,7 @@ $(function(){
     }
 
     if ($(this).find('[name=filter-user]').length) {
-      $(this).find('[name=filter-user]').prop('checked', !$(this).find('[name=filter-user]')[0].checked);  
+      $(this).find('[name=filter-user]').prop('checked', !$(this).find('[name=filter-user]')[0].checked);
     }
 
     $('[name=filter-label]:checked').each(function() {
@@ -187,6 +187,29 @@ $(function(){
         label: label_filters,
         user: user_filters
       }
+    }).done(function() {
+      $('.connected').sortable({
+        connectWith: '.connected',
+        placeholder: 'ui-sortable-placeholder',
+        receive: function( event, ui ) {
+          event.preventDefault();
+          var id_task = ui.item.data('id-task');
+          var status_task = $(this).data('status-request');
+          var url = window.location.pathname + '/tasks/' + id_task;
+          console.log(id_task + " " + status_task);
+
+          $.ajax({
+            url: url,
+            method: 'PATCH',
+            dataType: 'JSON',
+            data: {task: {status: status_task}},
+          })
+          .done(function(data) {
+            console.log(data);
+          })
+
+        }
+      });
     });
 
     return false;

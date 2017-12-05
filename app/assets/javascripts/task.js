@@ -169,6 +169,7 @@ $(function(){
     var task_id = $(this).closest('form').find('.comment-textarea').data('task-id');
     var project_id = $(this).closest('form').find('.comment-textarea').data('project-id');
     var comment = $(this).closest('form').find('.comment-textarea').val();
+    var textarea = $(this).closest('form').find('.comment-textarea');
     var url = '/update-comment/' + task_id;
     if (comment != '') {
       $.ajax({
@@ -178,7 +179,7 @@ $(function(){
         data: {comment: comment},
       })
       .done(function() {
-        console.log("success");
+        textarea.val('');
       });
     }
   });
