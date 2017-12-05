@@ -3,11 +3,15 @@ class ApplicationController < ActionController::Base
   skip_before_action :verify_authenticity_token
   # before_action :load_language
   include ApplicationHelper
-  
-  # def after_sign_in_path_for(resource)
-  # 	session[:language] = :vi if session[:language].nil?
-  #   root_url
-  # end
+
+  def after_sign_in_path_for(resource)
+  	# session[:language] = :vi if session[:language].nil?
+    if current_user.admin?
+      rails_admin_url
+    else
+      root_url
+    end
+  end
 
   # private
 

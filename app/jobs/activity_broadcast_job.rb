@@ -2,7 +2,8 @@ class ActivityBroadcastJob < ApplicationJob
   queue_as :default
 
   def perform message
-    ActionCable.server.broadcast 'activity_channel', message: render_template(message)
+    ActionCable.server.broadcast 'activity_channel', message: render_template(message),
+      project_id: message.project_id
   end
 
   private

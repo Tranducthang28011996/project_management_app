@@ -5,6 +5,7 @@ class ProjectsController < ApplicationController
 
   def index
     @own_projects = current_user.projects
+    @member_projects = Project.load_member_project current_user.id
   end
 
   def create

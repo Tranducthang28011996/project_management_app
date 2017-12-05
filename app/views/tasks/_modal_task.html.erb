@@ -56,7 +56,6 @@
       <div class="detail-content">
         <ul class="list-activity">
           <%= render @activities %>
-          <%#= render partial: "activities/list_activities", locals: {activities: task.activities} %>
         </ul>
       </div>
     </div>
@@ -69,7 +68,7 @@
           <i class="fa fa-user" aria-hidden="true"></i> <%= t "tasks.member" %>
         </button>
         <div class="dropdown-menu">
-          <h3><%= t "project.member" %></h3>
+          <h3><%= t "tasks.member" %></h3>
           <hr>
           <input type="text" class="search-user-modal form-control" placeholder="Tìm kiếm các thành viên">
           <ul class="list-member-modal">
@@ -96,9 +95,9 @@
           <i class="fa fa-tags" aria-hidden="true"></i><%= t "tasks.label" %>
         </button>
         <div class="dropdown-menu">
-          <h3><%= "tasks.label" %></h3>
+          <h3><%= t "tasks.label" %></h3>
           <hr>
-          <input type="text" class="search-user-modal form-control" placeholder="Tìm kiếm thành viên">
+          <input type="text" class="search-user-modal form-control" placeholder="Tìm kiếm nhãn">
           <ul class="list-member-modal">
             <% Label.all.each do |label|%>
               <li class="item-label-modal btn-<%= label.name %>" data-label-id="<%= label.id %>">

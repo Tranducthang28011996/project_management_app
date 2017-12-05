@@ -3,17 +3,20 @@
     <div class="container">
       <div class="row">
         <h3 class="title-group-project">
-          <i class="fa fa-user-o" aria-hidden="true"></i> <%= t ".owner_project" %></h3>
+          <i class="fa fa-user-o" aria-hidden="true"></i>
+          <%= t ".owner_project" %>
+        </h3>
         <div class="list-project">
-          <%= render "item_project" %>
+          <%= render @own_projects %>
         </div>
       </div>
       <div class="row">
-        <h3 class="title-group-project"><i class="fa fa-user-o" aria-hidden="true"></i> <%= t "project.member_project" %></h3>
+        <h3 class="title-group-project">
+          <i class="fa fa-user-o" aria-hidden="true"></i>
+          <%= t ".member_project" %>
+        </h3>
         <div class="list-project">
-          <div class="item-project">
-            <a href="#">demo</a>
-          </div>
+          <%= render @member_projects %>
         </div>
       </div>
     </div>
