@@ -11,7 +11,7 @@
     <h2>Create an account</h2>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
-      
+
       <div class="field">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true %>
@@ -35,7 +35,7 @@
       </div>
     <% end %>
   </div>
-  
+
   <div class="form">
     <h2>Login to your account</h2>
     <% flash.each do |key, value| %>
@@ -67,4 +67,3 @@
 
   <div class="cta"><%= render "devise/shared/links" %></div>
 </div>
-
